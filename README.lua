@@ -21,6 +21,7 @@ local DASH_HEIGHT = 2
 
 local FOLLOW_DISTANCE = 5
 local FOLLOW_ENABLED = false
+local FOLLOW_AIMBOT = false  -- NOVO: Aimbot para a aba Seguir
 
 local TARGET_NAME = ""
 local ORBIT_ENABLED = false
@@ -67,7 +68,16 @@ RunService.Heartbeat:Connect(function(dt)
         
         if FOLLOW_ENABLED then
             local behindOffset = targetHrp.CFrame * CFrame.new(0, 0, FOLLOW_DISTANCE)
-            hrp.CFrame = behindOffset
+            
+            -- Se o AIMBOT da aba Seguir estiver ativado, mira no corpo do alvo
+            if FOLLOW_AIMBOT then
+                if humanoid.AutoRotate then originalAutoRotate = humanoid.AutoRotate; humanoid.AutoRotate = false end
+                hrp.CFrame = CFrame.new(behindOffset.Position, targetPos)
+            else
+                if not humanoid.AutoRotate and not originalAutoRotate then humanoid.AutoRotate = originalAutoRotate end
+                hrp.CFrame = behindOffset
+            end
+            
         elseif DASH_PASS_ENABLED then
             dashTime = dashTime + (DASH_SPEED * dt)
             local offsetMultiplier = math.sin(dashTime) * DASH_DISTANCE
@@ -204,10 +214,10 @@ local function createTabBtn(name, text, pos)
     return btn
 end
 
--- Criar as Abas (Aumentei o canvas do Orbit para caber a Altura e o Alvo)
+-- Criar as Abas
 local orbitFrame = createTabFrame("Orbit", 350)
 local dashFrame = createTabFrame("Dash", 250)
-local followFrame = createTabFrame("Follow", 200)
+local followFrame = createTabFrame("Follow", 250)  -- Aumentei o canvas para caber o novo botão
 local settingsFrame = createTabFrame("Settings", 150)
 
 createTabBtn("Orbit", "ORBIT", UDim2.new(0, 0, 0, 0))
@@ -295,8 +305,6 @@ end)
 
 createSlider("Orbit: Velocidade", UDim2.new(0.05, 0, 0, 100), 1, 20, ORBIT_SPEED, orbitFrame, function(v) ORBIT_SPEED = v end)
 createSlider("Orbit: Distância", UDim2.new(0.05, 0, 0, 140), 2, 50, ORBIT_DISTANCE, orbitFrame, function(v) ORBIT_DISTANCE = v end)
-
--- Altura movida para a aba Orbit
 createSlider("Altura (Orbit/Dash)", UDim2.new(0.05, 0, 0, 180), -10, 20, ORBIT_HEIGHT, orbitFrame, function(v) ORBIT_HEIGHT = v; DASH_HEIGHT = v end)
 
 local OrbitNameInput = Instance.new("TextBox")
@@ -328,9 +336,11 @@ createSlider("Passar: Velocidade", UDim2.new(0.05, 0, 0, 60), 5, 60, DASH_SPEED,
 createSlider("Passar: Distância", UDim2.new(0.05, 0, 0, 100), 2, 50, DASH_DISTANCE, dashFrame, function(v) DASH_DISTANCE = v end)
 
 -- ──────────────────────────────────────────────────────────
--- ABA 3: SEGUIR
+-- ABA 3: SEGUIR (COM AIMBOT CORPO)
 -- ──────────────────────────────────────────────────────────
 local followToggleBtn
+local followAimbotBtn
+
 followToggleBtn = createBtn("SEGUIR JOGADOR: OFF", UDim2.new(0.05, 0, 0, 10), Color3.fromRGB(100, 50, 150), followFrame, function()
     FOLLOW_ENABLED = not FOLLOW_ENABLED
     ORBIT_ENABLED = false
@@ -339,7 +349,14 @@ followToggleBtn = createBtn("SEGUIR JOGADOR: OFF", UDim2.new(0.05, 0, 0, 10), Co
     followToggleBtn.BackgroundColor3 = FOLLOW_ENABLED and Color3.fromRGB(50, 180, 100) or Color3.fromRGB(100, 50, 150)
 end)
 
-createSlider("Seguir: Distância", UDim2.new(0.05, 0, 0, 60), 1, 30, FOLLOW_DISTANCE, followFrame, function(v) FOLLOW_DISTANCE = v end)
+-- NOVO BOTÃO: AIMBOT para a aba Seguir (cópia do aimbot corpo da aba Orbit)
+followAimbotBtn = createBtn("AIMBOT (SEGUIR): OFF", UDim2.new(0.05, 0, 0, 50), Color3.fromRGB(150, 100, 50), followFrame, function()
+    FOLLOW_AIMBOT = not FOLLOW_AIMBOT
+    followAimbotBtn.Text = FOLLOW_AIMBOT and "AIMBOT (SEGUIR): ON" or "AIMBOT (SEGUIR): OFF"
+    followAimbotBtn.BackgroundColor3 = FOLLOW_AIMBOT and Color3.fromRGB(50, 150, 200) or Color3.fromRGB(150, 100, 50)
+end)
+
+createSlider("Seguir: Distância", UDim2.new(0.05, 0, 0, 100), 1, 30, FOLLOW_DISTANCE, followFrame, function(v) FOLLOW_DISTANCE = v end)
 
 -- ──────────────────────────────────────────────────────────
 -- ABA 4: OPÇÕES GERAIS
