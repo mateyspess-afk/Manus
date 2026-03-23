@@ -1,7 +1,6 @@
 --[[ 
    Manus Combat V3 + Seguir (VERSÃO DEFINITIVA)
-   Abas: ORBIT | PASSAR | SEGUIR | OPÇÕES
-   Altura movida para a aba ORBIT com Scroll funcional
+   Abas: ORBIT | PASSAR | SEGUIR | OPÇÕES (COM ROLAGEM LATERAL)
    Compatível com Delta Executor
 ]]
 
@@ -9,6 +8,7 @@ local Players = game:GetService("Players")
 local LocalPlayer = Players.LocalPlayer
 local UserInputService = game:GetService("UserInputService")
 local RunService = game:GetService("RunService")
+local TweenService = game:GetService("TweenService")
 
 -- Configurações Globais
 local ORBIT_DISTANCE = 10
@@ -33,7 +33,9 @@ local angle = 0
 local dashTime = 0
 local originalAutoRotate = true
 
+-- ==============================================
 -- Função para encontrar o alvo
+-- ==============================================
 local function getTarget()
     if TARGET_NAME ~= "" then
         local target = Players:FindFirstChild(TARGET_NAME)
@@ -78,7 +80,7 @@ RunService.Heartbeat:Connect(function(dt)
                 hrp.CFrame = CFrame.new(behindOffset.Position, targetPos)
             else
                 if not humanoid.AutoRotate and originalAutoRotate then 
-                    humanoid.AutoRotate = originalAutoRotate 
+                    humanoid.AutoRotate = true
                 end
                 hrp.CFrame = behindOffset
             end
@@ -97,7 +99,7 @@ RunService.Heartbeat:Connect(function(dt)
                 hrp.CFrame = CFrame.new(dashPos, targetPos)
             else
                 if not humanoid.AutoRotate and originalAutoRotate then 
-                    humanoid.AutoRotate = originalAutoRotate 
+                    humanoid.AutoRotate = true
                 end
                 hrp.CFrame = CFrame.new(dashPos) * hrp.CFrame.Rotation
             end
@@ -115,19 +117,21 @@ RunService.Heartbeat:Connect(function(dt)
                 hrp.CFrame = CFrame.new(orbitPos, targetPos)
             else
                 if not humanoid.AutoRotate and originalAutoRotate then 
-                    humanoid.AutoRotate = originalAutoRotate 
+                    humanoid.AutoRotate = true
                 end
                 hrp.CFrame = CFrame.new(orbitPos) * hrp.CFrame.Rotation
             end
         end
     else
-        if not humanoid.AutoRotate and originalAutoRotate then
-            humanoid.AutoRotate = originalAutoRotate
+        if not humanoid.AutoRotate and originalAutoRotate then 
+            humanoid.AutoRotate = true
         end
     end
 end)
 
--- Interface Gráfica (GUI)
+-- ==============================================
+-- Criação da GUI Principal COM ROLAGEM LATERAL
+-- ==============================================
 local ScreenGui = Instance.new("ScreenGui")
 ScreenGui.Name = "ManusDefinitiveGUI"
 ScreenGui.ResetOnSpawn = false
@@ -135,8 +139,8 @@ ScreenGui.Parent = LocalPlayer:WaitForChild("PlayerGui")
 
 local MainFrame = Instance.new("Frame")
 MainFrame.Name = "MainFrame"
-MainFrame.Size = UDim2.new(0, 250, 0, 320)
-MainFrame.Position = UDim2.new(0.5, -125, 0.5, -160)
+MainFrame.Size = UDim2.new(0, 250, 0, 380)
+MainFrame.Position = UDim2.new(0.5, -125, 0.5, -190)
 MainFrame.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
 MainFrame.BorderSizePixel = 0
 MainFrame.Active = true
@@ -164,7 +168,7 @@ ClickSound.SoundId = "rbxassetid://12221967"
 ClickSound.Volume = 0.5
 ClickSound.Parent = game:GetService("SoundService")
 
--- Botão Minimizar (COM ÁUDIO DE CLIQUE)
+-- Botão Minimizar
 local MinimizeBtn = Instance.new("TextButton")
 MinimizeBtn.Size = UDim2.new(0, 30, 0, 30)
 MinimizeBtn.Position = UDim2.new(1, -38, 0, 5)
@@ -176,13 +180,22 @@ MinimizeBtn.TextSize = 18
 MinimizeBtn.Parent = MainFrame
 Instance.new("UICorner").Parent = MinimizeBtn
 
--- Container das Abas
-local TabContainer = Instance.new("Frame")
-TabContainer.Size = UDim2.new(1, 0, 0, 35)
-TabContainer.Position = UDim2.new(0, 0, 0, 40)
-TabContainer.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
-TabContainer.BorderSizePixel = 0
-TabContainer.Parent = MainFrame
+-- Container das Abas (COM ROLAGEM LATERAL)
+local TabScroll = Instance.new("ScrollingFrame")
+TabScroll.Size = UDim2.new(1, 0, 0, 35)
+TabScroll.Position = UDim2.new(0, 0, 0, 40)
+TabScroll.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+TabScroll.BorderSizePixel = 0
+TabScroll.ScrollBarThickness = 3
+TabScroll.ScrollBarImageColor3 = Color3.fromRGB(80, 80, 80)
+TabScroll.CanvasSize = UDim2.new(0, 360, 0, 0)
+TabScroll.ScrollingDirection = Enum.ScrollingDirection.X
+TabScroll.Parent = MainFrame
+
+local TabListLayout = Instance.new("UIListLayout")
+TabListLayout.FillDirection = Enum.FillDirection.Horizontal
+TabListLayout.SortOrder = Enum.SortOrder.LayoutOrder
+TabListLayout.Parent = TabScroll
 
 -- Container do Conteúdo
 local ContentContainer = Instance.new("Frame")
@@ -208,17 +221,16 @@ local function createTabFrame(name, canvasSize)
     return frame
 end
 
-local function createTabBtn(name, text, pos)
+local function createTabBtn(name, text)
     local btn = Instance.new("TextButton")
-    btn.Size = UDim2.new(0.25, 0, 1, 0)
-    btn.Position = pos
+    btn.Size = UDim2.new(0, 90, 1, 0)
     btn.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
     btn.BorderSizePixel = 0
     btn.Text = text
     btn.TextColor3 = Color3.fromRGB(150, 150, 150)
     btn.Font = Enum.Font.GothamBold
-    btn.TextSize = 8
-    btn.Parent = TabContainer
+    btn.TextSize = 10
+    btn.Parent = TabScroll
 
     btn.MouseButton1Click:Connect(function()
         ClickSound:Play()
@@ -238,15 +250,15 @@ local function createTabBtn(name, text, pos)
 end
 
 -- Criar as Abas
-local orbitFrame = createTabFrame("Orbit", 350)
-local dashFrame = createTabFrame("Dash", 300)
-local followFrame = createTabFrame("Follow", 250)
+local orbitFrame = createTabFrame("Orbit", 380)
+local dashFrame = createTabFrame("Dash", 330)
+local followFrame = createTabFrame("Follow", 280)
 local settingsFrame = createTabFrame("Settings", 150)
 
-createTabBtn("Orbit", "ORBIT", UDim2.new(0, 0, 0, 0))
-createTabBtn("Dash", "PASSAR", UDim2.new(0.25, 0, 0, 0))
-createTabBtn("Follow", "SEGUIR", UDim2.new(0.5, 0, 0, 0))
-createTabBtn("Settings", "OPÇÕES", UDim2.new(0.75, 0, 0, 0))
+createTabBtn("Orbit", "ORBIT")
+createTabBtn("Dash", "PASSAR")
+createTabBtn("Follow", "SEGUIR")
+createTabBtn("Settings", "OPÇÕES")
 
 -- Funções Auxiliares de UI
 local function createBtn(text, pos, color, parent, callback)
@@ -260,7 +272,10 @@ local function createBtn(text, pos, color, parent, callback)
     btn.TextSize = 10
     btn.Parent = parent
     Instance.new("UICorner").Parent = btn
-    btn.MouseButton1Click:Connect(callback)
+    btn.MouseButton1Click:Connect(function()
+        ClickSound:Play()
+        callback()
+    end)
     return btn
 end
 
@@ -308,9 +323,7 @@ local function createSlider(text, pos, min, max, default, parent, callback)
     end)
 end
 
--- ──────────────────────────────────────────────────────────
 -- ABA 1: ORBIT
--- ──────────────────────────────────────────────────────────
 local orbitToggleBtn, aimToggleBtn
 orbitToggleBtn = createBtn("ORBIT: OFF", UDim2.new(0.05, 0, 0, 10), Color3.fromRGB(180, 50, 50), orbitFrame, function()
     ORBIT_ENABLED = not ORBIT_ENABLED
@@ -318,14 +331,12 @@ orbitToggleBtn = createBtn("ORBIT: OFF", UDim2.new(0.05, 0, 0, 10), Color3.fromR
     FOLLOW_ENABLED = false
     orbitToggleBtn.Text = ORBIT_ENABLED and "ORBIT: ON" or "ORBIT: OFF"
     orbitToggleBtn.BackgroundColor3 = ORBIT_ENABLED and Color3.fromRGB(50, 180, 50) or Color3.fromRGB(180, 50, 50)
-    ClickSound:Play()
 end)
 
 aimToggleBtn = createBtn("AIMBOT CORPO: OFF", UDim2.new(0.05, 0, 0, 50), Color3.fromRGB(150, 100, 50), orbitFrame, function()
     AIMBOT_CORPO = not AIMBOT_CORPO
     aimToggleBtn.Text = AIMBOT_CORPO and "AIMBOT CORPO: ON" or "AIMBOT CORPO: OFF"
     aimToggleBtn.BackgroundColor3 = AIMBOT_CORPO and Color3.fromRGB(50, 150, 200) or Color3.fromRGB(150, 100, 50)
-    ClickSound:Play()
 end)
 
 createSlider("Orbit: Velocidade", UDim2.new(0.05, 0, 0, 100), 1, 20, ORBIT_SPEED, orbitFrame, function(v) ORBIT_SPEED = v end)
@@ -343,88 +354,105 @@ OrbitNameInput.Font = Enum.Font.Gotham
 OrbitNameInput.TextSize = 10
 OrbitNameInput.Parent = orbitFrame
 Instance.new("UICorner").Parent = OrbitNameInput
-OrbitNameInput.FocusLost:Connect(function() TARGET_NAME = OrbitNameInput.Text end)
 
--- ──────────────────────────────────────────────────────────
--- ABA 2: PASSAR RÁPIDO (COM AIMBOT)
--- ──────────────────────────────────────────────────────────
-local dashToggleBtn
-local dashAimbotBtn
+OrbitNameInput:GetPropertyChangedSignal("Text"):Connect(function()
+    TARGET_NAME = OrbitNameInput.Text
+end)
 
-dashToggleBtn = createBtn("PASSAR RÁPIDO: OFF", UDim2.new(0.05, 0, 0, 10), Color3.fromRGB(50, 50, 180), dashFrame, function()
+-- ABA 2: DASH (PASSAR)
+local dashToggleBtn, dashAimbotBtn
+dashToggleBtn = createBtn("DASH/PASSAR: OFF", UDim2.new(0.05, 0, 0, 10), Color3.fromRGB(180, 50, 50), dashFrame, function()
     DASH_PASS_ENABLED = not DASH_PASS_ENABLED
     ORBIT_ENABLED = false
     FOLLOW_ENABLED = false
-    dashToggleBtn.Text = DASH_PASS_ENABLED and "PASSAR RÁPIDO: ON" or "PASSAR RÁPIDO: OFF"
-    dashToggleBtn.BackgroundColor3 = DASH_PASS_ENABLED and Color3.fromRGB(50, 180, 180) or Color3.fromRGB(50, 50, 180)
-    ClickSound:Play()
+    dashToggleBtn.Text = DASH_PASS_ENABLED and "DASH/PASSAR: ON" or "DASH/PASSAR: OFF"
+    dashToggleBtn.BackgroundColor3 = DASH_PASS_ENABLED and Color3.fromRGB(50, 180, 50) or Color3.fromRGB(180, 50, 50)
 end)
 
-dashAimbotBtn = createBtn("AIMBOT (PASSAR): OFF", UDim2.new(0.05, 0, 0, 50), Color3.fromRGB(150, 100, 50), dashFrame, function()
+dashAimbotBtn = createBtn("AIMBOT DASH: OFF", UDim2.new(0.05, 0, 0, 50), Color3.fromRGB(150, 100, 50), dashFrame, function()
     DASH_AIMBOT = not DASH_AIMBOT
-    dashAimbotBtn.Text = DASH_AIMBOT and "AIMBOT (PASSAR): ON" or "AIMBOT (PASSAR): OFF"
+    dashAimbotBtn.Text = DASH_AIMBOT and "AIMBOT DASH: ON" or "AIMBOT DASH: OFF"
     dashAimbotBtn.BackgroundColor3 = DASH_AIMBOT and Color3.fromRGB(50, 150, 200) or Color3.fromRGB(150, 100, 50)
-    ClickSound:Play()
 end)
 
-createSlider("Passar: Velocidade", UDim2.new(0.05, 0, 0, 100), 5, 60, DASH_SPEED, dashFrame, function(v) DASH_SPEED = v end)
-createSlider("Passar: Distância", UDim2.new(0.05, 0, 0, 140), 2, 50, DASH_DISTANCE, dashFrame, function(v) DASH_DISTANCE = v end)
+createSlider("Dash: Velocidade", UDim2.new(0.05, 0, 0, 100), 5, 30, DASH_SPEED, dashFrame, function(v) DASH_SPEED = v end)
+createSlider("Dash: Distância", UDim2.new(0.05, 0, 0, 140), 5, 25, DASH_DISTANCE, dashFrame, function(v) DASH_DISTANCE = v end)
 
--- ──────────────────────────────────────────────────────────
--- ABA 3: SEGUIR (COM AIMBOT)
--- ──────────────────────────────────────────────────────────
-local followToggleBtn
-local followAimbotBtn
-
-followToggleBtn = createBtn("SEGUIR JOGADOR: OFF", UDim2.new(0.05, 0, 0, 10), Color3.fromRGB(100, 50, 150), followFrame, function()
+-- ABA 3: SEGUIR
+local followToggleBtn, followAimbotBtn
+followToggleBtn = createBtn("SEGUIR: OFF", UDim2.new(0.05, 0, 0, 10), Color3.fromRGB(180, 50, 50), followFrame, function()
     FOLLOW_ENABLED = not FOLLOW_ENABLED
     ORBIT_ENABLED = false
     DASH_PASS_ENABLED = false
-    followToggleBtn.Text = FOLLOW_ENABLED and "SEGUIR JOGADOR: ON" or "SEGUIR JOGADOR: OFF"
-    followToggleBtn.BackgroundColor3 = FOLLOW_ENABLED and Color3.fromRGB(50, 180, 100) or Color3.fromRGB(100, 50, 150)
-    ClickSound:Play()
+    followToggleBtn.Text = FOLLOW_ENABLED and "SEGUIR: ON" or "SEGUIR: OFF"
+    followToggleBtn.BackgroundColor3 = FOLLOW_ENABLED and Color3.fromRGB(50, 180, 50) or Color3.fromRGB(180, 50, 50)
 end)
 
-followAimbotBtn = createBtn("AIMBOT (SEGUIR): OFF", UDim2.new(0.05, 0, 0, 50), Color3.fromRGB(150, 100, 50), followFrame, function()
+followAimbotBtn = createBtn("AIMBOT SEGUIR: OFF", UDim2.new(0.05, 0, 0, 50), Color3.fromRGB(150, 100, 50), followFrame, function()
     FOLLOW_AIMBOT = not FOLLOW_AIMBOT
-    followAimbotBtn.Text = FOLLOW_AIMBOT and "AIMBOT (SEGUIR): ON" or "AIMBOT (SEGUIR): OFF"
+    followAimbotBtn.Text = FOLLOW_AIMBOT and "AIMBOT SEGUIR: ON" or "AIMBOT SEGUIR: OFF"
     followAimbotBtn.BackgroundColor3 = FOLLOW_AIMBOT and Color3.fromRGB(50, 150, 200) or Color3.fromRGB(150, 100, 50)
-    ClickSound:Play()
 end)
 
-createSlider("Seguir: Distância", UDim2.new(0.05, 0, 0, 100), 1, 30, FOLLOW_DISTANCE, followFrame, function(v) FOLLOW_DISTANCE = v end)
+createSlider("Distância de Seguir", UDim2.new(0.05, 0, 0, 100), 2, 15, FOLLOW_DISTANCE, followFrame, function(v) FOLLOW_DISTANCE = v end)
 
--- ──────────────────────────────────────────────────────────
--- ABA 4: OPÇÕES GERAIS
--- ──────────────────────────────────────────────────────────
-local CloseBtn = createBtn("FECHAR MENU", UDim2.new(0.05, 0, 0, 20), Color3.fromRGB(150, 50, 50), settingsFrame, function()
-    ClickSound:Play()
+-- ABA 4: OPÇÕES
+local resetBtn = createBtn("RESETAR CONFIGURAÇÕES", UDim2.new(0.05, 0, 0, 10), Color3.fromRGB(100, 100, 100), settingsFrame, function()
+    ORBIT_ENABLED = false
+    DASH_PASS_ENABLED = false
+    FOLLOW_ENABLED = false
+    AIMBOT_CORPO = false
+    DASH_AIMBOT = false
+    FOLLOW_AIMBOT = false
+    ORBIT_SPEED = 3
+    ORBIT_DISTANCE = 10
+    ORBIT_HEIGHT = 2
+    DASH_SPEED = 15
+    DASH_DISTANCE = 12
+    DASH_HEIGHT = 2
+    FOLLOW_DISTANCE = 5
+    TARGET_NAME = ""
+    
+    orbitToggleBtn.Text = "ORBIT: OFF"
+    orbitToggleBtn.BackgroundColor3 = Color3.fromRGB(180, 50, 50)
+    aimToggleBtn.Text = "AIMBOT CORPO: OFF"
+    aimToggleBtn.BackgroundColor3 = Color3.fromRGB(150, 100, 50)
+    dashToggleBtn.Text = "DASH/PASSAR: OFF"
+    dashToggleBtn.BackgroundColor3 = Color3.fromRGB(180, 50, 50)
+    dashAimbotBtn.Text = "AIMBOT DASH: OFF"
+    dashAimbotBtn.BackgroundColor3 = Color3.fromRGB(150, 100, 50)
+    followToggleBtn.Text = "SEGUIR: OFF"
+    followToggleBtn.BackgroundColor3 = Color3.fromRGB(180, 50, 50)
+    followAimbotBtn.Text = "AIMBOT SEGUIR: OFF"
+    followAimbotBtn.BackgroundColor3 = Color3.fromRGB(150, 100, 50)
+    OrbitNameInput.Text = ""
+end)
+
+local closeBtn = createBtn("FECHAR GUI", UDim2.new(0.05, 0, 0, 55), Color3.fromRGB(180, 50, 50), settingsFrame, function()
     ScreenGui:Destroy()
 end)
 
--- Lógica de Minimizar (COM ÁUDIO DE CLIQUE)
+-- Minimizar Funcionalidade
 local isMinimized = false
-local originalSize = MainFrame.Size
-
 MinimizeBtn.MouseButton1Click:Connect(function()
-    ClickSound:Play()  -- Áudio de clique adicionado aqui!
+    ClickSound:Play()
     isMinimized = not isMinimized
     if isMinimized then
         MainFrame:TweenSize(UDim2.new(0, 250, 0, 40), "Out", "Quart", 0.3, true)
-        TabContainer.Visible = false
         ContentContainer.Visible = false
+        TabScroll.Visible = false
         MinimizeBtn.Text = "+"
     else
-        MainFrame:TweenSize(originalSize, "Out", "Quart", 0.3, true)
-        TabContainer.Visible = true
+        MainFrame:TweenSize(UDim2.new(0, 250, 0, 380), "Out", "Quart", 0.3, true)
         ContentContainer.Visible = true
+        TabScroll.Visible = true
         MinimizeBtn.Text = "-"
     end
 end)
 
--- Abrir aba padrão
+-- Mostrar primeira aba
 tabs["Orbit"].Visible = true
 tabButtons[1].TextColor3 = Color3.fromRGB(255, 255, 255)
 tabButtons[1].BackgroundColor3 = Color3.fromRGB(50, 50, 100)
 
-print("Manus Combat V3 Versão Final Definida - Com áudio no botão minimizar!")
+print("Manus Combat V3 com Rolagem Lateral Carregado!")
