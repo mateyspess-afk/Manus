@@ -21,12 +21,13 @@ local DASH_HEIGHT = 2
 
 local FOLLOW_DISTANCE = 5
 local FOLLOW_ENABLED = false
-local FOLLOW_AIMBOT = false  -- NOVO: Aimbot para a aba Seguir
+local FOLLOW_AIMBOT = false
 
 local TARGET_NAME = ""
 local ORBIT_ENABLED = false
 local AIMBOT_CORPO = false
 local DASH_PASS_ENABLED = false
+local DASH_AIMBOT = false
 
 local angle = 0
 local dashTime = 0
@@ -69,12 +70,16 @@ RunService.Heartbeat:Connect(function(dt)
         if FOLLOW_ENABLED then
             local behindOffset = targetHrp.CFrame * CFrame.new(0, 0, FOLLOW_DISTANCE)
             
-            -- Se o AIMBOT da aba Seguir estiver ativado, mira no corpo do alvo
             if FOLLOW_AIMBOT then
-                if humanoid.AutoRotate then originalAutoRotate = humanoid.AutoRotate; humanoid.AutoRotate = false end
+                if humanoid.AutoRotate then 
+                    originalAutoRotate = humanoid.AutoRotate 
+                    humanoid.AutoRotate = false 
+                end
                 hrp.CFrame = CFrame.new(behindOffset.Position, targetPos)
             else
-                if not humanoid.AutoRotate and not originalAutoRotate then humanoid.AutoRotate = originalAutoRotate end
+                if not humanoid.AutoRotate and originalAutoRotate then 
+                    humanoid.AutoRotate = originalAutoRotate 
+                end
                 hrp.CFrame = behindOffset
             end
             
@@ -83,22 +88,40 @@ RunService.Heartbeat:Connect(function(dt)
             local offsetMultiplier = math.sin(dashTime) * DASH_DISTANCE
             local direction = targetHrp.CFrame.LookVector
             local dashPos = targetPos + (direction * offsetMultiplier) + Vector3.new(0, DASH_HEIGHT, 0)
-            hrp.CFrame = CFrame.new(dashPos, targetPos)
+            
+            if DASH_AIMBOT then
+                if humanoid.AutoRotate then 
+                    originalAutoRotate = humanoid.AutoRotate 
+                    humanoid.AutoRotate = false 
+                end
+                hrp.CFrame = CFrame.new(dashPos, targetPos)
+            else
+                if not humanoid.AutoRotate and originalAutoRotate then 
+                    humanoid.AutoRotate = originalAutoRotate 
+                end
+                hrp.CFrame = CFrame.new(dashPos) * hrp.CFrame.Rotation
+            end
+            
         elseif ORBIT_ENABLED then
             angle = angle + (ORBIT_SPEED * dt)
             local offset = Vector3.new(math.cos(angle) * ORBIT_DISTANCE, ORBIT_HEIGHT, math.sin(angle) * ORBIT_DISTANCE)
             local orbitPos = targetPos + offset
             
             if AIMBOT_CORPO then
-                if humanoid.AutoRotate then originalAutoRotate = humanoid.AutoRotate; humanoid.AutoRotate = false end
+                if humanoid.AutoRotate then 
+                    originalAutoRotate = humanoid.AutoRotate 
+                    humanoid.AutoRotate = false 
+                end
                 hrp.CFrame = CFrame.new(orbitPos, targetPos)
             else
-                if not humanoid.AutoRotate and not originalAutoRotate then humanoid.AutoRotate = originalAutoRotate end
+                if not humanoid.AutoRotate and originalAutoRotate then 
+                    humanoid.AutoRotate = originalAutoRotate 
+                end
                 hrp.CFrame = CFrame.new(orbitPos) * hrp.CFrame.Rotation
             end
         end
     else
-        if not humanoid.AutoRotate and not originalAutoRotate then
+        if not humanoid.AutoRotate and originalAutoRotate then
             humanoid.AutoRotate = originalAutoRotate
         end
     end
@@ -141,7 +164,7 @@ ClickSound.SoundId = "rbxassetid://12221967"
 ClickSound.Volume = 0.5
 ClickSound.Parent = game:GetService("SoundService")
 
--- Botão Minimizar
+-- Botão Minimizar (COM ÁUDIO DE CLIQUE)
 local MinimizeBtn = Instance.new("TextButton")
 MinimizeBtn.Size = UDim2.new(0, 30, 0, 30)
 MinimizeBtn.Position = UDim2.new(1, -38, 0, 5)
@@ -216,8 +239,8 @@ end
 
 -- Criar as Abas
 local orbitFrame = createTabFrame("Orbit", 350)
-local dashFrame = createTabFrame("Dash", 250)
-local followFrame = createTabFrame("Follow", 250)  -- Aumentei o canvas para caber o novo botão
+local dashFrame = createTabFrame("Dash", 300)
+local followFrame = createTabFrame("Follow", 250)
 local settingsFrame = createTabFrame("Settings", 150)
 
 createTabBtn("Orbit", "ORBIT", UDim2.new(0, 0, 0, 0))
@@ -286,7 +309,7 @@ local function createSlider(text, pos, min, max, default, parent, callback)
 end
 
 -- ──────────────────────────────────────────────────────────
--- ABA 1: ORBIT (Botão + Sliders + Alvo + Altura)
+-- ABA 1: ORBIT
 -- ──────────────────────────────────────────────────────────
 local orbitToggleBtn, aimToggleBtn
 orbitToggleBtn = createBtn("ORBIT: OFF", UDim2.new(0.05, 0, 0, 10), Color3.fromRGB(180, 50, 50), orbitFrame, function()
@@ -295,12 +318,14 @@ orbitToggleBtn = createBtn("ORBIT: OFF", UDim2.new(0.05, 0, 0, 10), Color3.fromR
     FOLLOW_ENABLED = false
     orbitToggleBtn.Text = ORBIT_ENABLED and "ORBIT: ON" or "ORBIT: OFF"
     orbitToggleBtn.BackgroundColor3 = ORBIT_ENABLED and Color3.fromRGB(50, 180, 50) or Color3.fromRGB(180, 50, 50)
+    ClickSound:Play()
 end)
 
 aimToggleBtn = createBtn("AIMBOT CORPO: OFF", UDim2.new(0.05, 0, 0, 50), Color3.fromRGB(150, 100, 50), orbitFrame, function()
     AIMBOT_CORPO = not AIMBOT_CORPO
     aimToggleBtn.Text = AIMBOT_CORPO and "AIMBOT CORPO: ON" or "AIMBOT CORPO: OFF"
     aimToggleBtn.BackgroundColor3 = AIMBOT_CORPO and Color3.fromRGB(50, 150, 200) or Color3.fromRGB(150, 100, 50)
+    ClickSound:Play()
 end)
 
 createSlider("Orbit: Velocidade", UDim2.new(0.05, 0, 0, 100), 1, 20, ORBIT_SPEED, orbitFrame, function(v) ORBIT_SPEED = v end)
@@ -321,22 +346,32 @@ Instance.new("UICorner").Parent = OrbitNameInput
 OrbitNameInput.FocusLost:Connect(function() TARGET_NAME = OrbitNameInput.Text end)
 
 -- ──────────────────────────────────────────────────────────
--- ABA 2: PASSAR RÁPIDO
+-- ABA 2: PASSAR RÁPIDO (COM AIMBOT)
 -- ──────────────────────────────────────────────────────────
 local dashToggleBtn
+local dashAimbotBtn
+
 dashToggleBtn = createBtn("PASSAR RÁPIDO: OFF", UDim2.new(0.05, 0, 0, 10), Color3.fromRGB(50, 50, 180), dashFrame, function()
     DASH_PASS_ENABLED = not DASH_PASS_ENABLED
     ORBIT_ENABLED = false
     FOLLOW_ENABLED = false
     dashToggleBtn.Text = DASH_PASS_ENABLED and "PASSAR RÁPIDO: ON" or "PASSAR RÁPIDO: OFF"
     dashToggleBtn.BackgroundColor3 = DASH_PASS_ENABLED and Color3.fromRGB(50, 180, 180) or Color3.fromRGB(50, 50, 180)
+    ClickSound:Play()
 end)
 
-createSlider("Passar: Velocidade", UDim2.new(0.05, 0, 0, 60), 5, 60, DASH_SPEED, dashFrame, function(v) DASH_SPEED = v end)
-createSlider("Passar: Distância", UDim2.new(0.05, 0, 0, 100), 2, 50, DASH_DISTANCE, dashFrame, function(v) DASH_DISTANCE = v end)
+dashAimbotBtn = createBtn("AIMBOT (PASSAR): OFF", UDim2.new(0.05, 0, 0, 50), Color3.fromRGB(150, 100, 50), dashFrame, function()
+    DASH_AIMBOT = not DASH_AIMBOT
+    dashAimbotBtn.Text = DASH_AIMBOT and "AIMBOT (PASSAR): ON" or "AIMBOT (PASSAR): OFF"
+    dashAimbotBtn.BackgroundColor3 = DASH_AIMBOT and Color3.fromRGB(50, 150, 200) or Color3.fromRGB(150, 100, 50)
+    ClickSound:Play()
+end)
+
+createSlider("Passar: Velocidade", UDim2.new(0.05, 0, 0, 100), 5, 60, DASH_SPEED, dashFrame, function(v) DASH_SPEED = v end)
+createSlider("Passar: Distância", UDim2.new(0.05, 0, 0, 140), 2, 50, DASH_DISTANCE, dashFrame, function(v) DASH_DISTANCE = v end)
 
 -- ──────────────────────────────────────────────────────────
--- ABA 3: SEGUIR (COM AIMBOT CORPO)
+-- ABA 3: SEGUIR (COM AIMBOT)
 -- ──────────────────────────────────────────────────────────
 local followToggleBtn
 local followAimbotBtn
@@ -347,13 +382,14 @@ followToggleBtn = createBtn("SEGUIR JOGADOR: OFF", UDim2.new(0.05, 0, 0, 10), Co
     DASH_PASS_ENABLED = false
     followToggleBtn.Text = FOLLOW_ENABLED and "SEGUIR JOGADOR: ON" or "SEGUIR JOGADOR: OFF"
     followToggleBtn.BackgroundColor3 = FOLLOW_ENABLED and Color3.fromRGB(50, 180, 100) or Color3.fromRGB(100, 50, 150)
+    ClickSound:Play()
 end)
 
--- NOVO BOTÃO: AIMBOT para a aba Seguir (cópia do aimbot corpo da aba Orbit)
 followAimbotBtn = createBtn("AIMBOT (SEGUIR): OFF", UDim2.new(0.05, 0, 0, 50), Color3.fromRGB(150, 100, 50), followFrame, function()
     FOLLOW_AIMBOT = not FOLLOW_AIMBOT
     followAimbotBtn.Text = FOLLOW_AIMBOT and "AIMBOT (SEGUIR): ON" or "AIMBOT (SEGUIR): OFF"
     followAimbotBtn.BackgroundColor3 = FOLLOW_AIMBOT and Color3.fromRGB(50, 150, 200) or Color3.fromRGB(150, 100, 50)
+    ClickSound:Play()
 end)
 
 createSlider("Seguir: Distância", UDim2.new(0.05, 0, 0, 100), 1, 30, FOLLOW_DISTANCE, followFrame, function(v) FOLLOW_DISTANCE = v end)
@@ -366,12 +402,12 @@ local CloseBtn = createBtn("FECHAR MENU", UDim2.new(0.05, 0, 0, 20), Color3.from
     ScreenGui:Destroy()
 end)
 
--- Lógica de Minimizar
+-- Lógica de Minimizar (COM ÁUDIO DE CLIQUE)
 local isMinimized = false
 local originalSize = MainFrame.Size
 
 MinimizeBtn.MouseButton1Click:Connect(function()
-    ClickSound:Play()
+    ClickSound:Play()  -- Áudio de clique adicionado aqui!
     isMinimized = not isMinimized
     if isMinimized then
         MainFrame:TweenSize(UDim2.new(0, 250, 0, 40), "Out", "Quart", 0.3, true)
@@ -391,4 +427,4 @@ tabs["Orbit"].Visible = true
 tabButtons[1].TextColor3 = Color3.fromRGB(255, 255, 255)
 tabButtons[1].BackgroundColor3 = Color3.fromRGB(50, 50, 100)
 
-print("Manus Combat V3 Versão Final Definida!")
+print("Manus Combat V3 Versão Final Definida - Com áudio no botão minimizar!")
