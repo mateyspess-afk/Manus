@@ -1,1 +1,456 @@
---[[ v1.0.0 https://wearedevs.net/obfuscator ]] return(function(...)local t={"\104\048\117\076\099\119\110\069\115\068\097\061","\105\065\061\061","\112\051\065\099","\070\085\083\098\068\047\052\108\090\085\070\061","\081\104\112\071\117\051\052\113\050\097\113\088\097\105\061\061","\112\116\121\122\043\079\106\120","\043\090\113\083\081\074\088\047\088\120\117\105\119\081\103\110","\084\068\067\049\083\118\114\102","\104\104\073\115\056\106\088\048\086\048\115\051\102\067\075\070";"\053\097\084\052\048\065\061\061","\116\089\047\050\073\066\099\072\086\120\120\085\074\084\121\090\100\074\111\061","\108\099\104\122\105\107\052\070","\107\087\088\081\071\088\075\106\071\065\102\061";"\084\073\113\081\117\077\076\090";"\109\066\087\099\116\090\073\103\051\070\061\061";"\122\106\102\071","\085\111\120\090\083\080\116\079\066\070\061\061","\070\115\053\067\072\076\085\111\102\070\061\061";"\078\076\118\117","\113\097\105\111\083\100\080\068","\116\112\055\061","\085\085\051\080\087\073\107\100\055\102\057\104\057\105\078\117\083\113\108\117\118\105\061\061","\070\049\110\112\099\122\079\075","\043\108\084\100\076\085\102\099\100\109\116\099\069\066\090\073\052\068\106\083\052\070\061\061","\101\065\067\086";"\102\085\076\122\069\103\080\055\056\082\086\088\074\105\077\113\078\112\082\053\076\043\111\102\102\107\107\101\099\065\061\061","\067\043\043\070\114\101\054\116","\051\048\054\101\104\119\068\071\121\107\122\122","\072\075\055\107\117\084\080\085\102\050\097\061","\111\101\100\081","\122\083\099\073\120\079\104\117\087\052\079\072\043\080\061\061","\049\075\099\075\073\100\070\090\079\102\053\104\110\078\107\086\111\078\082\100";"\122\114\089\071\074\080\120\057\057\067\114\048\065\076\103\086\088\071\113\055\069\105\061\061","\119\089\087\118\119\079\117\099\116\090\088\061";"\122\106\103\086\071\105\061\061","\071\118\082\117\074\098\043\078\053\055\067\086\082\118\067\108\080\081\116\103\071\070\061\061","\074\087\083\078\071\100\057\121\110\107\067\114\050\065\061\061";"\073\083\109\119\100\088\111\070\067\084\102\047\070\106\088\099\068\090\072\067\112\048\083\051\078\104\088\069\113\070\061\061","\087\083\075\066\077\065\061\061","\055\047\079\074\070\084\110\107\052\069\082\073\057\098\108\111\080\110\099\067\052\114\054\051";"\121\112\075\115\067\118\105\075";"\054\105\061\061";"\071\113\105\097\115\102\068\066\080\050\116\108\112\043\110\089\057\080\061\061";"\068\113\105\098\104\099\100\043\122\065\061\061";"\088\073\108\074\081\100\109\090\047\075\109\116\077\105\054\106\115\065\061\061","\057\122\090\047\102\118\082\068";"\085\110\049\066\111\080\061\061";"\110\051\113\072\077\083\084\083\077\105\061\061";"\120\089\075\071","\119\076\055\118\116\050\087\048\120\066\119\113\073\083\099\048\049\081\055\061";"\065\122\065\055\111\087\097\043\068\117\055\105\100\077\085\114\108\082\113\068\052\117\066\106\076\065\061\061";"\087\098\089\099";"\119\100\075\071","\088\089\076\099\088\106\043\061","\084\110\110\068\107\115\090\102\102\081\111\109\121\085\077\085\074\118\077\122\101\051\080\115";"\055\053\097\087","\085\090\047\056\116\110\055\061";"\109\068\066\113\075\112\117\089\090\099\068\047\066\107\083\107\102\117\047\076\050\057\122\113\055\070\061\061";"\056\073\105\109","\068\084\114\071\080\086\118\047\111\065\061\061";"\117\089\079\057\119\051\113\070\079\105\061\061";"\083\052\048\099\099\087\070\056";"\043\084\066\056\119\079\103\103\114\089\047\120\073\112\113\085";"\108\088\105\097\115\111\072\114\084\086\099\047\110\101\067\106\068\098\084\119\070\098\077\090\103\119\065\061","\111\117\118\075\071\110\112\082\053\118\052\120\115\077\078\103\069\074\069\057\050\056\097\061","\077\069\119\081";"\120\081\073\099\116\065\061\061","\043\079\065\118\110\100\077\086\076\119\105\061";"\077\118\102\106\069\105\086\107\082\097\043\061";"\106\109\088\087\122\043\120\067";"\074\069\114\068\118\105\061\061";"\111\067\087\069\111\067\076\075";"\068\089\079\108\101\110\067\084\053\086\098\077\082\105\061\061";"\083\112\073\114\116\084\105\067\051\106\119\055\081\120\043\054\085\080\061\061","\074\080\102\076\068\097\102\112\082\052\071\112\053\116\071\120\113\083\103\065\047\074\099\117\086\065\061\061","\120\070\061\061";"\084\050\104\113\076\099\099\054";"\102\115\098\076\082\108\048\090\109\105\061\061","\116\075\121\047\111\109\084\118\047\075\115\049\098\090\101\076";"\116\122\079\043\074\069\097\099\105\065\118\119\116\082\066\089\087\078\110\084\066\078\119\112\104\080\061\061";"\110\072\098\077\079\100\110\075\081\081\050\061","\103\117\078\109\056\116\053\102\049\117\073\065\121\106\090\048\106\054\122\057\102\080\061\061";"\090\109\073\054\103\057\108\107\057\065\061\061","\120\081\113\107\085\078\049\076\081\067\048\056\119\120\085\066\083\080\061\061","\121\065\104\116\107\067\108\109\114\055\121\074\071\054\074\118\076\105\090\117\077\082\055\061";"\114\074\119\075\073\109\099\066\116\084\076\043\100\076\049\068","\047\057\109\112\080\076\081\065\074\047\052\049\115\080\061\061","\119\071\055\049\100\115\113\073\099\065\114\117","\051\112\103\089\081\089\087\067\116\110\120\081\083\081\080\047","\116\052\107\072\107\098\074\073\087\055\122\121";"\100\114\115\056\102\068\056\112\117\101\055\080\073\070\061\061","\101\083\043\087\113\069\104\079\055\121\047\116\122\070\061\061";"\118\112\086\050\105\119\077\056\075\068\100\116\120\080\061\061","\073\067\120\075\081\067\120\104\119\090\103\078\085\065\061\061";"\082\100\050\078\116\118\075\090","\120\075\070\103\078\057\050\070\087\072\043\055\109\108\078\113\122\081\070\082\103\121\118\103\113\073\065\061","\071\082\082\084\076\105\061\061";"\074\108\066\110\048\108\105\083\101\057\110\077\104\080\061\061";"\106\084\102\105\106\121\103\078\112\117\088\061","\066\104\076\115\085\103\052\076";"\055\105\083\071\048\071\105\088\053\068\105\087\119\080\061\061","\049\053\075\087\118\099\108\052";"\109\066\087\106\111\105\061\061","\105\070\056\077\055\098\052\073\098\070\061\061","\088\079\117\099\116\106\065\061";"\085\081\113\098\049\083\088\104\074\076\085\120\083\103\085\067\043\105\061\061";"\083\055\115\109\083\100\079\115\071\056\075\078\107\065\061\061";"\072\105\083\104\108\080\061\061";"\088\071\109\110\101\100\119\052\053\065\061\061";"\098\119\118\054\117\103\103\076\088\076\078\072";"\068\087\066\076\106\073\049\065","\119\089\087\069\119\083\066\098\085\109\055\061";"\103\074\085\121\090\056\099\087\081\047\121\097\097\080\061\061","\078\105\077\116\072\070\061\061";"\089\111\049\101";"\085\051\107\119\052\068\050\102\079\065\061\061","\121\057\103\050","\069\077\055\113","\102\100\101\107";"\048\065\061\061","\054\111\107\100\079\106\057\119";"\065\103\065\075\049\112\120\114\073\075\105\110\043\103\049\114\074\065\061\061";"\080\048\117\114\110\109\066\104","\079\071\086\082";"\112\109\055\119\051\076\106\076";"\069\112\067\087\052\112\084\103\104\099\065\056\082\051\056\084\106\104\104\100\088\066\103\098\071\120\065\061","\120\090\120\078\119\089\087\104\043\105\061\061","\052\054\067\114\069\080\061\061";"\073\067\120\075\081\089\047\113\051\083\120\104\088\105\061\061";"\073\090\047\098\049\066\073\112\049\089\048\100\088\090\054\075\120\080\061\061","\088\066\080\076","\043\106\076\073\119\079\102\121\114\089\121\076\083\090\120\090\081\065\061\061","\110\089\121\070\105\073\043\106\049\080\061\061";"\080\115\052\111\073\077\067\051\116\099\113\082\119\090\110\090\072\103\052\117\054\103\104\119","\088\049\104\111\080\076\108\086\102\121\115\086\103\055\052\110\108\048\107\057","\085\078\106\050\104\081\106\051\054\101\116\055\047\076\057\078\112\071\100\051\073\104\105\061";"\115\074\084\069\117\072\114\088";"\072\071\047\102\117\078\082\113\080\047\119\107\109\070\061\061","\067\085\118\119\066\105\104\067\089\065\061\061","\073\083\121\066\116\065\061\061";"\119\054\080\086\079\087\065\061","\085\109\117\104\116\110\055\061";"\105\072\074\105","\102\075\082\054\052\056\043\107\047\077\117\043\068\051\111\088\121\080\061\061","\110\079\101\084\071\053\069\056\079\115\088\061","\122\049\103\048\069\051\098\090","\069\115\054\057\112\049\052\055\116\065\061\061";"\056\076\043\106\105\054\106\117\107\115\097\118\121\108\048\088\117\098\087\047\110\057\105\061";"\086\110\099\121\043\075\087\078\049\067\081\067\049\120\108\100\083\080\061\061";"\106\076\086\075\089\119\108\068\100\076\086\087\075\080\061\061","\111\077\070\073\099\110\069\079\066\068\049\085\069\080\061\061";"\102\112\075\118\097\048\074\043\117\121\074\082\107\050\099\067\054\083\102\056\083\105\061\061","\055\053\122\069\053\072\120\048\116\077\081\061","\108\122\114\084";"\043\111\065\051\052\065\061\061","\077\068\122\074\083\065\061\061","\081\101\056\050\048\110\074\106\106\070\061\061";"\110\098\074\087\068\080\061\061","\074\120\113\077\085\090\073\069\116\050\099\081\120\112\103\084";"\089\108\079\108\108\107\076\083\101\105\075\116\054\080\061\061";"\103\105\076\087\119\108\100\082\115\105\061\061","\051\114\121\071\104\105\061\061";"\097\084\111\110\056\074\083\086\076\065\061\061","\114\075\066\055\081\118\076\113\086\118\120\048\073\103\120\099\119\065\061\061","\116\089\120\069","\065\109\077\105\117\071\049\089";"\084\086\072\070\102\087\084\057\070\114\102\075\090\070\061\061";"\050\088\088\061","\051\120\117\104\073\066\113\122\100\084\119\073\120\074\103\049\119\070\061\061";"\048\081\066\115\103\065\061\061","\078\100\070\109\070\043\111\061";"\090\109\120\088\075\090\089\117\101\054\075\061","\066\081\097\114\049\053\073\072\097\070\067\080\079\108\111\097\049\117\099\081\072\118\103\119\082\115\120\098\099\080\061\061";"\085\084\110\056\110\051\090\055\054\089\087\077\119\054\106\075\099\065\061\061","\050\109\110\086\055\120\105\061","\053\120\056\106\052\043\087\105\043\085\113\099","\079\121\079\067\089\083\101\056\083\065\102\061";"\072\102\099\121\073\065\061\061","\054\107\071\049\090\104\083\057\118\081\119\057\085\070\061\061";"\109\066\087\048\085\109\073\113\119\089\076\098\116\089\081\061","\047\067\067\072\057\065\054\073\080\105\061\061","\120\081\073\099\116\074\055\061","\119\121\065\071\081\067\055\077\078\084\069\097\079\057\115\121\086\078\048\081\105\065\061\061","\043\106\070\104\101\090\065\090\049\098\070\107\043\105\061\061";"\065\102\055\086\088\103\102\066";"\120\049\067\083";"\088\057\074\072\068\043\078\087\083\090\076\098\114\098\106\071\067\053\117\086\106\079\118\111";"\108\077\113\048\116\069\049\056\070\111\101\087\090\072\085\072\110\105\061\061";"\086\052\114\113\079\082\078\049\101\057\068\061";"\073\053\089\122\082\102\069\085\055\080\061\061","\088\089\049\113\116\089\105\061";"\119\066\073\055\088\090\119\078\073\084\047\114\051\078\073\117\100\076\080\061","\114\083\121\118\119\089\076\069\111\067\081\061","\114\113\111\113\065\070\061\061";"\053\102\072\103\098\086\082\114\074\119\055\072\072\079\048\121\043\115\097\081\119\065\061\061";"\051\083\056\056\075\071\085\067\108\043\105\061";"\088\066\073\066\051\083\048\099\081\050\087\109\081\076\084\105\049\109\111\061","\115\079\050\047\103\065\119\072\051\073\055\061","\116\043\049\068\110\122\069\086\049\056\077\104\068\080\061\061";"\099\090\110\107\115\055\083\115\119\065\061\061","\051\121\047\100\049\049\086\120\048\078\106\053\072\070\061\061","\076\097\119\084\067\085\051\053\074\052\105\072\112\087\052\100\057\111\054\061";"\100\101\102\067\101\069\113\071\108\065\061\061";"\088\090\076\069\085\089\087\048","\114\082\073\049";"\100\106\071\105\105\072\053\052\043\077\048\114\112\065\081\052\043\098\069\113";"\122\067\115\077\048\074\072\054\065\098\065\047\073\105\061\061","\054\108\053\065\098\107\089\121\071\065\068\061","\081\122\105\053\088\051\070\061","\100\098\080\103\085\101\102\099\100\080\061\061";"\081\089\047\113\051\065\061\061";"\083\079\119\114\085\084\085\111\111\066\099\117\073\120\117\072\119\065\061\061","\115\090\073\115\090\084\108\043\076\089\075\103\076\056\102\110";"\090\113\067\076\069\103\118\086\081\105\061\061";"\122\076\076\085\070\080\061\061","\109\065\108\051\071\078\078\053\113\065\061\061";"\078\104\054\051\100\065\061\061";"\102\050\116\049";"\102\071\075\109","\109\110\047\119\111\070\055\087\077\077\076\043\057\105\061\061","\081\089\115\056","\074\077\087\116\073\043\098\072\089\101\118\048","\115\052\056\071";"\081\097\121\043\080\104\087\073\111\120\102\061";"\106\069\115\103\089\106\080\108\069\080\061\061";"\066\053\106\119\081\052\054\056\120\109\083\113\113\065\061\061","\079\048\090\074\099\081\116\065\121\056\088\061","\098\101\099\100\072\084\077\078\055\080\112\089\105\118\098\050\113\097\055\074\066\080\061\061","\088\088\075\070";"\080\078\117\086\071\049\048\090";"\053\103\075\103\053\043\102\121\082\122\108\110";"\118\053\056\114\097\105\061\061","\103\052\098\084\073\056\088\061";"\118\083\072\111\076\090\075\050\085\087\074\068\047\080\061\061","\111\067\113\113\088\080\061\061","\097\121\072\052\097\103\103\084\070\076\043\061","\119\083\121\105\111\083\049\072","\089\075\101\072","\076\065\099\065\055\054\098\074\074\066\119\109\074\043\104\116\090\050\048\084\048\074\099\075";"\083\109\070\087","\122\103\051\048\090\071\100\052\051\119\112\104\048\077\122\120\083\099\086\120\102\088\050\061";"\104\080\090\068\076\080\061\061";"\100\080\061\061";"\073\115\107\074";"\067\103\097\110";"\116\083\076\075\086\070\061\061","\100\110\120\100\068\050\048\099\107\066\068\061","\075\073\079\052","\084\050\082\069\055\118\108\111\083\051\065\061","\116\071\100\089\057\109\105\043\050\055\105\100";"\085\067\076\048\085\065\061\061","\085\083\047\049\043\118\113\055\085\050\081\075\051\106\049\069\049\075\055\061","\065\069\081\107\077\048\087\101\075\080\061\061";"\051\076\073\090\051\120\099\081\073\103\049\079\085\106\113\104\081\076\065\061","\076\111\111\072\112\122\084\120","\106\057\053\112";"\100\078\052\116\110\067\089\085\054\070\061\061","\043\114\110\122\107\089\098\067";"\054\117\073\106\087\070\110\054","\086\109\103\086\073\076\073\081\116\084\048\108\085\067\099\075","\084\103\065\066\119\070\061\061","\072\088\070\118\080\049\114\113\116\115\072\049\088\051\118\121\105\079\122\113\052\100\071\088";"\107\056\071\049\111\087\048\073\122\069\068\061","\108\066\101\067\100\111\114\088\077\072\114\082\110\065\106\079\082\098\100\097\119\097\107\100\111\080\061\061","\088\110\073\104\086\083\121\106","\122\050\087\070\098\080\081\074\082\105\061\061","\079\049\119\108\079\108\055\061";"\051\068\085\104\057\053\070\068\069\078\090\080\084\049\100\054\079\082\099\086";"\054\102\078\079\122\069\114\083\065\120\068\105\049\086\108\078\103\065\061\061","\054\043\083\122\077\109\099\105","\107\068\110\077\056\070\061\061","\122\088\057\057\109\074\104\118\047\113\115\065\090\117\117\077\122\069\049\116\105\105\061\061","\087\076\118\109\056\071\070\061","\102\070\061\061";"\071\105\110\102\115\068\068\122\103\119\086\067\104\099\117\106\069\117\088\061";"\088\105\075\086";"\053\088\067\113\102\098\109\090\081\069\068\061","\057\081\121\067\108\082\053\090\073\105\061\061";"\086\053\065\110\075\072\118\121\054\101\043\061";"\105\076\116\113\101\080\061\061","\086\086\102\090";"\049\052\121\048","\070\072\101\113\098\048\098\121\049\065\061\061";"\056\073\043\067\047\049\054\101\073\065\061\061","\122\120\115\117\103\098\097\066\053\089\090\089\110\118\065\050\043\070\084\113\074\080\061\061","\052\075\106\104\083\057\104\115\051\118\057\066\079\070\061\061";"\076\122\105\077\067\105\061\061","\086\082\077\119";"\105\076\105\049","\079\047\112\077\089\106\056\065\086\098\117\047\086\114\101\108\113\089\090\103\086\065\113\067","\085\121\120\089";"\088\105\071\111";"\088\067\120\075\116\083\120\075\111\109\073\113\111\090\047\103","\111\106\103\075\085\065\061\061";"\065\043\104\074\083\115\078\085\089\090\043\115\117\073\072\051\086\072\071\116";"\055\112\106\117\080\105\061\061";"\071\084\073\047\074\086\119\105\057\083\098\051";"\078\089\099\070","\074\103\120\099\088\075\073\073\088\089\049\049\114\109\085\118\120\070\061\061","\048\088\111\106\107\113\110\054\098\070\061\061","\052\048\072\122";"\076\108\084\053\076\122\119\050\081\078\088\061","","\049\120\099\122\111\103\070\067\073\066\103\049\073\112\111\121";"\100\084\048\105\100\076\085\048\074\078\073\066\083\079\099\083\119\080\061\061","\113\082\113\047";"\051\079\047\088\070\090\066\098","\120\113\090\114","\072\072\082\082\077\043\067\118\088\051\099\073\050\069\054\077\054\047\049\054\050\080\061\061";"\115\050\117\104\111\117\081\069\105\055\101\098\070\080\066\054\081\052\084\072\068\080\061\061";"\043\074\097\116\043\105\061\061","\071\118\103\100\122\106\052\078\116\120\048\113\121\105\061\061";"\120\075\119\105\065\090\076\067\065\103\103\078\081\109\073\114\065\090\111\061","\116\116\081\083\118\070\087\087\119\043\118\089\106\080\061\061";"\121\088\108\081\119\097\083\082\108\078\086\084";"\099\083\098\075\055\070\061\061","\073\055\085\119","\076\118\089\119\101\070\072\047\068\110\072\117\066\089\105\116\112\098\098\110\087\108\109\108\080\105\061\061","\111\081\121\078\086\110\085\067\116\076\099\109\065\078\070\067","\101\066\072\089";"\101\084\070\052\110\108\078\112\065\070\061\061","\107\074\080\049\110\070\061\061";"\077\076\047\115\078\080\061\061","\047\115\111\079\118\069\056\048";"\090\078\049\079","\113\108\075\097\073\083\102\116\083\090\069\075\055\070\107\065\088\119\050\071\073\065\061\061","\078\107\090\099\065\087\115\065\054\087\097\061","\106\054\111\085\076\069\113\078\119\113\057\047\090\077\054\122\056\122\053\082\075\066\111\061","\087\112\048\113\104\122\116\115\050\090\049\069\081\084\105\122\098\086\102\051\049\065\061\061";"\084\075\086\089\114\065\061\061","\097\050\068\069\071\056\082\052\104\076\054\098";"\051\108\122\112\120\072\078\079\073\057\122\106\080\048\080\077\051\054\051\078\068\121\083\074\077\048\072\082\090\077\105\118\097\110\080\073\065\052\109\069\052\065\061\061","\100\081\073\101\086\081\099\122\081\090\119\057","\090\070\101\078\089\122\065\077\085\080\061\061";"\070\047\122\047\056\114\113\083\116\114\047\118\090\067\122\082\069\055\104\086\066\105\061\061","\043\070\088\109";"\084\073\114\107\089\101\122\115\067\055\122\047\103\090\100\072\114\078\043\078\119\065\061\061";"\088\087\065\065";"\103\047\119\104\043\106\104\078\078\051\088\061";"\113\051\122\071\108\105\061\061";"\116\112\084\061";"\054\119\050\102\103\118\068\061";"\049\118\081\121\116\109\070\061","\050\083\090\071\076\087\083\084";"\118\090\117\077\086\118\099\069\122\075\121\088","\115\056\115\089\074\073\104\103\053\048\089\049\048\112\113\115\098\067\047\100\078\049\116\043\073\070\061\061","\073\108\068\110\076\114\043\077\078\087\084\057\120\065\061\061","\071\105\061\061";"\073\112\119\081\054\072\110\109\073\105\111\104\103\072\083\047\113\071\080\072\115\065\061\061","\102\097\107\051\074\109\043\050","\106\068\106\043\099\087\068\049\043\080\084\088\114\105\061\061";"\114\057\068\068\122\080\080\061";"\099\105\087\069";"\113\090\110\043\116\055\102\082\056\055\075\061";"\090\054\112\084","\114\048\105\077\118\116\052\049","\107\113\113\105\084\098\056\051","\100\090\101\066\111\109\115\117\097\073\099\107\084\078\084\050\108\066\068\067\083\080\061\061","\067\089\113\077\122\043\087\066\066\052\043\121";"\081\054\121\047\116\090\110\102\102\115\080\052";"\068\077\100\078\048\052\079\102\090\051\097\072\116\090\081\061";"\106\054\108\081\111\082\055\061","\072\071\122\088\100\118\109\054\043\067\075\084\099\066\100\119\108\069\090\069\115\105\081\102","\085\078\105\079";"\049\108\071\055";"\113\097\110\083\043\120\120\066\082\080\075\108\070\119\085\106\089\086\085\048\086\122\070\081","\110\122\070\082","\116\099\114\065\115\104\047\086\084\050\048\110\100\098\070\118\097\074\097\120\055\080\061\061";"\103\050\097\117","\076\081\055\043\109\047\116\115\102\109\077\084\089\049\120\073\117\057\065\115\078\088\076\107\083\086\084\061","\120\089\076\048\088\089\120\104\055\084\073\103\119\089\120\078\119\089\120\050\055\065\061\061","\080\048\071\114\071\069\107\117\117\065\061\061";"\090\106\090\101\054\0
+--[[ 
+   Manus Combat V3 + Seguir (VERSÃO DEFINITIVA)
+   Abas: ORBIT | PASSAR | SEGUIR | OPÇÕES
+   Altura movida para a aba ORBIT com Scroll funcional
+   Compatível com Delta Executor
+   COM ROLAGEM LATERAL NAS CATEGORIAS
+]]
+
+local Players = game:GetService("Players")
+local LocalPlayer = Players.LocalPlayer
+local UserInputService = game:GetService("UserInputService")
+local RunService = game:GetService("RunService")
+local TweenService = game:GetService("TweenService")
+
+-- Configurações Globais
+local ORBIT_DISTANCE = 10
+local ORBIT_SPEED = 3
+local ORBIT_HEIGHT = 2
+
+local DASH_SPEED = 15
+local DASH_DISTANCE = 12
+local DASH_HEIGHT = 2
+
+local FOLLOW_DISTANCE = 5
+local FOLLOW_ENABLED = false
+local FOLLOW_AIMBOT = false
+
+local TARGET_NAME = ""
+local ORBIT_ENABLED = false
+local AIMBOT_CORPO = false
+local DASH_PASS_ENABLED = false
+local DASH_AIMBOT = false
+
+local angle = 0
+local dashTime = 0
+local originalAutoRotate = true
+
+-- Função para encontrar o alvo
+local function getTarget()
+    if TARGET_NAME ~= "" then
+        local target = Players:FindFirstChild(TARGET_NAME)
+        if target and target.Character and target.Character:FindFirstChild("HumanoidRootPart") then
+            return target
+        end
+    end
+    
+    local closest, dist = nil, math.huge
+    for _, p in pairs(Players:GetPlayers()) do
+        if p ~= LocalPlayer and p.Character and p.Character:FindFirstChild("HumanoidRootPart") then
+            local d = (LocalPlayer.Character.HumanoidRootPart.Position - p.Character.HumanoidRootPart.Position).Magnitude
+            if d < dist then dist = d; closest = p end
+        end
+    end
+    return closest
+end
+
+-- Loop Principal (Heartbeat)
+RunService.Heartbeat:Connect(function(dt)
+    local character = LocalPlayer.Character
+    if not character then return end
+
+    local humanoid = character:FindFirstChildOfClass("Humanoid")
+    local hrp = character:FindFirstChild("HumanoidRootPart")
+    if not humanoid or not hrp then return end
+
+    local target = getTarget()
+    
+    if (ORBIT_ENABLED or DASH_PASS_ENABLED or FOLLOW_ENABLED) and target and target.Character and target.Character:FindFirstChild("HumanoidRootPart") then
+        local targetHrp = target.Character.HumanoidRootPart
+        local targetPos = targetHrp.Position
+        
+        if FOLLOW_ENABLED then
+            local behindOffset = targetHrp.CFrame * CFrame.new(0, 0, FOLLOW_DISTANCE)
+            
+            if FOLLOW_AIMBOT then
+                if humanoid.AutoRotate then 
+                    originalAutoRotate = humanoid.AutoRotate 
+                    humanoid.AutoRotate = false 
+                end
+                hrp.CFrame = CFrame.new(behindOffset.Position, targetPos)
+            else
+                if not humanoid.AutoRotate and originalAutoRotate then 
+                    humanoid.AutoRotate = originalAutoRotate 
+                end
+                hrp.CFrame = behindOffset
+            end
+            
+        elseif DASH_PASS_ENABLED then
+            dashTime = dashTime + (DASH_SPEED * dt)
+            local offsetMultiplier = math.sin(dashTime) * DASH_DISTANCE
+            local direction = targetHrp.CFrame.LookVector
+            local dashPos = targetPos + (direction * offsetMultiplier) + Vector3.new(0, DASH_HEIGHT, 0)
+            
+            if DASH_AIMBOT then
+                if humanoid.AutoRotate then 
+                    originalAutoRotate = humanoid.AutoRotate 
+                    humanoid.AutoRotate = false 
+                end
+                hrp.CFrame = CFrame.new(dashPos, targetPos)
+            else
+                if not humanoid.AutoRotate and originalAutoRotate then 
+                    humanoid.AutoRotate = originalAutoRotate 
+                end
+                hrp.CFrame = CFrame.new(dashPos) * hrp.CFrame.Rotation
+            end
+            
+        elseif ORBIT_ENABLED then
+            angle = angle + (ORBIT_SPEED * dt)
+            local offset = Vector3.new(math.cos(angle) * ORBIT_DISTANCE, ORBIT_HEIGHT, math.sin(angle) * ORBIT_DISTANCE)
+            local orbitPos = targetPos + offset
+            
+            if AIMBOT_CORPO then
+                if humanoid.AutoRotate then 
+                    originalAutoRotate = humanoid.AutoRotate 
+                    humanoid.AutoRotate = false 
+                end
+                hrp.CFrame = CFrame.new(orbitPos, targetPos)
+            else
+                if not humanoid.AutoRotate and originalAutoRotate then 
+                    humanoid.AutoRotate = originalAutoRotate 
+                end
+                hrp.CFrame = CFrame.new(orbitPos) * hrp.CFrame.Rotation
+            end
+        end
+    else
+        if not humanoid.AutoRotate and originalAutoRotate then
+            humanoid.AutoRotate = originalAutoRotate
+        end
+    end
+end)
+
+-- Interface Gráfica (GUI)
+local ScreenGui = Instance.new("ScreenGui")
+ScreenGui.Name = "ManusDefinitiveGUI"
+ScreenGui.ResetOnSpawn = false
+ScreenGui.Parent = LocalPlayer:WaitForChild("PlayerGui")
+
+local MainFrame = Instance.new("Frame")
+MainFrame.Name = "MainFrame"
+MainFrame.Size = UDim2.new(0, 250, 0, 320)
+MainFrame.Position = UDim2.new(0.5, -125, 0.5, -160)
+MainFrame.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+MainFrame.BorderSizePixel = 0
+MainFrame.Active = true
+MainFrame.Draggable = true
+MainFrame.ClipsDescendants = true
+MainFrame.Parent = ScreenGui
+
+local UICorner = Instance.new("UICorner")
+UICorner.CornerRadius = UDim.new(0, 12)
+UICorner.Parent = MainFrame
+
+local Title = Instance.new("TextLabel")
+Title.Size = UDim2.new(1, 0, 0, 40)
+Title.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
+Title.Text = "MANUS COMBAT V3"
+Title.TextColor3 = Color3.fromRGB(255, 255, 255)
+Title.Font = Enum.Font.GothamBold
+Title.TextSize = 13
+Title.Parent = MainFrame
+Instance.new("UICorner").Parent = Title
+
+-- Som de Clique
+local ClickSound = Instance.new("Sound")
+ClickSound.SoundId = "rbxassetid://12221967"
+ClickSound.Volume = 0.5
+ClickSound.Parent = game:GetService("SoundService")
+
+-- Botão Minimizar
+local MinimizeBtn = Instance.new("TextButton")
+MinimizeBtn.Size = UDim2.new(0, 30, 0, 30)
+MinimizeBtn.Position = UDim2.new(1, -38, 0, 5)
+MinimizeBtn.BackgroundColor3 = Color3.fromRGB(55, 55, 55)
+MinimizeBtn.Text = "-"
+MinimizeBtn.TextColor3 = Color3.fromRGB(255, 255, 255)
+MinimizeBtn.Font = Enum.Font.GothamBold
+MinimizeBtn.TextSize = 18
+MinimizeBtn.Parent = MainFrame
+Instance.new("UICorner").Parent = MinimizeBtn
+
+-- Container das Abas (COM ROLAGEM LATERAL)
+local TabContainer = Instance.new("ScrollingFrame")
+TabContainer.Size = UDim2.new(1, 0, 0, 45)
+TabContainer.Position = UDim2.new(0, 0, 0, 40)
+TabContainer.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+TabContainer.BorderSizePixel = 0
+TabContainer.ScrollBarThickness = 4
+TabContainer.ScrollBarImageColor3 = Color3.fromRGB(80, 80, 80)
+TabContainer.ScrollingDirection = Enum.ScrollingDirection.X
+TabContainer.CanvasSize = UDim2.new(0, 0, 0, 0)
+TabContainer.AutomaticCanvasSize = Enum.AutomaticSize.X
+TabContainer.Parent = MainFrame
+
+-- Container interno para os botões das abas (para facilitar o layout)
+local TabButtonsContainer = Instance.new("Frame")
+TabButtonsContainer.Size = UDim2.new(0, 0, 1, 0)
+TabButtonsContainer.BackgroundTransparency = 1
+TabButtonsContainer.Parent = TabContainer
+
+-- Container do Conteúdo
+local ContentContainer = Instance.new("Frame")
+ContentContainer.Size = UDim2.new(1, 0, 1, -85)
+ContentContainer.Position = UDim2.new(0, 0, 0, 85)
+ContentContainer.BackgroundTransparency = 1
+ContentContainer.Parent = MainFrame
+
+local tabs = {}
+local tabButtons = {}
+
+local function createTabFrame(name, canvasSize)
+    local frame = Instance.new("ScrollingFrame")
+    frame.Size = UDim2.new(1, 0, 1, 0)
+    frame.BackgroundTransparency = 1
+    frame.BorderSizePixel = 0
+    frame.ScrollBarThickness = 6
+    frame.ScrollBarImageColor3 = Color3.fromRGB(80, 80, 80)
+    frame.CanvasSize = UDim2.new(0, 0, 0, canvasSize or 300)
+    frame.Visible = false
+    frame.Parent = ContentContainer
+    tabs[name] = frame
+    return frame
+end
+
+local function createTabBtn(name, text, posX)
+    local btn = Instance.new("TextButton")
+    btn.Size = UDim2.new(0, 80, 1, -5)
+    btn.Position = UDim2.new(0, posX, 0, 2.5)
+    btn.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+    btn.BorderSizePixel = 0
+    btn.Text = text
+    btn.TextColor3 = Color3.fromRGB(150, 150, 150)
+    btn.Font = Enum.Font.GothamBold
+    btn.TextSize = 10
+    btn.Parent = TabButtonsContainer
+    
+    Instance.new("UICorner").Parent = btn
+    
+    -- Atualizar CanvasSize do TabContainer
+    TabButtonsContainer.Size = UDim2.new(0, posX + 85, 1, 0)
+
+    btn.MouseButton1Click:Connect(function()
+        ClickSound:Play()
+        for tabName, tabFrame in pairs(tabs) do
+            tabFrame.Visible = false
+        end
+        for _, otherBtn in pairs(tabButtons) do
+            otherBtn.TextColor3 = Color3.fromRGB(150, 150, 150)
+            otherBtn.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+        end
+        tabs[name].Visible = true
+        btn.TextColor3 = Color3.fromRGB(255, 255, 255)
+        btn.BackgroundColor3 = Color3.fromRGB(50, 50, 100)
+    end)
+    table.insert(tabButtons, btn)
+    return btn
+end
+
+-- Criar as Abas
+local orbitFrame = createTabFrame("Orbit", 350)
+local dashFrame = createTabFrame("Dash", 300)
+local followFrame = createTabFrame("Follow", 250)
+local settingsFrame = createTabFrame("Settings", 150)
+
+-- Criar botões com rolagem lateral
+createTabBtn("Orbit", "ORBIT", 5)
+createTabBtn("Dash", "PASSAR", 90)
+createTabBtn("Follow", "SEGUIR", 175)
+createTabBtn("Settings", "OPÇÕES", 260)
+
+-- Funções Auxiliares de UI
+local function createBtn(text, pos, color, parent, callback)
+    local btn = Instance.new("TextButton")
+    btn.Size = UDim2.new(0.9, 0, 0, 35)
+    btn.Position = pos
+    btn.BackgroundColor3 = color
+    btn.Text = text
+    btn.TextColor3 = Color3.fromRGB(255, 255, 255)
+    btn.Font = Enum.Font.GothamBold
+    btn.TextSize = 10
+    btn.Parent = parent
+    Instance.new("UICorner").Parent = btn
+    btn.MouseButton1Click:Connect(callback)
+    return btn
+end
+
+local function createSlider(text, pos, min, max, default, parent, callback)
+    local label = Instance.new("TextLabel")
+    label.Size = UDim2.new(0.9, 0, 0, 15)
+    label.Position = pos
+    label.BackgroundTransparency = 1
+    label.Text = text .. ": " .. default
+    label.TextColor3 = Color3.fromRGB(200, 200, 200)
+    label.Font = Enum.Font.Gotham
+    label.TextSize = 9
+    label.Parent = parent
+
+    local sliderBg = Instance.new("Frame")
+    sliderBg.Size = UDim2.new(0.9, 0, 0, 6)
+    sliderBg.Position = pos + UDim2.new(0, 0, 0, 18)
+    sliderBg.BackgroundColor3 = Color3.fromRGB(60, 60, 60)
+    sliderBg.Parent = parent
+    Instance.new("UICorner").Parent = sliderBg
+
+    local sliderFill = Instance.new("Frame")
+    sliderFill.Size = UDim2.new((default - min) / (max - min), 0, 1, 0)
+    sliderFill.BackgroundColor3 = Color3.fromRGB(100, 100, 255)
+    sliderFill.Parent = sliderBg
+    Instance.new("UICorner").Parent = sliderFill
+
+    local dragging = false
+    local connection
+    
+    sliderBg.InputBegan:Connect(function(input)
+        if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+            dragging = true
+            connection = RunService.RenderStepped:Connect(function()
+                if dragging then
+                    local mPos = UserInputService:GetMouseLocation()
+                    local p = math.clamp((mPos.X - sliderBg.AbsolutePosition.X) / sliderBg.AbsoluteSize.X, 0, 1)
+                    sliderFill.Size = UDim2.new(p, 0, 1, 0)
+                    local val = math.floor(min + (p * (max - min)))
+                    label.Text = text .. ": " .. val
+                    callback(val)
+                end
+            end)
+        end
+    end)
+    
+    UserInputService.InputEnded:Connect(function(i)
+        if i.UserInputType == Enum.UserInputType.MouseButton1 or i.UserInputType == Enum.UserInputType.Touch then
+            dragging = false
+            if connection then connection:Disconnect() end
+        end
+    end)
+end
+
+-- ──────────────────────────────────────────────────────────
+-- ABA 1: ORBIT
+-- ──────────────────────────────────────────────────────────
+local orbitToggleBtn, aimToggleBtn
+orbitToggleBtn = createBtn("ORBIT: OFF", UDim2.new(0.05, 0, 0, 10), Color3.fromRGB(180, 50, 50), orbitFrame, function()
+    ORBIT_ENABLED = not ORBIT_ENABLED
+    DASH_PASS_ENABLED = false
+    FOLLOW_ENABLED = false
+    orbitToggleBtn.Text = ORBIT_ENABLED and "ORBIT: ON" or "ORBIT: OFF"
+    orbitToggleBtn.BackgroundColor3 = ORBIT_ENABLED and Color3.fromRGB(50, 180, 50) or Color3.fromRGB(180, 50, 50)
+    ClickSound:Play()
+end)
+
+aimToggleBtn = createBtn("AIMBOT CORPO: OFF", UDim2.new(0.05, 0, 0, 50), Color3.fromRGB(150, 100, 50), orbitFrame, function()
+    AIMBOT_CORPO = not AIMBOT_CORPO
+    aimToggleBtn.Text = AIMBOT_CORPO and "AIMBOT CORPO: ON" or "AIMBOT CORPO: OFF"
+    aimToggleBtn.BackgroundColor3 = AIMBOT_CORPO and Color3.fromRGB(50, 150, 200) or Color3.fromRGB(150, 100, 50)
+    ClickSound:Play()
+end)
+
+createSlider("Orbit: Velocidade", UDim2.new(0.05, 0, 0, 100), 1, 20, ORBIT_SPEED, orbitFrame, function(v) ORBIT_SPEED = v end)
+createSlider("Orbit: Distância", UDim2.new(0.05, 0, 0, 140), 2, 50, ORBIT_DISTANCE, orbitFrame, function(v) ORBIT_DISTANCE = v end)
+createSlider("Altura (Orbit/Dash)", UDim2.new(0.05, 0, 0, 180), -10, 20, ORBIT_HEIGHT, orbitFrame, function(v) ORBIT_HEIGHT = v; DASH_HEIGHT = v end)
+
+local OrbitNameInput = Instance.new("TextBox")
+OrbitNameInput.Size = UDim2.new(0.9, 0, 0, 35)
+OrbitNameInput.Position = UDim2.new(0.05, 0, 0, 230)
+OrbitNameInput.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
+OrbitNameInput.PlaceholderText = "Nome do Alvo (Vazio = Próximo)"
+OrbitNameInput.Text = ""
+OrbitNameInput.TextColor3 = Color3.fromRGB(255, 255, 255)
+OrbitNameInput.Font = Enum.Font.Gotham
+OrbitNameInput.TextSize = 10
+OrbitNameInput.Parent = orbitFrame
+Instance.new("UICorner").Parent = OrbitNameInput
+OrbitNameInput.FocusLost:Connect(function() TARGET_NAME = OrbitNameInput.Text end)
+
+-- ──────────────────────────────────────────────────────────
+-- ABA 2: PASSAR RÁPIDO (COM AIMBOT)
+-- ──────────────────────────────────────────────────────────
+local dashToggleBtn
+local dashAimbotBtn
+
+dashToggleBtn = createBtn("PASSAR RÁPIDO: OFF", UDim2.new(0.05, 0, 0, 10), Color3.fromRGB(50, 50, 180), dashFrame, function()
+    DASH_PASS_ENABLED = not DASH_PASS_ENABLED
+    ORBIT_ENABLED = false
+    FOLLOW_ENABLED = false
+    dashToggleBtn.Text = DASH_PASS_ENABLED and "PASSAR RÁPIDO: ON" or "PASSAR RÁPIDO: OFF"
+    dashToggleBtn.BackgroundColor3 = DASH_PASS_ENABLED and Color3.fromRGB(50, 180, 180) or Color3.fromRGB(50, 50, 180)
+    ClickSound:Play()
+end)
+
+dashAimbotBtn = createBtn("AIMBOT (PASSAR): OFF", UDim2.new(0.05, 0, 0, 50), Color3.fromRGB(150, 100, 50), dashFrame, function()
+    DASH_AIMBOT = not DASH_AIMBOT
+    dashAimbotBtn.Text = DASH_AIMBOT and "AIMBOT (PASSAR): ON" or "AIMBOT (PASSAR): OFF"
+    dashAimbotBtn.BackgroundColor3 = DASH_AIMBOT and Color3.fromRGB(50, 150, 200) or Color3.fromRGB(150, 100, 50)
+    ClickSound:Play()
+end)
+
+createSlider("Passar: Velocidade", UDim2.new(0.05, 0, 0, 100), 5, 60, DASH_SPEED, dashFrame, function(v) DASH_SPEED = v end)
+createSlider("Passar: Distância", UDim2.new(0.05, 0, 0, 140), 2, 50, DASH_DISTANCE, dashFrame, function(v) DASH_DISTANCE = v end)
+
+-- ──────────────────────────────────────────────────────────
+-- ABA 3: SEGUIR (COM AIMBOT)
+-- ──────────────────────────────────────────────────────────
+local followToggleBtn
+local followAimbotBtn
+
+followToggleBtn = createBtn("SEGUIR JOGADOR: OFF", UDim2.new(0.05, 0, 0, 10), Color3.fromRGB(100, 50, 150), followFrame, function()
+    FOLLOW_ENABLED = not FOLLOW_ENABLED
+    ORBIT_ENABLED = false
+    DASH_PASS_ENABLED = false
+    followToggleBtn.Text = FOLLOW_ENABLED and "SEGUIR JOGADOR: ON" or "SEGUIR JOGADOR: OFF"
+    followToggleBtn.BackgroundColor3 = FOLLOW_ENABLED and Color3.fromRGB(50, 180, 100) or Color3.fromRGB(100, 50, 150)
+    ClickSound:Play()
+end)
+
+followAimbotBtn = createBtn("AIMBOT (SEGUIR): OFF", UDim2.new(0.05, 0, 0, 50), Color3.fromRGB(150, 100, 50), followFrame, function()
+    FOLLOW_AIMBOT = not FOLLOW_AIMBOT
+    followAimbotBtn.Text = FOLLOW_AIMBOT and "AIMBOT (SEGUIR): ON" or "AIMBOT (SEGUIR): OFF"
+    followAimbotBtn.BackgroundColor3 = FOLLOW_AIMBOT and Color3.fromRGB(50, 150, 200) or Color3.fromRGB(150, 100, 50)
+    ClickSound:Play()
+end)
+
+createSlider("Seguir: Distância", UDim2.new(0.05, 0, 0, 100), 1, 30, FOLLOW_DISTANCE, followFrame, function(v) FOLLOW_DISTANCE = v end)
+
+-- ──────────────────────────────────────────────────────────
+-- ABA 4: OPÇÕES GERAIS
+-- ──────────────────────────────────────────────────────────
+local CloseBtn = createBtn("FECHAR MENU", UDim2.new(0.05, 0, 0, 20), Color3.fromRGB(150, 50, 50), settingsFrame, function()
+    ClickSound:Play()
+    ScreenGui:Destroy()
+end)
+
+-- Lógica de Minimizar
+local isMinimized = false
+local originalSize = MainFrame.Size
+
+MinimizeBtn.MouseButton1Click:Connect(function()
+    ClickSound:Play()
+    isMinimized = not isMinimized
+    if isMinimized then
+        MainFrame:TweenSize(UDim2.new(0, 250, 0, 40), "Out", "Quart", 0.3, true)
+        TabContainer.Visible = false
+        ContentContainer.Visible = false
+        MinimizeBtn.Text = "+"
+    else
+        MainFrame:TweenSize(originalSize, "Out", "Quart", 0.3, true)
+        TabContainer.Visible = true
+        ContentContainer.Visible = true
+        MinimizeBtn.Text = "-"
+    end
+end)
+
+-- Abrir aba padrão
+tabs["Orbit"].Visible = true
+tabButtons[1].TextColor3 = Color3.fromRGB(255, 255, 255)
+tabButtons[1].BackgroundColor3 = Color3.fromRGB(50, 50, 100)
+
+print("Manus Combat V3 Versão Final - Com rolagem lateral nas categorias!")
