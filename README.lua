@@ -1,9 +1,9 @@
 --[[ 
    Manus Combat V3 + Seguir (VERSÃO DEFINITIVA)
-   Abas: ORBIT | PASSAR | SEGUIR | IA | OPÇÕES
+   Abas: ORBIT | PASSAR | SEGUIR | OPÇÕES
    Altura movida para a aba ORBIT com Scroll funcional
    Compatível com Delta Executor
-   COM TELA DE CARREGAMENTO RGB E CHAT IA DINÂMICA
+   COM TELA DE CARREGAMENTO RGB
    ROLAGEM LATERAL NAS CATEGORIAS E VERTICAL NO CHAT
 ]]
 
@@ -362,7 +362,7 @@ local function createMainGUI()
     TabScroll.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
     TabScroll.BorderSizePixel = 0
     TabScroll.ScrollBarThickness = 0
-    TabScroll.CanvasSize = UDim2.new(0, 450, 0, 0)
+    TabScroll.CanvasSize = UDim2.new(0, 360, 0, 0)
     TabScroll.ScrollingDirection = Enum.ScrollingDirection.X
     TabScroll.Parent = MainFrame
 
@@ -423,17 +423,15 @@ local function createMainGUI()
         return btn
     end
 
-    -- Criar as Abas
+    -- Criar as Abas (SEM IA)
     local orbitFrame = createTabFrame("Orbit", 350)
     local dashFrame = createTabFrame("Dash", 300)
     local followFrame = createTabFrame("Follow", 250)
-    local aiFrame = createTabFrame("IA", 245)
     local settingsFrame = createTabFrame("Settings", 150)
 
     createTabBtn("Orbit", "ORBIT")
     createTabBtn("Dash", "PASSAR")
     createTabBtn("Follow", "SEGUIR")
-    createTabBtn("IA", "IA")
     createTabBtn("Settings", "OPÇÕES")
 
     -- Funções Auxiliares de UI
@@ -528,4 +526,7 @@ local function createMainGUI()
     OrbitNameInput.Font = Enum.Font.Gotham
     OrbitNameInput.TextSize = 10
     OrbitNameInput.Parent = orbitFrame
-    Instance.new("UICorner").Parent = OrbitNameInp
+    Instance.new("UICorner").Parent = OrbitNameInput
+    
+    OrbitNameInput:GetPropertyChangedSignal("Text"):Connect(function()
+        TAR
