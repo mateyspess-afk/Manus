@@ -3,14 +3,12 @@
    Abas: ORBIT | PASSAR | SEGUIR | OPÇÕES
    Altura movida para a aba ORBIT com Scroll funcional
    Compatível com Delta Executor
-   COM ROLAGEM LATERAL NAS CATEGORIAS
 ]]
 
 local Players = game:GetService("Players")
 local LocalPlayer = Players.LocalPlayer
 local UserInputService = game:GetService("UserInputService")
 local RunService = game:GetService("RunService")
-local TweenService = game:GetService("TweenService")
 
 -- Configurações Globais
 local ORBIT_DISTANCE = 10
@@ -137,8 +135,8 @@ ScreenGui.Parent = LocalPlayer:WaitForChild("PlayerGui")
 
 local MainFrame = Instance.new("Frame")
 MainFrame.Name = "MainFrame"
-MainFrame.Size = UDim2.new(0, 250, 0, 320)
-MainFrame.Position = UDim2.new(0.5, -125, 0.5, -160)
+MainFrame.Size = UDim2.new(0, 280, 0, 360)
+MainFrame.Position = UDim2.new(0.5, -140, 0.5, -180)
 MainFrame.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
 MainFrame.BorderSizePixel = 0
 MainFrame.Active = true
@@ -154,19 +152,27 @@ local Title = Instance.new("TextLabel")
 Title.Size = UDim2.new(1, 0, 0, 40)
 Title.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
 Title.Text = "MANUS COMBAT V3"
-Title.TextColor3 = Color3.fromRGB(255, 0, 0)
+Title.TextColor3 = Color3.fromRGB(255, 255, 255)
 Title.Font = Enum.Font.GothamBold
 Title.TextSize = 13
 Title.Parent = MainFrame
 Instance.new("UICorner").Parent = Title
 
--- Som de Clique
+-- Efeito RGB no título
+local hue = 0
+local rgbEffect = RunService.RenderStepped:Connect(function()
+    hue = (hue + 0.005) % 1
+    local color = Color3.fromHSV(hue, 1, 1)
+    Title.TextColor3 = color
+end)
+
+-- Som de Clique (apenas para o botão minimizar)
 local ClickSound = Instance.new("Sound")
 ClickSound.SoundId = "rbxassetid://12221967"
 ClickSound.Volume = 0.5
 ClickSound.Parent = game:GetService("SoundService")
 
--- Botão Minimizar
+-- Botão Minimizar (COM ÁUDIO DE CLIQUE)
 local MinimizeBtn = Instance.new("TextButton")
 MinimizeBtn.Size = UDim2.new(0, 30, 0, 30)
 MinimizeBtn.Position = UDim2.new(1, -38, 0, 5)
@@ -178,24 +184,25 @@ MinimizeBtn.TextSize = 18
 MinimizeBtn.Parent = MainFrame
 Instance.new("UICorner").Parent = MinimizeBtn
 
--- Container das Abas (COM ROLAGEM LATERAL)
+-- Container das Abas (COM SCROLL HORIZONTAL)
 local TabContainer = Instance.new("ScrollingFrame")
 TabContainer.Size = UDim2.new(1, 0, 0, 45)
 TabContainer.Position = UDim2.new(0, 0, 0, 40)
 TabContainer.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
 TabContainer.BorderSizePixel = 0
 TabContainer.ScrollBarThickness = 4
-TabContainer.ScrollBarImageColor3 = Color3.fromRGB(80, 80, 80)
-TabContainer.ScrollingDirection = Enum.ScrollingDirection.X
+TabContainer.ScrollBarImageColor3 = Color3.fromRGB(100, 100, 150)
 TabContainer.CanvasSize = UDim2.new(0, 0, 0, 0)
 TabContainer.AutomaticCanvasSize = Enum.AutomaticSize.X
+TabContainer.VerticalScrollBarPosition = Enum.VerticalScrollBarPosition.Right
+TabContainer.ScrollBarImageTransparency = 0.5
 TabContainer.Parent = MainFrame
 
--- Container interno para os botões das abas (para facilitar o layout)
-local TabButtonsContainer = Instance.new("Frame")
-TabButtonsContainer.Size = UDim2.new(0, 0, 1, 0)
-TabButtonsContainer.BackgroundTransparency = 1
-TabButtonsContainer.Parent = TabContainer
+-- Container dos botões dentro do Scroll
+local ButtonsContainer = Instance.new("Frame")
+ButtonsContainer.Size = UDim2.new(1, 0, 1, 0)
+ButtonsContainer.BackgroundTransparency = 1
+ButtonsContainer.Parent = TabContainer
 
 -- Container do Conteúdo
 local ContentContainer = Instance.new("Frame")
@@ -212,7 +219,7 @@ local function createTabFrame(name, canvasSize)
     frame.Size = UDim2.new(1, 0, 1, 0)
     frame.BackgroundTransparency = 1
     frame.BorderSizePixel = 0
-    frame.ScrollBarThickness = 6
+    frame.ScrollBarThickness = 3
     frame.ScrollBarImageColor3 = Color3.fromRGB(80, 80, 80)
     frame.CanvasSize = UDim2.new(0, 0, 0, canvasSize or 300)
     frame.Visible = false
@@ -221,25 +228,21 @@ local function createTabFrame(name, canvasSize)
     return frame
 end
 
-local function createTabBtn(name, text, posX)
+local function createTabBtn(name, text, positionX)
     local btn = Instance.new("TextButton")
     btn.Size = UDim2.new(0, 80, 1, -5)
-    btn.Position = UDim2.new(0, posX, 0, 2.5)
+    btn.Position = UDim2.new(0, positionX, 0, 2)
     btn.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
     btn.BorderSizePixel = 0
     btn.Text = text
     btn.TextColor3 = Color3.fromRGB(150, 150, 150)
     btn.Font = Enum.Font.GothamBold
-    btn.TextSize = 10
-    btn.Parent = TabButtonsContainer
+    btn.TextSize = 11
+    btn.Parent = ButtonsContainer
     
     Instance.new("UICorner").Parent = btn
     
-    -- Atualizar CanvasSize do TabContainer
-    TabButtonsContainer.Size = UDim2.new(0, posX + 85, 1, 0)
-
     btn.MouseButton1Click:Connect(function()
-        ClickSound:Play()
         for tabName, tabFrame in pairs(tabs) do
             tabFrame.Visible = false
         end
@@ -256,16 +259,25 @@ local function createTabBtn(name, text, posX)
 end
 
 -- Criar as Abas
-local orbitFrame = createTabFrame("Orbit", 350)
-local dashFrame = createTabFrame("Dash", 300)
-local followFrame = createTabFrame("Follow", 250)
-local settingsFrame = createTabFrame("Settings", 150)
+local orbitFrame = createTabFrame("Orbit", 380)
+local dashFrame = createTabFrame("Dash", 330)
+local followFrame = createTabFrame("Follow", 280)
+local settingsFrame = createTabFrame("Settings", 180)
 
--- Criar botões com rolagem lateral
-createTabBtn("Orbit", "ORBIT", 5)
-createTabBtn("Dash", "PASSAR", 90)
-createTabBtn("Follow", "SEGUIR", 175)
-createTabBtn("Settings", "OPÇÕES", 260)
+-- Criar apenas os botões principais (sem EXTRA e MAIS)
+local buttonsData = {
+    {"Orbit", "ORBIT", 5},
+    {"Dash", "PASSAR", 90},
+    {"Follow", "SEGUIR", 175},
+    {"Settings", "OPÇÕES", 260}
+}
+
+for _, data in ipairs(buttonsData) do
+    createTabBtn(data[1], data[2], data[3])
+end
+
+-- Ajustar CanvasSize do container de abas
+ButtonsContainer.Size = UDim2.new(0, 345, 1, 0)
 
 -- Funções Auxiliares de UI
 local function createBtn(text, pos, color, parent, callback)
@@ -307,29 +319,22 @@ local function createSlider(text, pos, min, max, default, parent, callback)
     sliderFill.Parent = sliderBg
     Instance.new("UICorner").Parent = sliderFill
 
-    local dragging = false
-    local connection
-    
     sliderBg.InputBegan:Connect(function(input)
         if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
-            dragging = true
+            local connection
             connection = RunService.RenderStepped:Connect(function()
-                if dragging then
-                    local mPos = UserInputService:GetMouseLocation()
-                    local p = math.clamp((mPos.X - sliderBg.AbsolutePosition.X) / sliderBg.AbsoluteSize.X, 0, 1)
-                    sliderFill.Size = UDim2.new(p, 0, 1, 0)
-                    local val = math.floor(min + (p * (max - min)))
-                    label.Text = text .. ": " .. val
-                    callback(val)
+                local mPos = UserInputService:GetMouseLocation()
+                local p = math.clamp((mPos.X - sliderBg.AbsolutePosition.X) / sliderBg.AbsoluteSize.X, 0, 1)
+                sliderFill.Size = UDim2.new(p, 0, 1, 0)
+                local val = math.floor(min + (p * (max - min)))
+                label.Text = text .. ": " .. val
+                callback(val)
+            end)
+            UserInputService.InputEnded:Connect(function(i)
+                if i.UserInputType == Enum.UserInputType.MouseButton1 or i.UserInputType == Enum.UserInputType.Touch then
+                    if connection then connection:Disconnect() end
                 end
             end)
-        end
-    end)
-    
-    UserInputService.InputEnded:Connect(function(i)
-        if i.UserInputType == Enum.UserInputType.MouseButton1 or i.UserInputType == Enum.UserInputType.Touch then
-            dragging = false
-            if connection then connection:Disconnect() end
         end
     end)
 end
@@ -344,14 +349,12 @@ orbitToggleBtn = createBtn("ORBIT: OFF", UDim2.new(0.05, 0, 0, 10), Color3.fromR
     FOLLOW_ENABLED = false
     orbitToggleBtn.Text = ORBIT_ENABLED and "ORBIT: ON" or "ORBIT: OFF"
     orbitToggleBtn.BackgroundColor3 = ORBIT_ENABLED and Color3.fromRGB(50, 180, 50) or Color3.fromRGB(180, 50, 50)
-    ClickSound:Play()
 end)
 
 aimToggleBtn = createBtn("AIMBOT CORPO: OFF", UDim2.new(0.05, 0, 0, 50), Color3.fromRGB(150, 100, 50), orbitFrame, function()
     AIMBOT_CORPO = not AIMBOT_CORPO
     aimToggleBtn.Text = AIMBOT_CORPO and "AIMBOT CORPO: ON" or "AIMBOT CORPO: OFF"
     aimToggleBtn.BackgroundColor3 = AIMBOT_CORPO and Color3.fromRGB(50, 150, 200) or Color3.fromRGB(150, 100, 50)
-    ClickSound:Play()
 end)
 
 createSlider("Orbit: Velocidade", UDim2.new(0.05, 0, 0, 100), 1, 20, ORBIT_SPEED, orbitFrame, function(v) ORBIT_SPEED = v end)
@@ -372,7 +375,7 @@ Instance.new("UICorner").Parent = OrbitNameInput
 OrbitNameInput.FocusLost:Connect(function() TARGET_NAME = OrbitNameInput.Text end)
 
 -- ──────────────────────────────────────────────────────────
--- ABA 2: PASSAR RÁPIDO (COM AIMBOT)
+-- ABA 2: PASSAR RÁPIDO
 -- ──────────────────────────────────────────────────────────
 local dashToggleBtn
 local dashAimbotBtn
@@ -383,21 +386,19 @@ dashToggleBtn = createBtn("PASSAR RÁPIDO: OFF", UDim2.new(0.05, 0, 0, 10), Colo
     FOLLOW_ENABLED = false
     dashToggleBtn.Text = DASH_PASS_ENABLED and "PASSAR RÁPIDO: ON" or "PASSAR RÁPIDO: OFF"
     dashToggleBtn.BackgroundColor3 = DASH_PASS_ENABLED and Color3.fromRGB(50, 180, 180) or Color3.fromRGB(50, 50, 180)
-    ClickSound:Play()
 end)
 
 dashAimbotBtn = createBtn("AIMBOT (PASSAR): OFF", UDim2.new(0.05, 0, 0, 50), Color3.fromRGB(150, 100, 50), dashFrame, function()
     DASH_AIMBOT = not DASH_AIMBOT
     dashAimbotBtn.Text = DASH_AIMBOT and "AIMBOT (PASSAR): ON" or "AIMBOT (PASSAR): OFF"
     dashAimbotBtn.BackgroundColor3 = DASH_AIMBOT and Color3.fromRGB(50, 150, 200) or Color3.fromRGB(150, 100, 50)
-    ClickSound:Play()
 end)
 
 createSlider("Passar: Velocidade", UDim2.new(0.05, 0, 0, 100), 5, 60, DASH_SPEED, dashFrame, function(v) DASH_SPEED = v end)
 createSlider("Passar: Distância", UDim2.new(0.05, 0, 0, 140), 2, 50, DASH_DISTANCE, dashFrame, function(v) DASH_DISTANCE = v end)
 
 -- ──────────────────────────────────────────────────────────
--- ABA 3: SEGUIR (COM AIMBOT)
+-- ABA 3: SEGUIR
 -- ──────────────────────────────────────────────────────────
 local followToggleBtn
 local followAimbotBtn
@@ -408,14 +409,12 @@ followToggleBtn = createBtn("SEGUIR JOGADOR: OFF", UDim2.new(0.05, 0, 0, 10), Co
     DASH_PASS_ENABLED = false
     followToggleBtn.Text = FOLLOW_ENABLED and "SEGUIR JOGADOR: ON" or "SEGUIR JOGADOR: OFF"
     followToggleBtn.BackgroundColor3 = FOLLOW_ENABLED and Color3.fromRGB(50, 180, 100) or Color3.fromRGB(100, 50, 150)
-    ClickSound:Play()
 end)
 
 followAimbotBtn = createBtn("AIMBOT (SEGUIR): OFF", UDim2.new(0.05, 0, 0, 50), Color3.fromRGB(150, 100, 50), followFrame, function()
     FOLLOW_AIMBOT = not FOLLOW_AIMBOT
     followAimbotBtn.Text = FOLLOW_AIMBOT and "AIMBOT (SEGUIR): ON" or "AIMBOT (SEGUIR): OFF"
     followAimbotBtn.BackgroundColor3 = FOLLOW_AIMBOT and Color3.fromRGB(50, 150, 200) or Color3.fromRGB(150, 100, 50)
-    ClickSound:Play()
 end)
 
 createSlider("Seguir: Distância", UDim2.new(0.05, 0, 0, 100), 1, 30, FOLLOW_DISTANCE, followFrame, function(v) FOLLOW_DISTANCE = v end)
@@ -424,11 +423,11 @@ createSlider("Seguir: Distância", UDim2.new(0.05, 0, 0, 100), 1, 30, FOLLOW_DIS
 -- ABA 4: OPÇÕES GERAIS
 -- ──────────────────────────────────────────────────────────
 local CloseBtn = createBtn("FECHAR MENU", UDim2.new(0.05, 0, 0, 20), Color3.fromRGB(150, 50, 50), settingsFrame, function()
-    ClickSound:Play()
     ScreenGui:Destroy()
+    rgbEffect:Disconnect()
 end)
 
--- Lógica de Minimizar
+-- Lógica de Minimizar (COM ÁUDIO DE CLIQUE)
 local isMinimized = false
 local originalSize = MainFrame.Size
 
@@ -436,7 +435,7 @@ MinimizeBtn.MouseButton1Click:Connect(function()
     ClickSound:Play()
     isMinimized = not isMinimized
     if isMinimized then
-        MainFrame:TweenSize(UDim2.new(0, 250, 0, 40), "Out", "Quart", 0.3, true)
+        MainFrame:TweenSize(UDim2.new(0, 280, 0, 40), "Out", "Quart", 0.3, true)
         TabContainer.Visible = false
         ContentContainer.Visible = false
         MinimizeBtn.Text = "+"
@@ -453,4 +452,4 @@ tabs["Orbit"].Visible = true
 tabButtons[1].TextColor3 = Color3.fromRGB(255, 255, 255)
 tabButtons[1].BackgroundColor3 = Color3.fromRGB(50, 50, 100)
 
-print("Manus Combat V3 Versão Final - Com rolagem lateral nas categorias!")
+print("Manus Combat V3 Versão Final - Com título RGB, rolagem lateral e som apenas no minimizar!")
