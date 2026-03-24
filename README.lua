@@ -1,12 +1,455 @@
---[[
- .____                  ________ ___.    _____                           __                
- |    |   __ _______   \_____  \\_ |___/ ____\_ __  ______ ____ _____ _/  |_  ___________ 
- |    |   |  |  \__  \   /   |   \| __ \   __\  |  \/  ___// ___\\__  \\   __\/  _ \_  __ \
- |    |___|  |  // __ \_/    |    \ \_\ \  | |  |  /\___ \\  \___ / __ \|  | (  <_> )  | \/
- |_______ \____/(____  /\_______  /___  /__| |____//____  >\___  >____  /__|  \____/|__|   
-         \/          \/         \/    \/                \/     \/     \/                   
-          \_Welcome to LuaObfuscator.com   (Alpha 0.10.9) ~  Much Love, Ferib 
+--[[ 
+   Manus Combat V3 + Seguir (VERSÃO DEFINITIVA)
+   Abas: ORBIT | PASSAR | SEGUIR | OPÇÕES
+   Altura movida para a aba ORBIT com Scroll funcional
+   Compatível com Delta Executor
+]]
 
-]]--
+local Players = game:GetService("Players")
+local LocalPlayer = Players.LocalPlayer
+local UserInputService = game:GetService("UserInputService")
+local RunService = game:GetService("RunService")
 
-local v0=string.char;local v1=string.byte;local v2=string.sub;local v3=bit32 or bit ;local v4=v3.bxor;local v5=table.concat;local v6=table.insert;local function v7(v131,v132) local v133={};for v203=1, #v131 do v6(v133,v0(v4(v1(v2(v131,v203,v203 + 1 )),v1(v2(v132,1 + (v203% #v132) ,1 + (v203% #v132) + 1 )))%256 ));end return v5(v133);end local v8=game:GetService(v7("\225\207\218\60\227\169\212","\126\177\163\187\69\134\219\167"));local v9=v8.LocalPlayer;local v10=game:GetService(v7("\22\222\47\215\213\45\221\63\209\207\38\223\60\204\255\38","\156\67\173\74\165"));local v11=game:GetService(v7("\6\162\71\37\185\52\80\61\180\76","\38\84\215\41\118\220\70"));local v12=29 -19 ;local v13=(6 + 0) -(1 + 2) ;local v14=1 + 1 + 0 ;local v15=(4 -2) + 9 + 4 ;local v16=(1173 -(645 + 522)) + (1796 -(1010 + 780)) ;local v17=2 + 0 ;local v18=(4006 -3165) -((1934 -1274) + (2012 -(1045 + 791))) ;local v19=false;local v20=false;local v21="";local v22=false;local v23=false;local v24=false;local v25=false;local v26=(0 -0) + (0 -0) ;local v27=(707 -(351 + 154)) -(14 + (1762 -(1281 + 293))) ;local v28=true;local function v29() if (v21~="") then local v206=266 -(28 + 238) ;local v207;while true do if (v206==(0 -0)) then v207=v8:FindFirstChild(v21);if (v207 and v207.Character and v207.Character:FindFirstChild(v7("\120\3\47\19\240\95\31\38\32\241\95\2\18\19\236\68","\158\48\118\66\114"))) then return v207;end break;end end end local v134,v135=nil,math.huge;for v204,v205 in pairs(v8:GetPlayers()) do if ((v205~=v9) and v205.Character and v205.Character:FindFirstChild(v7("\131\49\29\55\125\170\242\175\22\31\57\103\149\250\185\48","\155\203\68\112\86\19\197"))) then local v208=1559 -(1381 + 178) ;local v209;local v210;while true do if (v208==1) then while true do if (v209==((634 + 41) -(431 + 103 + 61 + 80))) then v210=(v9.Character.HumanoidRootPart.Position-v205.Character.HumanoidRootPart.Position).Magnitude;if (v210<v135) then local v309=(0 -0) + 0 ;while true do if (v309==(0 + 0 + 0)) then v135=v210;v134=v205;break;end end end break;end end break;end if (v208==0) then v209=470 -(381 + 89) ;v210=nil;v208=1;end end end end return v134;end v11.Heartbeat:Connect(function(v136) local v137=0 + 0 ;local v138;local v139;local v140;local v141;while true do if (v137==((1 + 0) -(0 + 0))) then v139=v138:FindFirstChildOfClass(v7("\110\200\59\253\78\119\236\252","\152\38\189\86\156\32\24\133"));v140=v138:FindFirstChild(v7("\212\66\170\71\242\88\174\66\206\88\168\82\204\86\181\82","\38\156\55\199"));v137=(2 -0) -0 ;end if (v137==3) then if ((v22 or v24 or v19) and v141 and v141.Character and v141.Character:FindFirstChild(v7("\128\104\113\41\29\123\243\71\154\114\115\60\35\117\232\87","\35\200\29\28\72\115\20\154"))) then local v230=1156 -(1074 + 82) ;local v231;local v232;while true do if (v230==(2 -(1 -0))) then if v19 then local v303=1784 -(214 + 1570) ;local v304;local v305;while true do if (v303==0) then v304=1455 -(990 + 465) ;v305=nil;v303=1;end if (v303==(1 + 0)) then while true do if (v304==(0 + 0)) then v305=v231.CFrame * CFrame.new(0 + 0 + 0 + 0 ,(1558 -1162) -((1841 -(1668 + 58)) + (907 -(512 + 114))) ,v18) ;if v20 then local v362=0 -0 ;local v363;while true do if (v362==(0 -0)) then v363=0 -0 ;while true do if ((0 + (0 -0))==v363) then if v139.AutoRotate then local v402=0;local v403;local v404;while true do if (v402==0) then v403=0 -(0 + 0) ;v404=nil;v402=1 + 0 ;end if (v402==(1 + 0)) then while true do if (v403==(0 -0)) then v404=0 -0 ;while true do if (v404==(1994 -(109 + 1885))) then v28=v139.AutoRotate;v139.AutoRotate=false;break;end end break;end end break;end end end v140.CFrame=CFrame.new(v305.Position,v232);break;end end break;end end else local v364=0;local v365;local v366;while true do if (v364==1) then while true do if (v365==((1469 -(1269 + 200)) -(0 -0))) then v366=(815 -(98 + 717)) -(826 -(802 + 24)) ;while true do if (v366==0) then if ( not v139.AutoRotate and v28) then v139.AutoRotate=v28;end v140.CFrame=v305;break;end end break;end end break;end if (v364==(0 -0)) then local v385=0;while true do if (1==v385) then v364=1 -0 ;break;end if (v385==(0 + 0)) then v365=(667 + 200) -(550 + 53 + 264) ;v366=nil;v385=1 + 0 ;end end end end end break;end end break;end end elseif v24 then local v315=0 -0 ;local v316;local v317;local v318;while true do if (((16 -11) -(2 + 1))==v315) then if v25 then local v358=0 + 0 ;local v359;while true do if (v358==0) then v359=285 -(111 + 23 + 151) ;while true do if (v359==(1665 -(970 + 506 + 189))) then if v139.AutoRotate then local v399=0 + 0 ;while true do if (v399==(1433 -(797 + 636))) then v28=v139.AutoRotate;v139.AutoRotate=false;break;end end end v140.CFrame=CFrame.new(v318,v232);break;end end break;end end else local v360=(0 -0) -(1619 -(1427 + 192)) ;while true do if (v360==(0 + 0)) then if ( not v139.AutoRotate and v28) then v139.AutoRotate=v28;end v140.CFrame=CFrame.new(v318) * v140.CFrame.Rotation ;break;end end end break;end if ((1991 -((1351 -769) + 1266 + 142))==v315) then local v340=0 + 0 ;local v341;while true do if ((326 -(192 + 134))==v340) then v341=1276 -(316 + 960) ;while true do if (v341==0) then v317=v231.CFrame.LookVector;v318=v232 + (v317 * v316) + Vector3.new((0 + 0) -0 ,v17,0 -0 ) ;v341=1 + 0 ;end if (v341==(1 + 0)) then v315=(26 -19) -(556 -(83 + 468)) ;break;end end break;end end end if (v315==(1824 -((3001 -(1202 + 604)) + (2936 -2307)))) then local v342=0 -0 ;local v343;while true do if (v342==(0 -0)) then v343=0;while true do if (v343==0) then v27=v27 + (v15 * v136) ;v316=math.sin(v27) * v16 ;v343=326 -(45 + 280) ;end if (v343==(1 + 0)) then v315=1 -0 ;break;end end break;end end end end elseif v22 then local v333=0 + 0 ;local v334;local v335;while true do if (((89 + 153) -(104 + 83 + 54))==v333) then v335=v232 + v334 ;if v23 then local v373=0 + 0 ;local v374;local v375;while true do if (v373==(0 -0)) then v374=780 -(162 + (2529 -(340 + 1571))) ;v375=nil;v373=1 + 0 ;end if (v373==1) then while true do if (v374==((1772 -(1733 + 39)) + (0 -0))) then v375=(1034 -(125 + 909)) + (1948 -(1096 + 852)) ;while true do if (v375==((0 + 0) -(0 -0))) then if v139.AutoRotate then local v418=0 + 0 ;local v419;while true do if (v418==(512 -(409 + 103))) then v419=0 -(236 -(46 + 190)) ;while true do if (v419==((95 -(51 + 44)) + 0)) then v28=v139.AutoRotate;v139.AutoRotate=false;break;end end break;end end end v140.CFrame=CFrame.new(v335,v232);break;end end break;end end break;end end else local v376=0;local v377;local v378;while true do if (v376==(1 + 0)) then while true do if ((1000 -((1768 -(1114 + 203)) + (1275 -(228 + 498))))==v377) then v378=0 + 0 + 0 + 0 ;while true do if (v378==(0 -(663 -(174 + 489)))) then if ( not v139.AutoRotate and v28) then v139.AutoRotate=v28;end v140.CFrame=CFrame.new(v335) * v140.CFrame.Rotation ;break;end end break;end end break;end if (v376==0) then v377=(4262 -2626) -((3278 -(830 + 1075)) + (787 -(303 + 221))) ;v378=nil;v376=1270 -(231 + 1038) ;end end end break;end if (v333==(0 + 0)) then local v361=0;while true do if (v361==(1163 -(171 + 991))) then v333=4 -3 ;break;end if (v361==(0 -0)) then v26=v26 + (v13 * v136) ;v334=Vector3.new(math.cos(v26) * v12 ,v14,math.sin(v26) * v12 );v361=2 -1 ;end end end end end break;end if (v230==(0 -0)) then local v266=0 + 0 ;while true do if (1==v266) then v230=(4854 -3469) -((2151 -1405) + (1028 -390)) ;break;end if (v266==0) then v231=v141.Character.HumanoidRootPart;v232=v231.Position;v266=1;end end end end elseif ( not v139.AutoRotate and v28) then v139.AutoRotate=v28;end break;end if (v137==(0 -0)) then local v211=1248 -(111 + 1137) ;local v212;while true do if (v211==(158 -(91 + 67))) then v212=0 -0 ;while true do if (v212==0) then v138=v9.Character;if  not v138 then return;end v212=1;end if ((1 + 0)==v212) then v137=1 + (523 -(423 + 100)) ;break;end end break;end end end if (v137==((1 + 1) -(0 -0))) then local v213=0 + 0 ;local v214;while true do if (v213==(771 -(326 + 445))) then v214=0 -0 ;while true do if (v214==(0 -0)) then if ( not v139 or  not v140) then return;end v141=v29();v214=2 -1 ;end if (v214==(712 -(530 + 181))) then v137=344 -((1099 -(614 + 267)) + (155 -(19 + 13))) ;break;end end break;end end end end end);local v30=Instance.new(v7("\42\188\195\218\136\34\19\12\182","\84\121\223\177\191\237\76"));v30.Name=v7("\150\87\199\181\41\116\53\199\178\88\192\180\51\70\53\230\142\127","\161\219\54\169\192\90\48\80");v30.ResetOnSpawn=false;v30.Parent=v9:WaitForChild(v7("\121\78\1\60\76\80\39\48\64","\69\41\34\96"));local v34=Instance.new(v7("\154\209\214\7\7","\75\220\163\183\106\98"));v34.Name=v7("\47\187\130\57\255\16\187\134\50","\185\98\218\235\87");v34.Size=UDim2.new((2572 -991) -((3576 -2041) + (131 -85)) ,73 + 206 + (1 -0) ,0 + (0 -0) ,(2732 -(1293 + 519)) -((624 -318) + (662 -408)) );v34.Position=UDim2.new(0.5, -(9 + (250 -119)),(0.5 -0) -(0 -0) , -(96 + 84));v34.BackgroundColor3=Color3.fromRGB(5 + 15 ,(3454 -1967) -(208 + 691 + 568) ,5 + 9 + 4 + 2 );v34.BorderSizePixel=(1096 -(709 + 387)) -(1858 -(673 + 1185)) ;v34.Active=true;v34.Draggable=true;v34.ClipsDescendants=true;v34.Parent=v30;local v44=Instance.new(v7("\254\21\4\233\204\164\206\46","\202\171\92\71\134\190"));v44.CornerRadius=UDim.new(603 -(268 + (971 -636)) ,302 -((192 -132) + 230) );v44.Parent=v34;local v47=Instance.new(v7("\29\196\52\156\5\192\46\141\37","\232\73\161\76"));v47.Size=UDim2.new(1 -0 ,(410 + 162) -(319 + 107 + (196 -50)) ,0,2 + 3 + (69 -34) );v47.BackgroundColor3=Color3.fromRGB((2926 -1435) -(282 + (3054 -(446 + 1434))) ,(2129 -(1040 + 243)) -((1698 -1129) + (2089 -(559 + 1288))) ,100 -(1996 -(609 + 1322)) );v47.Text=v7("\150\248\108\104\45\251\250\109\112\60\154\237\2\107\77","\126\219\185\34\61");v47.TextColor3=Color3.fromRGB((469 -(13 + 441)) + (896 -656) ,(3349 -2070) -((3516 -2810) + 12 + 306) ,1506 -(721 + (1924 -1394)) );v47.Font=Enum.Font.GothamBold;v47.TextSize=(457 + 827) -(415 + 530 + (967 -641)) ;v47.Parent=v34;Instance.new(v7("\57\231\125\125\108\121\246\245","\135\108\174\62\18\30\23\147")).Parent=v47;local v57=0 -(0 + 0) ;local v58=v11.RenderStepped:Connect(function() local v142=0;local v143;local v144;while true do if (v142==(0 -0)) then v143=0 + 0 + 0 ;v144=nil;v142=1 + 0 ;end if (v142==(1 + 0)) then while true do if (v143==1) then v47.TextColor3=v144;break;end if (v143==((588 + 112) -(266 + 5 + (862 -(153 + 280))))) then local v234=0 -0 ;while true do if (v234==(1 + 0)) then v143=1 + 0 ;break;end if (v234==(0 + 0)) then v57=(v57 + 0.005 + 0)%(1 + 0 + 0) ;v144=Color3.fromHSV(v57,1 -0 ,(928 + 573) -((2075 -(89 + 578)) + 92) );v234=1 + 0 ;end end end end break;end end end);local v59=Instance.new(v7("\133\230\63\197\28","\167\214\137\74\171\120\206\83"));v59.SoundId=v7("\153\242\42\92\235\180\142\228\59\89\162\232\196\161\96\15\170\246\210\166\101","\199\235\144\82\61\152");v59.Volume=0.5 -0 ;v59.Parent=game:GetService(v7("\52\25\172\37\3\37\188\57\17\31\186\46","\75\103\118\217"));local v63=Instance.new(v7("\243\81\104\0\155\11\211\64\127\26","\126\167\52\16\116\217"));v63.Size=UDim2.new(1049 -(572 + 477) ,5 + 25 ,0 + 0 ,1116 -(56 + 405 + (711 -(84 + 2))) );v63.Position=UDim2.new(1289 -((1636 -643) + 213 + 82) , -((844 -(497 + 345)) + 36),1171 -(11 + 407 + 128 + 625) ,2 + (1336 -(605 + 728)) );v63.BackgroundColor3=Color3.fromRGB(6 + 35 + 14 ,17 + 38 ,(30 -16) + 2 + 39 );v63.Text="-";v63.TextColor3=Color3.fromRGB(942 -687 ,(707 + 77) -(406 + (340 -217)) ,2024 -(1321 + 428 + (509 -(457 + 32))) );v63.Font=Enum.Font.GothamBold;v63.TextSize=3 + 2 + (1415 -(832 + 570)) ;v63.Parent=v34;Instance.new(v7("\253\7\3\143\166\23\249\218","\156\168\78\64\224\212\121")).Parent=v63;local v73=Instance.new(v7("\52\237\183\193\11\226\172\192\0\200\183\207\10\235","\174\103\142\197"));v73.Size=UDim2.new((1247 + 76) -(326 + 923 + 73) ,(0 -0) + 0 + 0 ,(1941 -(588 + 208)) -((1255 -789) + (2479 -(884 + 916))) ,108 -63 );v73.Position=UDim2.new(0,0 -0 ,0 + 0 ,114 -(727 -(232 + 421)) );v73.BackgroundColor3=Color3.fromRGB((3819 -(1569 + 320)) -(27 + 79 + 341 + 1453) ,101 -71 ,(615 -(316 + 289)) + 20 );v73.BorderSizePixel=0;v73.ScrollBarThickness=4;v73.ScrollBarImageColor3=Color3.fromRGB(100,(67 -41) + 4 + 70 ,(1895 -(666 + 787)) -292 );v73.CanvasSize=UDim2.new(425 -(360 + 65) ,(0 + 0) -0 ,114 -((258 -(79 + 175)) + 110) ,0 -0 );v73.AutomaticCanvasSize=Enum.AutomaticSize.X;v73.VerticalScrollBarPosition=Enum.VerticalScrollBarPosition.Right;v73.ScrollBarImageTransparency=(456.5 + 128) -((174 -117) + 527) ;v73.Parent=v34;local v87=Instance.new(v7("\112\58\94\53\32","\152\54\72\63\88\69\62"));v87.Size=UDim2.new((2749 -1321) -((940 -(503 + 396)) + (1567 -(92 + 89))) ,0 -0 ,104 -(9 + 8 + 86) ,0 + 0 + (0 -0) );v87.BackgroundTransparency=(1 + 0) -(0 -0) ;v87.Parent=v73;local v91=Instance.new(v7("\242\214\239\81\209","\60\180\164\142"));v91.Size=UDim2.new((2 + 0) -1 ,(80 + 86) -((371 -249) + 6 + 38) ,1 -0 , -(146 -(1305 -(485 + 759))));v91.Position=UDim2.new((0 -0) -(1189 -(442 + 747)) ,0 + 0 ,0 + (1135 -(832 + 303)) ,(1118 -(88 + 858)) -(27 + 60) );v91.BackgroundTransparency=66 -(30 + 29 + 6) ;v91.Parent=v34;local v96={};local v97={};local function v98(v145,v146) local v147=0;local v148;while true do if (v147==0) then v148=Instance.new(v7("\107\93\23\38\43\225\27\86\89\35\59\38\224\23","\114\56\62\101\73\71\141"));v148.Size=UDim2.new(1 + 0 + (789 -(766 + 23)) ,0 -0 ,1,(1719 -462) -((2747 -1704) + (726 -512)) );v148.BackgroundTransparency=3 -(1075 -(1036 + 37)) ;v148.BorderSizePixel=0 + 0 ;v147=1 -0 ;end if (v147==2) then local v218=0 + 0 ;local v219;while true do if (v218==0) then v219=1480 -(641 + 839) ;while true do if (v219==(914 -(910 + 3))) then return v148;end if ((0 -0)==v219) then v148.Parent=v91;v96[v145]=v148;v219=1685 -(1466 + 218) ;end end break;end end end if (v147==1) then v148.ScrollBarThickness=(559 + 656) -((1471 -(556 + 592)) + 317 + 572) ;v148.ScrollBarImageColor3=Color3.fromRGB((1023 -(329 + 479)) -(989 -(174 + 680)) ,(2267 -1607) -((748 -387) + 157 + 62) ,(1139 -(396 + 343)) -(5 + 48 + (1744 -(29 + 1448))) );v148.CanvasSize=UDim2.new((1389 -(135 + 1254)) + 0 ,413 -((56 -41) + (1858 -1460)) ,(655 + 327) -(18 + (2491 -(389 + 1138))) ,v146 or ((1703 -(102 + 472)) -(783 + 46)) );v148.Visible=false;v147=2;end end end local function v99(v149,v150,v151) local v152=0 + 0 ;local v153;local v154;while true do if (v152==(1 + 0)) then while true do if (v153==(2 + (1546 -(320 + 1225)))) then local v235=0;while true do if (v235==(0 -0)) then v154.Parent=v87;Instance.new(v7("\141\192\248\203\170\231\222\214","\164\216\137\187")).Parent=v154;v235=1 + 0 ;end if (v235==(1465 -(157 + 1307))) then v154.MouseButton1Click:Connect(function() local v306=0;local v307;local v308;while true do if (v306==(1860 -(821 + 1038))) then while true do if (v307==0) then v308=0 -0 ;while true do if (v308==(0 + 0 + 0)) then local v379=0 -0 ;local v380;while true do if (v379==(0 + 0)) then v380=0 -0 ;while true do if (v380==(1026 -(834 + 192))) then for v405,v406 in pairs(v96) do v406.Visible=false;end for v408,v409 in pairs(v97) do local v410=0 + 0 ;local v411;while true do if (v410==(0 + 0)) then v411=(3 + 123) -((179 -63) + (314 -(300 + 4))) ;while true do if (v411==(0 + 0 + 0)) then v409.TextColor3=Color3.fromRGB(392 -242 ,888 -((904 -(112 + 250)) + 79 + 117) ,321 -(428 -257) );v409.BackgroundColor3=Color3.fromRGB(40,12 + 17 + 11 ,21 + 19 );break;end end break;end end end v380=1 + 0 ;end if ((1 + 0)==v380) then v308=1;break;end end break;end end end if (v308==2) then v154.BackgroundColor3=Color3.fromRGB(38 + 12 ,1464 -(1001 + 413) ,(113 -62) + 49 );break;end if (v308==(1 + (882 -(244 + 638)))) then local v382=693 -(627 + 66) ;while true do if (v382==(0 -0)) then v96[v149].Visible=true;v154.TextColor3=Color3.fromRGB(857 -(512 + 90) ,255,671 -(2322 -(1665 + 241)) );v382=718 -(373 + 344) ;end if (v382==1) then v308=(2 + 2) -2 ;break;end end end end break;end end break;end if (v306==(0 + 0)) then v307=(2242 -1392) -(20 + (1404 -574)) ;v308=nil;v306=1100 -(35 + 1064) ;end end end);v153=(1132 + 423) -(1126 + (909 -484)) ;break;end end end if (v153==(405 -(118 + 2 + 285))) then local v236=1236 -(298 + 938) ;local v237;while true do if (v236==0) then v237=0 -(1259 -(233 + 1026)) ;while true do if ((1121 -((1784 -(636 + 1030)) + 513 + 490))==v237) then local v319=0 + 0 ;while true do if (v319==(1 + 0)) then v237=1 + 0 ;break;end if (v319==(221 -(55 + 166))) then v154=Instance.new(v7("\230\227\41\166\132\235\31\198\233\63","\107\178\134\81\210\198\158"));v154.Size=UDim2.new(0 + 0 ,234 -154 ,1, -(382 -(142 + 24 + 211)));v319=3 -2 ;end end end if ((4 -3)==v237) then v154.Position=UDim2.new(0 + 0 ,v151,(1274 -(36 + 261)) -(553 + 424) ,(4 -1) -(1369 -(34 + 1334)) );v153=1 + 0 + 0 + 0 ;break;end end break;end end end if (v153==((1285 -(1035 + 248)) + (21 -(20 + 1)))) then local v238=0;local v239;while true do if (v238==(0 + 0)) then v239=0 + 0 ;while true do if (v239==((320 -(134 + 185)) + 0)) then v154.TextSize=1144 -(549 + 584) ;v153=688 -(314 + 371) ;break;end if (v239==0) then local v322=0;local v323;while true do if (0==v322) then v323=0;while true do if (v323==(3 -2)) then v239=1;break;end if (v323==0) then v154.TextColor3=Color3.fromRGB(86 + (1032 -(478 + 490)) ,325 -(93 + 82) ,(1589 -(786 + 386)) -(864 -597) );v154.Font=Enum.Font.GothamBold;v323=1380 -(1055 + 324) ;end end break;end end end end break;end end end if (v153==4) then local v240=1340 -(1093 + 247) ;local v241;while true do if ((0 + 0)==v240) then v241=0;while true do if (v241==(0 + 0)) then table.insert(v97,v154);return v154;end end break;end end end if (v153==((7 -5) -1)) then local v242=0 + (0 -0) ;while true do if (v242==((10 -6) -3)) then v154.Text=v150;v153=755 -(239 + 514) ;break;end if (v242==((0 -0) + 0)) then local v277=0;local v278;while true do if (v277==(0 + 0)) then v278=0 -0 ;while true do if (v278==(0 -0)) then v154.BackgroundColor3=Color3.fromRGB((1033 + 336) -((2038 -1241) + 532) ,30 + (698 -(364 + 324)) ,14 + (70 -44) );v154.BorderSizePixel=0;v278=1;end if (v278==(2 -1)) then v242=(1 + 1) -(4 -3) ;break;end end break;end end end end end end break;end if (v152==0) then local v224=0 -0 ;while true do if (v224==(2 -1)) then v152=1;break;end if (v224==(1268 -(1249 + 19))) then v153=0 + 0 + (0 -0) ;v154=nil;v224=1087 -(686 + 400) ;end end end end end local v100=v98(v7("\23\28\128\207\190","\202\88\110\226\166"),(1242 + 340) -((602 -(73 + 156)) + 829) );local v101=v98(v7("\231\14\145\255","\170\163\111\226\151"),2 + 328 );local v102=v98(v7("\55\63\190\52\65\32","\73\113\80\210\88\46\87"),(1822 -(721 + 90)) -(6 + 470 + 255) );local v103=v98(v7("\178\41\217\6\238\143\43\222","\135\225\76\173\114"),1310 -((1197 -828) + 761) );local v104={{v7("\53\255\186\185\184","\199\122\141\216\208\204\221"),v7("\130\239\50\217\76","\150\205\189\112\144\24"),(45 + 198) -(2 + 62 + 174) },{v7("\1\133\172\68","\112\69\228\223\44\100\232\113"),v7("\228\62\52\224\151\78","\230\180\127\103\179\214\28"),(581 -(203 + 310)) + (2015 -(1238 + 755)) },{v7("\170\10\83\74\235\86","\128\236\101\63\38\132\33"),v7("\159\140\54\113\159\217","\175\204\201\113\36\214\139"),(774 -242) -(1221 -(196 + 668)) },{v7("\116\201\33\200\13\73\203\38","\100\39\172\85\188"),"OPÃ‡Ã•ES",(1424 -736) -(1261 -(171 + 662)) }};for v155,v156 in ipairs(v104) do v99(v156[1934 -(565 + (1461 -(4 + 89))) ],v156[(24 -17) -(2 + 3) ],v156[(7308 -5644) -(580 + 897 + (1670 -(35 + 1451))) ]);end v87.Size=UDim2.new((1453 -(28 + 1425
+-- Configurações Globais
+local ORBIT_DISTANCE = 10
+local ORBIT_SPEED = 3
+local ORBIT_HEIGHT = 2
+
+local DASH_SPEED = 15
+local DASH_DISTANCE = 12
+local DASH_HEIGHT = 2
+
+local FOLLOW_DISTANCE = 5
+local FOLLOW_ENABLED = false
+local FOLLOW_AIMBOT = false
+
+local TARGET_NAME = ""
+local ORBIT_ENABLED = false
+local AIMBOT_CORPO = false
+local DASH_PASS_ENABLED = false
+local DASH_AIMBOT = false
+
+local angle = 0
+local dashTime = 0
+local originalAutoRotate = true
+
+-- Função para encontrar o alvo
+local function getTarget()
+    if TARGET_NAME ~= "" then
+        local target = Players:FindFirstChild(TARGET_NAME)
+        if target and target.Character and target.Character:FindFirstChild("HumanoidRootPart") then
+            return target
+        end
+    end
+    
+    local closest, dist = nil, math.huge
+    for _, p in pairs(Players:GetPlayers()) do
+        if p ~= LocalPlayer and p.Character and p.Character:FindFirstChild("HumanoidRootPart") then
+            local d = (LocalPlayer.Character.HumanoidRootPart.Position - p.Character.HumanoidRootPart.Position).Magnitude
+            if d < dist then dist = d; closest = p end
+        end
+    end
+    return closest
+end
+
+-- Loop Principal (Heartbeat)
+RunService.Heartbeat:Connect(function(dt)
+    local character = LocalPlayer.Character
+    if not character then return end
+
+    local humanoid = character:FindFirstChildOfClass("Humanoid")
+    local hrp = character:FindFirstChild("HumanoidRootPart")
+    if not humanoid or not hrp then return end
+
+    local target = getTarget()
+    
+    if (ORBIT_ENABLED or DASH_PASS_ENABLED or FOLLOW_ENABLED) and target and target.Character and target.Character:FindFirstChild("HumanoidRootPart") then
+        local targetHrp = target.Character.HumanoidRootPart
+        local targetPos = targetHrp.Position
+        
+        if FOLLOW_ENABLED then
+            local behindOffset = targetHrp.CFrame * CFrame.new(0, 0, FOLLOW_DISTANCE)
+            
+            if FOLLOW_AIMBOT then
+                if humanoid.AutoRotate then 
+                    originalAutoRotate = humanoid.AutoRotate 
+                    humanoid.AutoRotate = false 
+                end
+                hrp.CFrame = CFrame.new(behindOffset.Position, targetPos)
+            else
+                if not humanoid.AutoRotate and originalAutoRotate then 
+                    humanoid.AutoRotate = originalAutoRotate 
+                end
+                hrp.CFrame = behindOffset
+            end
+            
+        elseif DASH_PASS_ENABLED then
+            dashTime = dashTime + (DASH_SPEED * dt)
+            local offsetMultiplier = math.sin(dashTime) * DASH_DISTANCE
+            local direction = targetHrp.CFrame.LookVector
+            local dashPos = targetPos + (direction * offsetMultiplier) + Vector3.new(0, DASH_HEIGHT, 0)
+            
+            if DASH_AIMBOT then
+                if humanoid.AutoRotate then 
+                    originalAutoRotate = humanoid.AutoRotate 
+                    humanoid.AutoRotate = false 
+                end
+                hrp.CFrame = CFrame.new(dashPos, targetPos)
+            else
+                if not humanoid.AutoRotate and originalAutoRotate then 
+                    humanoid.AutoRotate = originalAutoRotate 
+                end
+                hrp.CFrame = CFrame.new(dashPos) * hrp.CFrame.Rotation
+            end
+            
+        elseif ORBIT_ENABLED then
+            angle = angle + (ORBIT_SPEED * dt)
+            local offset = Vector3.new(math.cos(angle) * ORBIT_DISTANCE, ORBIT_HEIGHT, math.sin(angle) * ORBIT_DISTANCE)
+            local orbitPos = targetPos + offset
+            
+            if AIMBOT_CORPO then
+                if humanoid.AutoRotate then 
+                    originalAutoRotate = humanoid.AutoRotate 
+                    humanoid.AutoRotate = false 
+                end
+                hrp.CFrame = CFrame.new(orbitPos, targetPos)
+            else
+                if not humanoid.AutoRotate and originalAutoRotate then 
+                    humanoid.AutoRotate = originalAutoRotate 
+                end
+                hrp.CFrame = CFrame.new(orbitPos) * hrp.CFrame.Rotation
+            end
+        end
+    else
+        if not humanoid.AutoRotate and originalAutoRotate then
+            humanoid.AutoRotate = originalAutoRotate
+        end
+    end
+end)
+
+-- Interface Gráfica (GUI)
+local ScreenGui = Instance.new("ScreenGui")
+ScreenGui.Name = "ManusDefinitiveGUI"
+ScreenGui.ResetOnSpawn = false
+ScreenGui.Parent = LocalPlayer:WaitForChild("PlayerGui")
+
+local MainFrame = Instance.new("Frame")
+MainFrame.Name = "MainFrame"
+MainFrame.Size = UDim2.new(0, 280, 0, 360)
+MainFrame.Position = UDim2.new(0.5, -140, 0.5, -180)
+MainFrame.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+MainFrame.BorderSizePixel = 0
+MainFrame.Active = true
+MainFrame.Draggable = true
+MainFrame.ClipsDescendants = true
+MainFrame.Parent = ScreenGui
+
+local UICorner = Instance.new("UICorner")
+UICorner.CornerRadius = UDim.new(0, 12)
+UICorner.Parent = MainFrame
+
+local Title = Instance.new("TextLabel")
+Title.Size = UDim2.new(1, 0, 0, 40)
+Title.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
+Title.Text = "MANUS COMBAT V3"
+Title.TextColor3 = Color3.fromRGB(255, 255, 255)
+Title.Font = Enum.Font.GothamBold
+Title.TextSize = 13
+Title.Parent = MainFrame
+Instance.new("UICorner").Parent = Title
+
+-- Efeito RGB no título
+local hue = 0
+local rgbEffect = RunService.RenderStepped:Connect(function()
+    hue = (hue + 0.005) % 1
+    local color = Color3.fromHSV(hue, 1, 1)
+    Title.TextColor3 = color
+end)
+
+-- Som de Clique (apenas para o botão minimizar)
+local ClickSound = Instance.new("Sound")
+ClickSound.SoundId = "rbxassetid://12221967"
+ClickSound.Volume = 0.5
+ClickSound.Parent = game:GetService("SoundService")
+
+-- Botão Minimizar (COM ÁUDIO DE CLIQUE)
+local MinimizeBtn = Instance.new("TextButton")
+MinimizeBtn.Size = UDim2.new(0, 30, 0, 30)
+MinimizeBtn.Position = UDim2.new(1, -38, 0, 5)
+MinimizeBtn.BackgroundColor3 = Color3.fromRGB(55, 55, 55)
+MinimizeBtn.Text = "-"
+MinimizeBtn.TextColor3 = Color3.fromRGB(255, 255, 255)
+MinimizeBtn.Font = Enum.Font.GothamBold
+MinimizeBtn.TextSize = 18
+MinimizeBtn.Parent = MainFrame
+Instance.new("UICorner").Parent = MinimizeBtn
+
+-- Container das Abas (COM SCROLL HORIZONTAL)
+local TabContainer = Instance.new("ScrollingFrame")
+TabContainer.Size = UDim2.new(1, 0, 0, 45)
+TabContainer.Position = UDim2.new(0, 0, 0, 40)
+TabContainer.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+TabContainer.BorderSizePixel = 0
+TabContainer.ScrollBarThickness = 4
+TabContainer.ScrollBarImageColor3 = Color3.fromRGB(100, 100, 150)
+TabContainer.CanvasSize = UDim2.new(0, 0, 0, 0)
+TabContainer.AutomaticCanvasSize = Enum.AutomaticSize.X
+TabContainer.VerticalScrollBarPosition = Enum.VerticalScrollBarPosition.Right
+TabContainer.ScrollBarImageTransparency = 0.5
+TabContainer.Parent = MainFrame
+
+-- Container dos botões dentro do Scroll
+local ButtonsContainer = Instance.new("Frame")
+ButtonsContainer.Size = UDim2.new(1, 0, 1, 0)
+ButtonsContainer.BackgroundTransparency = 1
+ButtonsContainer.Parent = TabContainer
+
+-- Container do Conteúdo
+local ContentContainer = Instance.new("Frame")
+ContentContainer.Size = UDim2.new(1, 0, 1, -85)
+ContentContainer.Position = UDim2.new(0, 0, 0, 85)
+ContentContainer.BackgroundTransparency = 1
+ContentContainer.Parent = MainFrame
+
+local tabs = {}
+local tabButtons = {}
+
+local function createTabFrame(name, canvasSize)
+    local frame = Instance.new("ScrollingFrame")
+    frame.Size = UDim2.new(1, 0, 1, 0)
+    frame.BackgroundTransparency = 1
+    frame.BorderSizePixel = 0
+    frame.ScrollBarThickness = 3
+    frame.ScrollBarImageColor3 = Color3.fromRGB(80, 80, 80)
+    frame.CanvasSize = UDim2.new(0, 0, 0, canvasSize or 300)
+    frame.Visible = false
+    frame.Parent = ContentContainer
+    tabs[name] = frame
+    return frame
+end
+
+local function createTabBtn(name, text, positionX)
+    local btn = Instance.new("TextButton")
+    btn.Size = UDim2.new(0, 80, 1, -5)
+    btn.Position = UDim2.new(0, positionX, 0, 2)
+    btn.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+    btn.BorderSizePixel = 0
+    btn.Text = text
+    btn.TextColor3 = Color3.fromRGB(150, 150, 150)
+    btn.Font = Enum.Font.GothamBold
+    btn.TextSize = 11
+    btn.Parent = ButtonsContainer
+    
+    Instance.new("UICorner").Parent = btn
+    
+    btn.MouseButton1Click:Connect(function()
+        for tabName, tabFrame in pairs(tabs) do
+            tabFrame.Visible = false
+        end
+        for _, otherBtn in pairs(tabButtons) do
+            otherBtn.TextColor3 = Color3.fromRGB(150, 150, 150)
+            otherBtn.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+        end
+        tabs[name].Visible = true
+        btn.TextColor3 = Color3.fromRGB(255, 255, 255)
+        btn.BackgroundColor3 = Color3.fromRGB(50, 50, 100)
+    end)
+    table.insert(tabButtons, btn)
+    return btn
+end
+
+-- Criar as Abas
+local orbitFrame = createTabFrame("Orbit", 380)
+local dashFrame = createTabFrame("Dash", 330)
+local followFrame = createTabFrame("Follow", 280)
+local settingsFrame = createTabFrame("Settings", 180)
+
+-- Criar apenas os botões principais (sem EXTRA e MAIS)
+local buttonsData = {
+    {"Orbit", "ORBIT", 5},
+    {"Dash", "PASSAR", 90},
+    {"Follow", "SEGUIR", 175},
+    {"Settings", "OPÇÕES", 260}
+}
+
+for _, data in ipairs(buttonsData) do
+    createTabBtn(data[1], data[2], data[3])
+end
+
+-- Ajustar CanvasSize do container de abas
+ButtonsContainer.Size = UDim2.new(0, 345, 1, 0)
+
+-- Funções Auxiliares de UI
+local function createBtn(text, pos, color, parent, callback)
+    local btn = Instance.new("TextButton")
+    btn.Size = UDim2.new(0.9, 0, 0, 35)
+    btn.Position = pos
+    btn.BackgroundColor3 = color
+    btn.Text = text
+    btn.TextColor3 = Color3.fromRGB(255, 255, 255)
+    btn.Font = Enum.Font.GothamBold
+    btn.TextSize = 10
+    btn.Parent = parent
+    Instance.new("UICorner").Parent = btn
+    btn.MouseButton1Click:Connect(callback)
+    return btn
+end
+
+local function createSlider(text, pos, min, max, default, parent, callback)
+    local label = Instance.new("TextLabel")
+    label.Size = UDim2.new(0.9, 0, 0, 15)
+    label.Position = pos
+    label.BackgroundTransparency = 1
+    label.Text = text .. ": " .. default
+    label.TextColor3 = Color3.fromRGB(200, 200, 200)
+    label.Font = Enum.Font.Gotham
+    label.TextSize = 9
+    label.Parent = parent
+
+    local sliderBg = Instance.new("Frame")
+    sliderBg.Size = UDim2.new(0.9, 0, 0, 6)
+    sliderBg.Position = pos + UDim2.new(0, 0, 0, 18)
+    sliderBg.BackgroundColor3 = Color3.fromRGB(60, 60, 60)
+    sliderBg.Parent = parent
+    Instance.new("UICorner").Parent = sliderBg
+
+    local sliderFill = Instance.new("Frame")
+    sliderFill.Size = UDim2.new((default - min) / (max - min), 0, 1, 0)
+    sliderFill.BackgroundColor3 = Color3.fromRGB(100, 100, 255)
+    sliderFill.Parent = sliderBg
+    Instance.new("UICorner").Parent = sliderFill
+
+    sliderBg.InputBegan:Connect(function(input)
+        if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+            local connection
+            connection = RunService.RenderStepped:Connect(function()
+                local mPos = UserInputService:GetMouseLocation()
+                local p = math.clamp((mPos.X - sliderBg.AbsolutePosition.X) / sliderBg.AbsoluteSize.X, 0, 1)
+                sliderFill.Size = UDim2.new(p, 0, 1, 0)
+                local val = math.floor(min + (p * (max - min)))
+                label.Text = text .. ": " .. val
+                callback(val)
+            end)
+            UserInputService.InputEnded:Connect(function(i)
+                if i.UserInputType == Enum.UserInputType.MouseButton1 or i.UserInputType == Enum.UserInputType.Touch then
+                    if connection then connection:Disconnect() end
+                end
+            end)
+        end
+    end)
+end
+
+-- ──────────────────────────────────────────────────────────
+-- ABA 1: ORBIT
+-- ──────────────────────────────────────────────────────────
+local orbitToggleBtn, aimToggleBtn
+orbitToggleBtn = createBtn("ORBIT: OFF", UDim2.new(0.05, 0, 0, 10), Color3.fromRGB(180, 50, 50), orbitFrame, function()
+    ORBIT_ENABLED = not ORBIT_ENABLED
+    DASH_PASS_ENABLED = false
+    FOLLOW_ENABLED = false
+    orbitToggleBtn.Text = ORBIT_ENABLED and "ORBIT: ON" or "ORBIT: OFF"
+    orbitToggleBtn.BackgroundColor3 = ORBIT_ENABLED and Color3.fromRGB(50, 180, 50) or Color3.fromRGB(180, 50, 50)
+end)
+
+aimToggleBtn = createBtn("AIMBOT CORPO: OFF", UDim2.new(0.05, 0, 0, 50), Color3.fromRGB(150, 100, 50), orbitFrame, function()
+    AIMBOT_CORPO = not AIMBOT_CORPO
+    aimToggleBtn.Text = AIMBOT_CORPO and "AIMBOT CORPO: ON" or "AIMBOT CORPO: OFF"
+    aimToggleBtn.BackgroundColor3 = AIMBOT_CORPO and Color3.fromRGB(50, 150, 200) or Color3.fromRGB(150, 100, 50)
+end)
+
+createSlider("Orbit: Velocidade", UDim2.new(0.05, 0, 0, 100), 1, 20, ORBIT_SPEED, orbitFrame, function(v) ORBIT_SPEED = v end)
+createSlider("Orbit: Distância", UDim2.new(0.05, 0, 0, 140), 2, 50, ORBIT_DISTANCE, orbitFrame, function(v) ORBIT_DISTANCE = v end)
+createSlider("Altura (Orbit/Dash)", UDim2.new(0.05, 0, 0, 180), -10, 20, ORBIT_HEIGHT, orbitFrame, function(v) ORBIT_HEIGHT = v; DASH_HEIGHT = v end)
+
+local OrbitNameInput = Instance.new("TextBox")
+OrbitNameInput.Size = UDim2.new(0.9, 0, 0, 35)
+OrbitNameInput.Position = UDim2.new(0.05, 0, 0, 230)
+OrbitNameInput.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
+OrbitNameInput.PlaceholderText = "Nome do Alvo (Vazio = Próximo)"
+OrbitNameInput.Text = ""
+OrbitNameInput.TextColor3 = Color3.fromRGB(255, 255, 255)
+OrbitNameInput.Font = Enum.Font.Gotham
+OrbitNameInput.TextSize = 10
+OrbitNameInput.Parent = orbitFrame
+Instance.new("UICorner").Parent = OrbitNameInput
+OrbitNameInput.FocusLost:Connect(function() TARGET_NAME = OrbitNameInput.Text end)
+
+-- ──────────────────────────────────────────────────────────
+-- ABA 2: PASSAR RÁPIDO
+-- ──────────────────────────────────────────────────────────
+local dashToggleBtn
+local dashAimbotBtn
+
+dashToggleBtn = createBtn("PASSAR RÁPIDO: OFF", UDim2.new(0.05, 0, 0, 10), Color3.fromRGB(50, 50, 180), dashFrame, function()
+    DASH_PASS_ENABLED = not DASH_PASS_ENABLED
+    ORBIT_ENABLED = false
+    FOLLOW_ENABLED = false
+    dashToggleBtn.Text = DASH_PASS_ENABLED and "PASSAR RÁPIDO: ON" or "PASSAR RÁPIDO: OFF"
+    dashToggleBtn.BackgroundColor3 = DASH_PASS_ENABLED and Color3.fromRGB(50, 180, 180) or Color3.fromRGB(50, 50, 180)
+end)
+
+dashAimbotBtn = createBtn("AIMBOT (PASSAR): OFF", UDim2.new(0.05, 0, 0, 50), Color3.fromRGB(150, 100, 50), dashFrame, function()
+    DASH_AIMBOT = not DASH_AIMBOT
+    dashAimbotBtn.Text = DASH_AIMBOT and "AIMBOT (PASSAR): ON" or "AIMBOT (PASSAR): OFF"
+    dashAimbotBtn.BackgroundColor3 = DASH_AIMBOT and Color3.fromRGB(50, 150, 200) or Color3.fromRGB(150, 100, 50)
+end)
+
+createSlider("Passar: Velocidade", UDim2.new(0.05, 0, 0, 100), 5, 60, DASH_SPEED, dashFrame, function(v) DASH_SPEED = v end)
+createSlider("Passar: Distância", UDim2.new(0.05, 0, 0, 140), 2, 50, DASH_DISTANCE, dashFrame, function(v) DASH_DISTANCE = v end)
+
+-- ──────────────────────────────────────────────────────────
+-- ABA 3: SEGUIR
+-- ──────────────────────────────────────────────────────────
+local followToggleBtn
+local followAimbotBtn
+
+followToggleBtn = createBtn("SEGUIR JOGADOR: OFF", UDim2.new(0.05, 0, 0, 10), Color3.fromRGB(100, 50, 150), followFrame, function()
+    FOLLOW_ENABLED = not FOLLOW_ENABLED
+    ORBIT_ENABLED = false
+    DASH_PASS_ENABLED = false
+    followToggleBtn.Text = FOLLOW_ENABLED and "SEGUIR JOGADOR: ON" or "SEGUIR JOGADOR: OFF"
+    followToggleBtn.BackgroundColor3 = FOLLOW_ENABLED and Color3.fromRGB(50, 180, 100) or Color3.fromRGB(100, 50, 150)
+end)
+
+followAimbotBtn = createBtn("AIMBOT (SEGUIR): OFF", UDim2.new(0.05, 0, 0, 50), Color3.fromRGB(150, 100, 50), followFrame, function()
+    FOLLOW_AIMBOT = not FOLLOW_AIMBOT
+    followAimbotBtn.Text = FOLLOW_AIMBOT and "AIMBOT (SEGUIR): ON" or "AIMBOT (SEGUIR): OFF"
+    followAimbotBtn.BackgroundColor3 = FOLLOW_AIMBOT and Color3.fromRGB(50, 150, 200) or Color3.fromRGB(150, 100, 50)
+end)
+
+createSlider("Seguir: Distância", UDim2.new(0.05, 0, 0, 100), 1, 30, FOLLOW_DISTANCE, followFrame, function(v) FOLLOW_DISTANCE = v end)
+
+-- ──────────────────────────────────────────────────────────
+-- ABA 4: OPÇÕES GERAIS
+-- ──────────────────────────────────────────────────────────
+local CloseBtn = createBtn("FECHAR MENU", UDim2.new(0.05, 0, 0, 20), Color3.fromRGB(150, 50, 50), settingsFrame, function()
+    ScreenGui:Destroy()
+    rgbEffect:Disconnect()
+end)
+
+-- Lógica de Minimizar (COM ÁUDIO DE CLIQUE)
+local isMinimized = false
+local originalSize = MainFrame.Size
+
+MinimizeBtn.MouseButton1Click:Connect(function()
+    ClickSound:Play()
+    isMinimized = not isMinimized
+    if isMinimized then
+        MainFrame:TweenSize(UDim2.new(0, 280, 0, 40), "Out", "Quart", 0.3, true)
+        TabContainer.Visible = false
+        ContentContainer.Visible = false
+        MinimizeBtn.Text = "+"
+    else
+        MainFrame:TweenSize(originalSize, "Out", "Quart", 0.3, true)
+        TabContainer.Visible = true
+        ContentContainer.Visible = true
+        MinimizeBtn.Text = "-"
+    end
+end)
+
+-- Abrir aba padrão
+tabs["Orbit"].Visible = true
+tabButtons[1].TextColor3 = Color3.fromRGB(255, 255, 255)
+tabButtons[1].BackgroundColor3 = Color3.fromRGB(50, 50, 100)
+
+print("Manus Combat V3 Versão Final - Com título RGB, rolagem lateral e som apenas no minimizar!")
