@@ -1,12 +1,647 @@
---[[
- .____                  ________ ___.    _____                           __                
- |    |    __ _______   \_____  \\_ |___/ ____\_ __  ______ ____ _____ _/  |_  ___________ 
- |    |   |  |  \__  \   /   |   \| __ \   __\  |  \/  ___// ___\\__  \\   __\/  _ \_  __ \
- |    |___|  |  // __ \_/    |    \ \_\ \  | |  |  /\___ \\  \___ / __ \|  | (  <_> )  | \/
- |_______ \____/(____  /\_______  /___  /__| |____//____  >\___  >____  /__|  \____/|__|   
-         \/          \/         \/    \/                \/     \/     \/                   
-          \_Welcome to LuaObfuscator.com   (Alpha 0.10.9) ~  Much Love, Ferib 
+--[[ 
+   Manus Hub + Seguir + Passar + Orbit (VERSÃO COM PERFIL)
+   Abas: ORBIT | PASSAR | SEGUIR | PASSAR+ORBIT | OPÇÕES
+   caso copia o script iremos denunciar e sua conta e removidas
+]]
 
-]]--
+local Players = game:GetService("Players")
+local LocalPlayer = Players.LocalPlayer
+local UserInputService = game:GetService("UserInputService")
+local RunService = game:GetService("RunService")
+local TweenService = game:GetService("TweenService")
+local HttpService = game:GetService("HttpService")
 
-local v0=game:GetService("Players");local v1=v0.LocalPlayer;local v2=game:GetService("UserInputService");local v3=game:GetService("RunService");local v4=game:GetService("TweenService");local v5=game:GetService("HttpService");local v6=22 -12 ;local v7=1766 -(454 + 1309) ;local v8=1 + 1 ;local v9=21 -6 ;local v10=12;local v11=2 -0 ;local v12=5;local v13=false;local v14=false;local v15="";local v16=false;local v17=false;local v18=false;local v19=false;local v20=false;local v21=13 -8 ;local v22=8;local v23=305 -(134 + 151) ;local v24=1673 -(970 + 695) ;local v25=3 -1 ;local v26=false;local v27=0;local v28=1990 -(582 + 1408) ;local v29=true;local v30=0 -0 ;local v31=nil;local function v32(v165) local v166=0 -0 ;local v167;local v168;local v169;while true do if (v166==0) then if  not v165 then return false;end if (v165==v1) then return false;end v166=3 -2 ;end if (v166==(1828 -(1195 + 629))) then if  not v169 then return false;end return true;end if (v166==(2 -0)) then v168=v167:FindFirstChildOfClass("Humanoid");if  not v168 then return false;end v166=3;end if (v166==(242 -(187 + 54))) then v167=v165.Character;if  not v167 then return false;end v166=2;end if (v166==(783 -(162 + 618))) then if (v168.Health<=0) then return false;end v169=v167:FindFirstChild("HumanoidRootPart");v166=3 + 1 ;end end end local function v33() local v170=nil;local v171=math.huge;for v234,v235 in pairs(v0:GetPlayers()) do if (v235~=v1) then if v32(v235) then local v296=0 + 0 ;local v297;while true do if (v296==0) then v297=v235.Character.HumanoidRootPart;if (v1.Character and v1.Character:FindFirstChild("HumanoidRootPart")) then local v371=0 -0 ;local v372;while true do if (v371==(0 -0)) then v372=(v1.Character.HumanoidRootPart.Position-v297.Position).Magnitude;if (v372<v171) then local v395=0 + 0 ;while true do if (v395==(1636 -(1373 + 263))) then v171=v372;v170=v235;break;end end end break;end end end break;end end end end end return v170;end local function v34() local v172=0;while true do if (v172==(1000 -(451 + 549))) then if  not (v16 or v18 or v13 or v20) then local v298=0;while true do if (v298==0) then v31=nil;return;end end end if (v15~="") then local v299=v0:FindFirstChild(v15);if (v299 and v32(v299)) then local v336=0;while true do if (v336==0) then v31=v299;return;end end else local v337=0 + 0 ;while true do if (v337==0) then if (v15~="") then local v383=0 -0 ;local v384;while true do if (v383==(1 -0)) then if v384 then v384.Text="";end break;end if (v383==(1384 -(746 + 638))) then v15="";v384=orbitFrame and orbitFrame:FindFirstChild("TextBox") ;v383=1 + 0 ;end end end v31=nil;break;end end end end v172=1 -0 ;end if (v172==(342 -(218 + 123))) then if ( not v31 or  not v32(v31)) then v31=v33();end break;end end end v3.Heartbeat:Connect(function(v173) local v174=v1.Character;if  not v174 then return;end local v175=v174:FindFirstChildOfClass("Humanoid");local v176=v174:FindFirstChild("HumanoidRootPart");if ( not v175 or  not v176) then return;end v34();if ((v16 or v18 or v13 or v20) and v31) then local v236=v31.Character;if v236 then local v292=v236:FindFirstChild("HumanoidRootPart");if v292 then local v332=v292.Position;if v20 then local v342=1581 -(1535 + 46) ;local v343;local v344;local v345;local v346;while true do if (v342==(0 + 0)) then v30=v30 + (v23 * v173) ;v27=v27 + (v21 * v173) ;v342=1 + 0 ;end if (v342==(561 -(306 + 254))) then v343=Vector3.new(math.cos(v27) * v22 ,v25,math.sin(v27) * v22 );v344=v292.CFrame.LookVector;v342=1 + 1 ;end if (v342==(5 -2)) then if v26 then local v387=1467 -(899 + 568) ;while true do if (v387==(0 + 0)) then if v175.AutoRotate then v29=v175.AutoRotate;v175.AutoRotate=false;end v176.CFrame=CFrame.new(v346,v332);break;end end else local v388=0;while true do if (v388==(0 -0)) then if ( not v175.AutoRotate and v29) then v175.AutoRotate=v29;end v176.CFrame=CFrame.new(v346) * v176.CFrame.Rotation ;break;end end end break;end if (v342==(605 -(268 + 335))) then v345=v344 * math.sin(v30) * v24 ;v346=v332 + v343 + v345 ;v342=293 -(60 + 230) ;end end elseif v13 then local v373=572 -(426 + 146) ;local v374;while true do if (v373==(0 + 0)) then v374=v292.CFrame * CFrame.new(1456 -(282 + 1174) ,811 -(569 + 242) ,v12) ;if v14 then if v175.AutoRotate then local v401=0 -0 ;while true do if (v401==0) then v29=v175.AutoRotate;v175.AutoRotate=false;break;end end end v176.CFrame=CFrame.new(v374.Position,v332);else local v397=0 + 0 ;while true do if (v397==(1024 -(706 + 318))) then if ( not v175.AutoRotate and v29) then v175.AutoRotate=v29;end v176.CFrame=v374;break;end end end break;end end elseif v18 then v28=v28 + (v9 * v173) ;local v385=v332 + (v292.CFrame.LookVector * math.sin(v28) * v10) + Vector3.new(0,v11,1251 -(721 + 530) ) ;if v19 then local v391=1271 -(945 + 326) ;while true do if (v391==(0 -0)) then if v175.AutoRotate then v29=v175.AutoRotate;v175.AutoRotate=false;end v176.CFrame=CFrame.new(v385,v332);break;end end else local v392=0 + 0 ;while true do if (v392==0) then if ( not v175.AutoRotate and v29) then v175.AutoRotate=v29;end v176.CFrame=CFrame.new(v385) * v176.CFrame.Rotation ;break;end end end elseif v16 then local v393=700 -(271 + 429) ;local v394;while true do if ((1 + 0)==v393) then if v17 then if v175.AutoRotate then local v413=0;while true do if (v413==0) then v29=v175.AutoRotate;v175.AutoRotate=false;break;end end end v176.CFrame=CFrame.new(v394,v332);else local v410=0;while true do if (v410==0) then if ( not v175.AutoRotate and v29) then v175.AutoRotate=v29;end v176.CFrame=CFrame.new(v394) * v176.CFrame.Rotation ;break;end end end break;end if (v393==0) then v27=v27 + (v7 * v173) ;v394=v332 + Vector3.new(math.cos(v27) * v6 ,v8,math.sin(v27) * v6 ) ;v393=1501 -(1408 + 92) ;end end end end end elseif ( not v175.AutoRotate and v29) then v175.AutoRotate=v29;end end);local v35=Instance.new("ScreenGui");v35.Name="ManusHubGUI";v35.ResetOnSpawn=false;v35.Parent=v1:WaitForChild("PlayerGui");local v39=Instance.new("Frame");v39.Size=UDim2.new(1086 -(461 + 625) ,280,0,460);v39.Position=UDim2.new(1288.5 -(993 + 295) , -140,0.5 + 0 , -(1401 -(418 + 753)));v39.BackgroundColor3=Color3.fromRGB(8 + 12 ,3 + 17 ,6 + 14 );v39.BorderSizePixel=0 + 0 ;v39.Active=true;v39.Draggable=true;v39.ClipsDescendants=true;v39.Parent=v35;local v48=Instance.new("UICorner");v48.CornerRadius=UDim.new(0,12);v48.Parent=v39;local v51=Instance.new("Frame");v51.Size=UDim2.new(529 -(406 + 123) ,1829 -(1749 + 20) ,0 + 0 ,1382 -(1249 + 73) );v51.Position=UDim2.new(0,8,0 + 0 ,1153 -(466 + 679) );v51.BackgroundColor3=Color3.fromRGB(84 -49 ,35,100 -65 );v51.BorderSizePixel=0;v51.BackgroundTransparency=1901 -(106 + 1794) ;v51.Parent=v39;local v58=Instance.new("ImageLabel");v58.Size=UDim2.new(0 + 0 ,13 + 37 ,0 -0 ,135 -85 );v58.Position=UDim2.new(114 -(4 + 110) ,5,584 -(57 + 527) ,1432 -(41 + 1386) );v58.BackgroundColor3=Color3.fromRGB(148 -(17 + 86) ,45,31 + 14 );v58.BackgroundTransparency=0 -0 ;v58.BorderSizePixel=0 -0 ;v58.Image="rbxthumb://type=AvatarHeadShot&id=7344788878&w=420&h=420";v58.Parent=v51;Instance.new("UICorner").Parent=v58;local v67=Instance.new("UICorner");v67.CornerRadius=UDim.new(166 -(122 + 44) ,8);v67.Parent=v58;local v70=Instance.new("TextLabel");v70.Size=UDim2.new(1 -0 , -(232 -162),0,28);v70.Position=UDim2.new(0 + 0 ,11 + 59 ,0 -0 ,73 -(30 + 35) );v70.BackgroundTransparency=1 + 0 ;v70.Text="MANUS HUB";v70.TextColor3=Color3.fromRGB(1512 -(1043 + 214) ,963 -708 ,255);v70.Font=Enum.Font.GothamBold;v70.TextSize=1228 -(323 + 889) ;v70.TextXAlignment=Enum.TextXAlignment.Left;v70.Parent=v39;local v82=Instance.new("TextLabel");v82.Size=UDim2.new(2 -1 , -70,0,596 -(361 + 219) );v82.Position=UDim2.new(320 -(53 + 267) ,16 + 54 ,413 -(15 + 398) ,1014 -(18 + 964) );v82.BackgroundTransparency=3 -2 ;v82.Text="by Mateusx9992";v82.TextColor3=Color3.fromRGB(105 + 75 ,114 + 66 ,1030 -(20 + 830) );v82.Font=Enum.Font.Gotham;v82.TextSize=10;v82.TextXAlignment=Enum.TextXAlignment.Left;v82.Parent=v39;local v93=0 + 0 ;local v94=v3.RenderStepped:Connect(function() local v177=126 -(116 + 10) ;while true do if (v177==(0 + 0)) then v93=(v93 + (738.005 -(542 + 196)))%(1 -0) ;v70.TextColor3=Color3.fromHSV(v93,1 + 0 ,1);break;end end end);local v95=Instance.new("Sound");v95.SoundId="rbxassetid://12221967";v95.Volume=0.5 + 0 ;v95.Parent=game:GetService("SoundService");local v99=Instance.new("TextButton");v99.Size=UDim2.new(0 + 0 ,28,0,28);v99.Position=UDim2.new(1, -(94 -58),0,15 -9 );v99.BackgroundColor3=Color3.fromRGB(1606 -(1126 + 425) ,460 -(118 + 287) ,55);v99.Text="-";v99.TextColor3=Color3.fromRGB(255,999 -744 ,1376 -(118 + 1003) );v99.Font=Enum.Font.GothamBold;v99.TextSize=52 -34 ;v99.Parent=v39;Instance.new("UICorner").Parent=v99;local v108=Instance.new("ScrollingFrame");v108.Size=UDim2.new(378 -(142 + 235) ,0 -0 ,0,45);v108.Position=UDim2.new(0 + 0 ,0,0,1047 -(553 + 424) );v108.BackgroundColor3=Color3.fromRGB(56 -26 ,27 + 3 ,30);v108.BorderSizePixel=0 + 0 ;v108.ScrollBarThickness=3 + 1 ;v108.ScrollBarImageColor3=Color3.fromRGB(43 + 57 ,58 + 42 ,325 -175 );v108.CanvasSize=UDim2.new(0,0 -0 ,0 -0 ,0);v108.AutomaticCanvasSize=Enum.AutomaticSize.X;v108.Parent=v39;local v119=Instance.new("Frame");v119.Size=UDim2.new(1 + 0 ,0 -0 ,1,0);v119.BackgroundTransparency=754 -(239 + 514) ;v119.Parent=v108;local v123=Instance.new("Frame");v123.Size=UDim2.new(1 + 0 ,1329 -(797 + 532) ,1, -115);v123.Position=UDim2.new(0 + 0 ,0 + 0 ,0 -0 ,1317 -(373 + 829) );v123.BackgroundTransparency=1;v123.Parent=v39;local v128={};local v129={};local function v130(v178,v179) local v180=Instance.new("ScrollingFrame");v180.Size=UDim2.new(732 -(476 + 255) ,1130 -(369 + 761) ,1,0 + 0 );v180.BackgroundTransparency=1;v180.BorderSizePixel=0;v180.ScrollBarThickness=3;v180.ScrollBarImageColor3=Color3.fromRGB(145 -65 ,151 -71 ,318 -(64 + 174) );v180.CanvasSize=UDim2.new(0 + 0 ,0 -0 ,336 -(144 + 192) ,v179 or (566 -(42 + 174)) );v180.Visible=false;v180.Parent=v123;v128[v178]=v180;return v180;end local function v131(v190,v191,v192) local v193=0 + 0 ;local v194;while true do if (v193==(4 + 0)) then table.insert(v129,v194);return v194;end if (v193==3) then v194.Parent=v119;Instance.new("UICorner").Parent=v194;v194.MouseButton1Click:Connect(function() local v294=0 + 0 ;while true do if (v294==(1506 -(363 + 1141))) then v194.BackgroundColor3=Color3.fromRGB(50,50,1680 -(1183 + 397) );break;end if (1==v294) then v128[v190].Visible=true;v194.TextColor3=Color3.fromRGB(776 -521 ,187 + 68 ,255);v294=2 + 0 ;end if (v294==(1975 -(1913 + 62))) then for v347,v348 in pairs(v128) do v348.Visible=false;end for v350,v351 in pairs(v129) do local v352=0 + 0 ;while true do if (v352==(0 -0)) then v351.TextColor3=Color3.fromRGB(2083 -(565 + 1368) ,564 -414 ,150);v351.BackgroundColor3=Color3.fromRGB(40,40,1701 -(1477 + 184) );break;end end end v294=1 -0 ;end end end);v193=4;end if (v193==(0 + 0)) then v194=Instance.new("TextButton");v194.Size=UDim2.new(856 -(564 + 292) ,138 -58 ,2 -1 , -(309 -(244 + 60)));v194.Position=UDim2.new(0,v192,0 + 0 ,2);v193=1;end if (v193==(477 -(41 + 435))) then v194.BackgroundColor3=Color3.fromRGB(40,1041 -(938 + 63) ,31 + 9 );v194.BorderSizePixel=0;v194.Text=v191;v193=1127 -(936 + 189) ;end if (v193==(1 + 1)) then v194.TextColor3=Color3.fromRGB(1763 -(1565 + 48) ,93 + 57 ,1288 -(782 + 356) );v194.Font=Enum.Font.GothamBold;v194.TextSize=11;v193=270 -(176 + 91) ;end end end local v132=v130("Orbit",400);local v133=v130("Dash",911 -561 );local v134=v130("Follow",442 -142 );local v135=v130("DashOrbit",450);local v136=v130("Settings",150);local v137={{"Orbit","ORBIT",5 + 0 },{"Dash","PASSAR",85},{"Follow","SEGUIR",165},{"DashOrbit","PASS+ORBIT",245},{"Settings","OPÃ‡Ã•ES",1272 -(245 + 702) }};for v195,v196 in ipairs(v137) do v131(v196[3 -2 ],v196[2],v196[3]);end v119.Size=UDim2.new(0 + 0 ,2303 -(260 + 1638) ,1,440 -(382 + 58) );local function v138(v197,v198,v199,v200,v201) local v202=0 -0 ;local v203;while true do if (v202==(3 + 0)) then Instance.new("UICorner").Parent=v203;v203.MouseButton1Click:Connect(v201);return v203;end if (v202==(3 -1)) then v203.Font=Enum.Font.GothamBold;v203.TextSize=29 -19 ;v203.Parent=v200;v202=1208 -(902 + 303) ;end if ((0 -0)==v202) then v203=Instance.new("TextButton");v203.Size=UDim2.new(0.9 -0 ,0,0 + 0 ,1725 -(1121 + 569) );v203.Position=v198;v202=1;end if ((215 -(22 + 192))==v202) then v203.BackgroundColor3=v199;v203.Text=v197;v203.TextColor3=Color3.fromRGB(938 -(483 + 200) ,255,255);v202=2;end end end local function v139(v204,v205,v206,v207,v208,v209,v210) local v211=0;local v212;local v213;local v214;while true do if (v211==(1468 -(1404 + 59))) then v213.InputBegan:Connect(function(v295) if ((v295.UserInputType==Enum.UserInputType.MouseButton1) or (v295.UserInputType==Enum.UserInputType.Touch)) then local v333=0 -0 ;local v334;while true do if (v333==0) then v334=nil;v334=v3.RenderStepped:Connect(function() local v375=0 -0 ;local v376;local v377;local v378;while true do if (v375==(767 -(468 + 297))) then v212.Text=v204   .. ": "   .. v378 ;v210(v378);break;end if (v375==1) then v214.Size=UDim2.new(v377,562 -(334 + 228) ,3 -2 ,0 -0 );v378=math.floor(v206 + (v377 * (v207-v206)) );v375=2 -0 ;end if (v375==(0 + 0)) then v376=v2:GetMouseLocation();v377=math.clamp((v376.X-v213.AbsolutePosition.X)/v213.AbsoluteSize.X ,236 -(141 + 95) ,1 + 0 );v375=2 -1 ;end end end);v333=1;end if (v333==(2 -1)) then v2.InputEnded:Connect(function(v379) if ((v379.UserInputType==Enum.UserInputType.MouseButton1) or (v379.UserInputType==Enum.UserInputType.Touch)) then if v334 then v334:Disconnect();end end end);break;end end end end);break;end if (v211==2) then v212.Parent=v209;v213=Instance.new("Frame");v213.Size=UDim2.new(0.9 + 0 ,0 -0 ,0 + 0 ,6);v213.Position=v205 + UDim2.new(0,0,0 + 0 ,25 -7 ) ;v211=3;end if ((2 + 1)==v211) then v213.BackgroundColor3=Color3.fromRGB(223 -(92 + 71) ,30 + 30 ,60);v213.Parent=v209;Instance.new("UICorner").Parent=v213;v214=Instance.new("Frame");v211=6 -2 ;end if (v211==0) then v212=Instance.new("TextLabel");v212.Size=UDim2.new(765.9 -(574 + 191) ,0,0,15);v212.Position=v205;v212.BackgroundTransparency=1 + 0 ;v211=1;end if (v211==1) then v212.Text=v204   .. ": "   .. v208 ;v212.TextColor3=Color3.fromRGB(501 -301 ,103 + 97 ,200);v212.Font=Enum.Font.Gotham;v212.TextSize=858 -(254 + 595) ;v211=2;end if ((130 -(55 + 71))==v211) then v214.Size=UDim2.new((v208-v206)/(v207-v206) ,0,1 -0 ,0);v214.BackgroundColor3=Color3.fromRGB(100,100,2045 -(573 + 1217) );v214.Parent=v213;Instance.new("UICorner").Parent=v214;v211=5;end end end local v140,v141,v142,v143;local v144,v145,v146,v147;local function v148() local v215=0 -0 ;while true do if ((0 + 0)==v215) then v16=false;v18=false;v215=1 -0 ;end if (v215==(940 -(714 + 225))) then v13=false;v20=false;v215=5 -3 ;end if (v215==(3 -0)) then if v144 then local v300=0 + 0 ;while true do if (v300==(0 -0)) then v144.Text="SEGUIR JOGADOR: OFF";v144.BackgroundColor3=Color3.fromRGB(100,50,956 -(118 + 688) );break;end end end if v146 then local v301=0;while true do if (v301==(48 -(25 + 23))) then v146.Text="PASSAR+ORBIT: OFF";v146.BackgroundColor3=Color3.fromRGB(30 + 120 ,1936 -(927 + 959) ,505 -355 );break;end end end break;end if (v215==(734 -(16 + 716))) then if v140 then v140.Text="ORBIT: OFF";v140.BackgroundColor3=Color3.fromRGB(347 -167 ,147 -(11 + 86) ,50);end if v142 then local v304=0 -0 ;while true do if (v304==(285 -(175 + 110))) then v142.Text="PASSAR RÃPIDO: OFF";v142.BackgroundColor3=Color3.fromRGB(126 -76 ,246 -196 ,1976 -(503 + 1293) );break;end end end v215=8 -5 ;end end end v140=v138("ORBIT: OFF",UDim2.new(0.05 + 0 ,1061 -(810 + 251) ,0 + 0 ,4 + 6 ),Color3.fromRGB(163 + 17 ,583 -(43 + 490) ,783 -(711 + 22) ),v132,function() if v16 then local v237=0 -0 ;while true do if (v237==(859 -(240 + 619))) then v16=false;v140.Text="ORBIT: OFF";v237=1 + 0 ;end if (v237==1) then v140.BackgroundColor3=Color3.fromRGB(286 -106 ,4 + 46 ,50);v31=nil;break;end end else local v238=1744 -(1344 + 400) ;while true do if (v238==(405 -(255 + 150))) then v148();v16=true;v238=1 + 0 ;end if ((1 + 0)==v238) then v140.Text="ORBIT: ON";v140.BackgroundColor3=Color3.fromRGB(213 -163 ,581 -401 ,1789 -(404 + 1335) );v238=408 -(183 + 223) ;end if ((2 -0)==v238) then v34();break;end end end end);v141=v138("CORPO: OFF",UDim2.new(0.05 + 0 ,0,0 + 0 ,50),Color3.fromRGB(487 -(10 + 327) ,70 + 30 ,50),v132,function() v17= not v17;if v17 then v141.Text="CORPO: ON";v141.BackgroundColor3=Color3.fromRGB(50,150,200);else v141.Text="CORPO: OFF";v141.BackgroundColor3=Color3.fromRGB(150,100,388 -(118 + 220) );end end);v139("Orbit: Velocidade",UDim2.new(0.05 + 0 ,0,449 -(108 + 341) ,100),1,20,v7,v132,function(v216) v7=v216;end);v139("Orbit: DistÃ¢ncia",UDim2.new(0.05 + 0 ,0 -0 ,1493 -(711 + 782) ,268 -128 ),2,519 -(270 + 199) ,v6,v132,function(v217) v6=v217;end);v139("Altura (Orbit/Dash)",UDim2.new(0.05 + 0 ,1819 -(580 + 1239) ,0 -0 ,173 + 7 ), -(1 + 9),9 + 11 ,v8,v132,function(v218) local v219=0 -0 ;while true do if (v219==0) then v8=v218;v11=v218;break;end end end);local v149=Instance.new("TextBox");v149.Size=UDim2.new(0.9 + 0 ,1167 -(645 + 522) ,0,1825 -(1010 + 780) );v149.Position=UDim2.new(0.05,0 + 0 ,0,1095 -865 );v149.BackgroundColor3=Color3.fromRGB(45,45,45);v149.PlaceholderText="Nome do Alvo (Vazio = PrÃ³ximo)";v149.Text="";v149.TextColor3=Color3.fromRGB(747 -492 ,2091 -(1045 + 791) ,645 -390 );v149.Font=Enum.Font.Gotham;v149.TextSize=15 -5 ;v149.Parent=v132;Instance.new("UICorner").Parent=v149;v149.FocusLost:Connect(function() v15=v149.Text;v34();end);v142=v138("PASSAR RÃPIDO: OFF",UDim2.new(505.05 -(351 + 154) ,1574 -(1281 + 293) ,0,10),Color3.fromRGB(316 -(28 + 238) ,50,180),v133,function() if v18 then v18=false;v142.Text="PASSAR RÃPIDO: OFF";v142.BackgroundColor3=Color3.fromRGB(111 -61 ,1609 -(1381 + 178) ,169 + 11 );v31=nil;else v148();v18=true;v142.Text="PASSAR RÃPIDO: ON";v142.BackgroundColor3=Color3.fromRGB(50,180,146 + 34 );v34();end end);v143=v138("CORPO: OFF",UDim2.new(0.05,0 + 0 ,0,172 -122 ),Color3.fromRGB(78 + 72 ,570 -(381 + 89) ,45 + 5 ),v133,function() local v221=0 + 0 ;while true do if (v221==0) then v19= not v19;if v19 then local v309=0;while true do if (v309==0) then v143.Text="CORPO: ON";v143.BackgroundColor3=Color3.fromRGB(85 -35 ,150,1356 -(1074 + 82) );break;end end else v143.Text="CORPO: OFF";v143.BackgroundColor3=Color3.fromRGB(328 -178 ,100,1834 -(214 + 1570) );end break;end end end);v139("Passar: Velocidade",UDim2.new(0.05,0,1455 -(990 + 465) ,42 + 58 ),5,27 + 33 ,v9,v133,function(v222) v9=v222;end);v139("Passar: DistÃ¢ncia",UDim2.new(0.05 + 0 ,0,0 -0 ,140),2,1776 -(1668 + 58) ,v10,v133,function(v223) v10=v223;end);v144=v138("SEGUIR JOGADOR: OFF",UDim2.new(626.05 -(512 + 114) ,0 -0 ,0 -0 ,10),Color3.fromRGB(347 -247 ,50,70 + 80 ),v134,function() if v13 then local v247=0;while true do if (v247==(1 + 0)) then v144.BackgroundColor3=Color3.fromRGB(87 + 13 ,50,505 -355 );v31=nil;break;end if (v247==(1994 -(109 + 1885))) then v13=false;v144.Text="SEGUIR JOGADOR: OFF";v247=1470 -(1269 + 200) ;end end else local v248=0 -0 ;while true do if (v248==(815 -(98 + 717))) then v148();v13=true;v248=1;end if (v248==(828 -(802 + 24))) then v34();break;end if (v248==(1 -0)) then v144.Text="SEGUIR JOGADOR: ON";v144.BackgroundColor3=Color3.fromRGB(63 -13 ,27 + 153 ,77 + 23 );v248=1 + 1 ;end end end end);v145=v138("CORPO: OFF";v147.BackgroundColor3=Color3.fromRGB(146 + 4 ,612 -(409 + 103) ,286 -(46 + 190) );break;end end end break;end end end);v139("Orbit: Velocidade",UDim2.new(95.05 -(51 + 44) ,0 + 0 ,1317 -(1114 + 203) ,100),727 -(228 + 498) ,5 + 15 ,v21,v135,function(v227) v21=v227;end);v139("Orbit: DistÃ¢ncia",UDim2.new(0.05 + 0 ,0,663 -(174 + 489) ,364 -224 ),1907 -(830 + 1075) ,564 -(303 + 221) ,v22,v135,function(v228) v22=v228;end);v139("Altura (PASS+ORBIT)",UDim2.new(1269.05 -(231 + 1038) ,0 + 0 ,1162 -(171 + 991) ,741 -561 ), -10,20,v25,v135,function(v229) v25=v229;end);v139("Passar: Velocidade",UDim2.new(0.05,0 -0 ,0,220),5,124 -74 ,v23,v135,function(v230) v23=v230;end);v139("Passar: DistÃ¢ncia",UDim2.new(0.05 + 0 ,0,0,911 -651 ),5 -3 ,48 -18 ,v24,v135,function(v231) v24=v231;end);local v159=v138("FECHAR MENU",UDim2.new(0.05 -0 ,1248 -(111 + 1137) ,158 -(91 + 67) ,59 -39 ),Color3.fromRGB(38 + 112 ,50,50),v136,function() local v232=523 -(423 + 100) ;while true do if (v232==0) then v35:Destroy();v94:Disconnect();break;end end end);local v160=false;local v161=v39.Size;v99.MouseButton1Click:Connect(function() local v233=0 + 0 ;while true do if (v233==(0 -0)) then v95:Play();v160= not v160;v233=1;end if (v233==(1 + 0)) then if v160 then local v324=TweenInfo.new(771.3 -(326 + 445) ,Enum.EasingStyle.Quad,Enum.EasingDirection.Out);local v325=v4:Create(v39,v324,{Size=UDim2.new(0 -0 ,623 -343 ,0,163 -93 )});v325:Play();v325.Completed:Connect(function() local v335=711 -(530 + 181) ;while true do if (v335==0) then v108.Visible=false;v123.Visible=false;break;end end end);v99.Text="+";else v108.Visible=true;v123.Visible=true;local v329=TweenInfo.new(881.3 -(614 + 267) ,Enum.EasingStyle.Quad,Enum.EasingDirection.Out);local v330=v4:Create(v39,v329,{Size=v161});v330:Play();v99.Text="-";end break;end end end);v128['Orbit'].Visible=true;v129[1].TextColor3=Color3.fromRGB(287 -(19 + 13) ,414 -159 ,593 -338 );v129[2 -1 ].BackgroundColor3=Color3.fromRGB(50,13 + 37 ,175 -75 );print("Manus Hub Carregado - VersÃ£o com Perfil | by Mateusx9992");
+-- Configurações Globais
+local ORBIT_DISTANCE = 10
+local ORBIT_SPEED = 3
+local ORBIT_HEIGHT = 2
+
+local DASH_SPEED = 15
+local DASH_DISTANCE = 12
+local DASH_HEIGHT = 2
+
+local FOLLOW_DISTANCE = 5
+local FOLLOW_ENABLED = false
+local FOLLOW_AIMBOT = false
+
+local TARGET_NAME = ""
+local ORBIT_ENABLED = false
+local AIMBOT_CORPO = false
+local DASH_PASS_ENABLED = false
+local DASH_AIMBOT = false
+
+-- Configurações Passar+Orbit
+local DASH_ORBIT_ENABLED = false
+local DASH_ORBIT_SPEED = 5
+local DASH_ORBIT_DISTANCE = 8
+local DASH_ORBIT_DASH_SPEED = 20
+local DASH_ORBIT_DASH_DISTANCE = 8
+local DASH_ORBIT_HEIGHT = 2
+local DASH_ORBIT_AIMBOT = false
+
+local angle = 0
+local dashTime = 0
+local originalAutoRotate = true
+local dashOrbitTime = 0
+
+-- CORREÇÃO: Variável para armazenar o alvo atual
+local currentTarget = nil
+
+-- CORREÇÃO: Função que verifica se o alvo ESTÁ VIVO e COM CHARACTER
+local function isAlive(target)
+    if not target then return false end
+    if target == LocalPlayer then return false end
+    
+    local character = target.Character
+    if not character then return false end
+    
+    local humanoid = character:FindFirstChildOfClass("Humanoid")
+    if not humanoid then return false end
+    
+    -- Verifica se está vivo (Health > 0)
+    if humanoid.Health <= 0 then return false end
+    
+    local hrp = character:FindFirstChild("HumanoidRootPart")
+    if not hrp then return false end
+    
+    return true
+end
+
+-- CORREÇÃO: Encontra o jogador mais próximo VIVO
+local function getNearestAlivePlayer()
+    local closest = nil
+    local closestDist = math.huge
+    
+    for _, player in pairs(Players:GetPlayers()) do
+        -- Ignora você mesmo
+        if player ~= LocalPlayer then
+            -- Verifica se está vivo E tem character
+            if isAlive(player) then
+                local hrp = player.Character.HumanoidRootPart
+                if LocalPlayer.Character and LocalPlayer.Character:FindFirstChild("HumanoidRootPart") then
+                    local dist = (LocalPlayer.Character.HumanoidRootPart.Position - hrp.Position).Magnitude
+                    if dist < closestDist then
+                        closestDist = dist
+                        closest = player
+                    end
+                end
+            end
+        end
+    end
+    
+    return closest
+end
+
+-- CORREÇÃO: Atualiza o alvo a cada frame (se o atual morreu, muda)
+local function updateTarget()
+    -- Se não tem nenhum modo ativo, não precisa de alvo
+    if not (ORBIT_ENABLED or DASH_PASS_ENABLED or FOLLOW_ENABLED or DASH_ORBIT_ENABLED) then
+        currentTarget = nil
+        return
+    end
+    
+    -- Caso 1: Tem nome específico definido
+    if TARGET_NAME ~= "" then
+        local namedTarget = Players:FindFirstChild(TARGET_NAME)
+        if namedTarget and isAlive(namedTarget) then
+            currentTarget = namedTarget
+            return
+        else
+            -- O alvo específico morreu ou não existe, limpa o nome
+            if TARGET_NAME ~= "" then
+                TARGET_NAME = ""
+                -- Atualiza o TextBox se existir
+                local textBox = orbitFrame and orbitFrame:FindFirstChild("TextBox")
+                if textBox then textBox.Text = "" end
+            end
+            currentTarget = nil
+        end
+    end
+    
+    -- Caso 2: Se não tem alvo OU o alvo atual morreu, procura outro VIVO
+    if not currentTarget or not isAlive(currentTarget) then
+        currentTarget = getNearestAlivePlayer()
+    end
+end
+
+-- Loop Principal CORRIGIDO
+RunService.Heartbeat:Connect(function(dt)
+    local character = LocalPlayer.Character
+    if not character then return end
+
+    local humanoid = character:FindFirstChildOfClass("Humanoid")
+    local hrp = character:FindFirstChild("HumanoidRootPart")
+    if not humanoid or not hrp then return end
+    
+    -- ATUALIZA O ALVO A CADA FRAME
+    updateTarget()
+    
+    -- Só executa se tiver um alvo VIVO
+    if (ORBIT_ENABLED or DASH_PASS_ENABLED or FOLLOW_ENABLED or DASH_ORBIT_ENABLED) and currentTarget then
+        local targetCharacter = currentTarget.Character
+        if targetCharacter then
+            local targetHrp = targetCharacter:FindFirstChild("HumanoidRootPart")
+            if targetHrp then
+                local targetPos = targetHrp.Position
+                
+                if DASH_ORBIT_ENABLED then
+                    dashOrbitTime = dashOrbitTime + (DASH_ORBIT_DASH_SPEED * dt)
+                    angle = angle + (DASH_ORBIT_SPEED * dt)
+                    local orbitOffset = Vector3.new(math.cos(angle) * DASH_ORBIT_DISTANCE, DASH_ORBIT_HEIGHT, math.sin(angle) * DASH_ORBIT_DISTANCE)
+                    local direction = targetHrp.CFrame.LookVector
+                    local dashOffset = direction * (math.sin(dashOrbitTime) * DASH_ORBIT_DASH_DISTANCE)
+                    local finalPos = targetPos + orbitOffset + dashOffset
+                    
+                    if DASH_ORBIT_AIMBOT then
+                        if humanoid.AutoRotate then originalAutoRotate = humanoid.AutoRotate; humanoid.AutoRotate = false end
+                        hrp.CFrame = CFrame.new(finalPos, targetPos)
+                    else
+                        if not humanoid.AutoRotate and originalAutoRotate then humanoid.AutoRotate = originalAutoRotate end
+                        hrp.CFrame = CFrame.new(finalPos) * hrp.CFrame.Rotation
+                    end
+                    
+                elseif FOLLOW_ENABLED then
+                    local behindOffset = targetHrp.CFrame * CFrame.new(0, 0, FOLLOW_DISTANCE)
+                    if FOLLOW_AIMBOT then
+                        if humanoid.AutoRotate then originalAutoRotate = humanoid.AutoRotate; humanoid.AutoRotate = false end
+                        hrp.CFrame = CFrame.new(behindOffset.Position, targetPos)
+                    else
+                        if not humanoid.AutoRotate and originalAutoRotate then humanoid.AutoRotate = originalAutoRotate end
+                        hrp.CFrame = behindOffset
+                    end
+                    
+                elseif DASH_PASS_ENABLED then
+                    dashTime = dashTime + (DASH_SPEED * dt)
+                    local dashPos = targetPos + (targetHrp.CFrame.LookVector * (math.sin(dashTime) * DASH_DISTANCE)) + Vector3.new(0, DASH_HEIGHT, 0)
+                    if DASH_AIMBOT then
+                        if humanoid.AutoRotate then originalAutoRotate = humanoid.AutoRotate; humanoid.AutoRotate = false end
+                        hrp.CFrame = CFrame.new(dashPos, targetPos)
+                    else
+                        if not humanoid.AutoRotate and originalAutoRotate then humanoid.AutoRotate = originalAutoRotate end
+                        hrp.CFrame = CFrame.new(dashPos) * hrp.CFrame.Rotation
+                    end
+                    
+                elseif ORBIT_ENABLED then
+                    angle = angle + (ORBIT_SPEED * dt)
+                    local orbitPos = targetPos + Vector3.new(math.cos(angle) * ORBIT_DISTANCE, ORBIT_HEIGHT, math.sin(angle) * ORBIT_DISTANCE)
+                    if AIMBOT_CORPO then
+                        if humanoid.AutoRotate then originalAutoRotate = humanoid.AutoRotate; humanoid.AutoRotate = false end
+                        hrp.CFrame = CFrame.new(orbitPos, targetPos)
+                    else
+                        if not humanoid.AutoRotate and originalAutoRotate then humanoid.AutoRotate = originalAutoRotate end
+                        hrp.CFrame = CFrame.new(orbitPos) * hrp.CFrame.Rotation
+                    end
+                end
+            end
+        end
+    else
+        -- Se não tem alvo, reseta a rotação
+        if not humanoid.AutoRotate and originalAutoRotate then
+            humanoid.AutoRotate = originalAutoRotate
+        end
+    end
+end)
+
+-- Interface Gráfica
+local ScreenGui = Instance.new("ScreenGui")
+ScreenGui.Name = "ManusHubGUI"
+ScreenGui.ResetOnSpawn = false
+ScreenGui.Parent = LocalPlayer:WaitForChild("PlayerGui")
+
+local MainFrame = Instance.new("Frame")
+MainFrame.Size = UDim2.new(0, 280, 0, 460)
+MainFrame.Position = UDim2.new(0.5, -140, 0.5, -230)
+MainFrame.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+MainFrame.BorderSizePixel = 0
+MainFrame.Active = true
+MainFrame.Draggable = true
+MainFrame.ClipsDescendants = true
+MainFrame.Parent = ScreenGui
+
+local UICorner = Instance.new("UICorner")
+UICorner.CornerRadius = UDim.new(0, 12)
+UICorner.Parent = MainFrame
+
+-- Frame do Perfil (lado esquerdo)
+local ProfileFrame = Instance.new("Frame")
+ProfileFrame.Size = UDim2.new(0, 60, 0, 60)
+ProfileFrame.Position = UDim2.new(0, 8, 0, 8)
+ProfileFrame.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
+ProfileFrame.BorderSizePixel = 0
+ProfileFrame.BackgroundTransparency = 1
+ProfileFrame.Parent = MainFrame
+
+-- Imagem de Perfil (quadrada)
+local ProfileImage = Instance.new("ImageLabel")
+ProfileImage.Size = UDim2.new(0, 50, 0, 50)
+ProfileImage.Position = UDim2.new(0, 5, 0, 5)
+ProfileImage.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
+ProfileImage.BackgroundTransparency = 0
+ProfileImage.BorderSizePixel = 0
+ProfileImage.Image = "rbxthumb://type=AvatarHeadShot&id=7344788878&w=420&h=420"
+ProfileImage.Parent = ProfileFrame
+Instance.new("UICorner").Parent = ProfileImage
+local profileCorner = Instance.new("UICorner")
+profileCorner.CornerRadius = UDim.new(0, 8)
+profileCorner.Parent = ProfileImage
+
+-- Título Principal (movido para a direita para não sobrepor o perfil)
+local Title = Instance.new("TextLabel")
+Title.Size = UDim2.new(1, -70, 0, 28)
+Title.Position = UDim2.new(0, 70, 0, 8)
+Title.BackgroundTransparency = 1
+Title.Text = "MANUS HUB"
+Title.TextColor3 = Color3.fromRGB(255, 255, 255)
+Title.Font = Enum.Font.GothamBold
+Title.TextSize = 16
+Title.TextXAlignment = Enum.TextXAlignment.Left
+Title.Parent = MainFrame
+
+-- Subtítulo (by Mateusx9992)
+local SubTitle = Instance.new("TextLabel")
+SubTitle.Size = UDim2.new(1, -70, 0, 16)
+SubTitle.Position = UDim2.new(0, 70, 0, 32)
+SubTitle.BackgroundTransparency = 1
+SubTitle.Text = "by Mateusx9992"
+SubTitle.TextColor3 = Color3.fromRGB(180, 180, 180)
+SubTitle.Font = Enum.Font.Gotham
+SubTitle.TextSize = 10
+SubTitle.TextXAlignment = Enum.TextXAlignment.Left
+SubTitle.Parent = MainFrame
+
+-- Efeito RGB no título
+local hue = 0
+local rgbEffect = RunService.RenderStepped:Connect(function()
+    hue = (hue + 0.005) % 1
+    Title.TextColor3 = Color3.fromHSV(hue, 1, 1)
+end)
+
+-- Som de Clique
+local ClickSound = Instance.new("Sound")
+ClickSound.SoundId = "rbxassetid://12221967"
+ClickSound.Volume = 0.5
+ClickSound.Parent = game:GetService("SoundService")
+
+-- Botão Minimizar (ajustado)
+local MinimizeBtn = Instance.new("TextButton")
+MinimizeBtn.Size = UDim2.new(0, 28, 0, 28)
+MinimizeBtn.Position = UDim2.new(1, -36, 0, 6)
+MinimizeBtn.BackgroundColor3 = Color3.fromRGB(55, 55, 55)
+MinimizeBtn.Text = "-"
+MinimizeBtn.TextColor3 = Color3.fromRGB(255, 255, 255)
+MinimizeBtn.Font = Enum.Font.GothamBold
+MinimizeBtn.TextSize = 18
+MinimizeBtn.Parent = MainFrame
+Instance.new("UICorner").Parent = MinimizeBtn
+
+-- Container das Abas
+local TabContainer = Instance.new("ScrollingFrame")
+TabContainer.Size = UDim2.new(1, 0, 0, 45)
+TabContainer.Position = UDim2.new(0, 0, 0, 70)
+TabContainer.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+TabContainer.BorderSizePixel = 0
+TabContainer.ScrollBarThickness = 4
+TabContainer.ScrollBarImageColor3 = Color3.fromRGB(100, 100, 150)
+TabContainer.CanvasSize = UDim2.new(0, 0, 0, 0)
+TabContainer.AutomaticCanvasSize = Enum.AutomaticSize.X
+TabContainer.Parent = MainFrame
+
+local ButtonsContainer = Instance.new("Frame")
+ButtonsContainer.Size = UDim2.new(1, 0, 1, 0)
+ButtonsContainer.BackgroundTransparency = 1
+ButtonsContainer.Parent = TabContainer
+
+local ContentContainer = Instance.new("Frame")
+ContentContainer.Size = UDim2.new(1, 0, 1, -115)
+ContentContainer.Position = UDim2.new(0, 0, 0, 115)
+ContentContainer.BackgroundTransparency = 1
+ContentContainer.Parent = MainFrame
+
+local tabs = {}
+local tabButtons = {}
+
+local function createTabFrame(name, canvasSize)
+    local frame = Instance.new("ScrollingFrame")
+    frame.Size = UDim2.new(1, 0, 1, 0)
+    frame.BackgroundTransparency = 1
+    frame.BorderSizePixel = 0
+    frame.ScrollBarThickness = 3
+    frame.ScrollBarImageColor3 = Color3.fromRGB(80, 80, 80)
+    frame.CanvasSize = UDim2.new(0, 0, 0, canvasSize or 350)
+    frame.Visible = false
+    frame.Parent = ContentContainer
+    tabs[name] = frame
+    return frame
+end
+
+local function createTabBtn(name, text, positionX)
+    local btn = Instance.new("TextButton")
+    btn.Size = UDim2.new(0, 80, 1, -5)
+    btn.Position = UDim2.new(0, positionX, 0, 2)
+    btn.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+    btn.BorderSizePixel = 0
+    btn.Text = text
+    btn.TextColor3 = Color3.fromRGB(150, 150, 150)
+    btn.Font = Enum.Font.GothamBold
+    btn.TextSize = 11
+    btn.Parent = ButtonsContainer
+    Instance.new("UICorner").Parent = btn
+    
+    btn.MouseButton1Click:Connect(function()
+        for _, tabFrame in pairs(tabs) do tabFrame.Visible = false end
+        for _, otherBtn in pairs(tabButtons) do
+            otherBtn.TextColor3 = Color3.fromRGB(150, 150, 150)
+            otherBtn.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+        end
+        tabs[name].Visible = true
+        btn.TextColor3 = Color3.fromRGB(255, 255, 255)
+        btn.BackgroundColor3 = Color3.fromRGB(50, 50, 100)
+    end)
+    table.insert(tabButtons, btn)
+    return btn
+end
+
+-- Criar Abas
+local orbitFrame = createTabFrame("Orbit", 400)
+local dashFrame = createTabFrame("Dash", 350)
+local followFrame = createTabFrame("Follow", 300)
+local dashOrbitFrame = createTabFrame("DashOrbit", 450)
+local settingsFrame = createTabFrame("Settings", 150)
+
+-- Botões das abas
+local buttonsData = {
+    {"Orbit", "ORBIT", 5},
+    {"Dash", "PASSAR", 85},
+    {"Follow", "SEGUIR", 165},
+    {"DashOrbit", "PASS+ORBIT", 245},
+    {"Settings", "OPÇÕES", 325}
+}
+for _, data in ipairs(buttonsData) do createTabBtn(data[1], data[2], data[3]) end
+ButtonsContainer.Size = UDim2.new(0, 405, 1, 0)
+
+-- Funções UI
+local function createBtn(text, pos, color, parent, callback)
+    local btn = Instance.new("TextButton")
+    btn.Size = UDim2.new(0.9, 0, 0, 35)
+    btn.Position = pos
+    btn.BackgroundColor3 = color
+    btn.Text = text
+    btn.TextColor3 = Color3.fromRGB(255, 255, 255)
+    btn.Font = Enum.Font.GothamBold
+    btn.TextSize = 10
+    btn.Parent = parent
+    Instance.new("UICorner").Parent = btn
+    btn.MouseButton1Click:Connect(callback)
+    return btn
+end
+
+local function createSlider(text, pos, min, max, default, parent, callback)
+    local label = Instance.new("TextLabel")
+    label.Size = UDim2.new(0.9, 0, 0, 15)
+    label.Position = pos
+    label.BackgroundTransparency = 1
+    label.Text = text .. ": " .. default
+    label.TextColor3 = Color3.fromRGB(200, 200, 200)
+    label.Font = Enum.Font.Gotham
+    label.TextSize = 9
+    label.Parent = parent
+
+    local sliderBg = Instance.new("Frame")
+    sliderBg.Size = UDim2.new(0.9, 0, 0, 6)
+    sliderBg.Position = pos + UDim2.new(0, 0, 0, 18)
+    sliderBg.BackgroundColor3 = Color3.fromRGB(60, 60, 60)
+    sliderBg.Parent = parent
+    Instance.new("UICorner").Parent = sliderBg
+
+    local sliderFill = Instance.new("Frame")
+    sliderFill.Size = UDim2.new((default - min) / (max - min), 0, 1, 0)
+    sliderFill.BackgroundColor3 = Color3.fromRGB(100, 100, 255)
+    sliderFill.Parent = sliderBg
+    Instance.new("UICorner").Parent = sliderFill
+
+    sliderBg.InputBegan:Connect(function(input)
+        if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+            local connection
+            connection = RunService.RenderStepped:Connect(function()
+                local mPos = UserInputService:GetMouseLocation()
+                local p = math.clamp((mPos.X - sliderBg.AbsolutePosition.X) / sliderBg.AbsoluteSize.X, 0, 1)
+                sliderFill.Size = UDim2.new(p, 0, 1, 0)
+                local val = math.floor(min + (p * (max - min)))
+                label.Text = text .. ": " .. val
+                callback(val)
+            end)
+            UserInputService.InputEnded:Connect(function(i)
+                if i.UserInputType == Enum.UserInputType.MouseButton1 or i.UserInputType == Enum.UserInputType.Touch then
+                    if connection then connection:Disconnect() end
+                end
+            end)
+        end
+    end)
+end
+
+-- Variáveis globais para os botões
+local orbitToggleBtn, aimToggleBtn, dashToggleBtn, dashAimbotBtn
+local followToggleBtn, followAimbotBtn, dashOrbitToggleBtn, dashOrbitAimbotBtn
+
+-- Função para desativar todos os modos
+local function disableAllModes()
+    ORBIT_ENABLED = false
+    DASH_PASS_ENABLED = false
+    FOLLOW_ENABLED = false
+    DASH_ORBIT_ENABLED = false
+    
+    if orbitToggleBtn then
+        orbitToggleBtn.Text = "ORBIT: OFF"
+        orbitToggleBtn.BackgroundColor3 = Color3.fromRGB(180, 50, 50)
+    end
+    if dashToggleBtn then
+        dashToggleBtn.Text = "PASSAR RÁPIDO: OFF"
+        dashToggleBtn.BackgroundColor3 = Color3.fromRGB(50, 50, 180)
+    end
+    if followToggleBtn then
+        followToggleBtn.Text = "SEGUIR JOGADOR: OFF"
+        followToggleBtn.BackgroundColor3 = Color3.fromRGB(100, 50, 150)
+    end
+    if dashOrbitToggleBtn then
+        dashOrbitToggleBtn.Text = "PASSAR+ORBIT: OFF"
+        dashOrbitToggleBtn.BackgroundColor3 = Color3.fromRGB(150, 50, 150)
+    end
+end
+
+-- ABA ORBIT
+orbitToggleBtn = createBtn("ORBIT: OFF", UDim2.new(0.05, 0, 0, 10), Color3.fromRGB(180, 50, 50), orbitFrame, function()
+    if ORBIT_ENABLED then
+        ORBIT_ENABLED = false
+        orbitToggleBtn.Text = "ORBIT: OFF"
+        orbitToggleBtn.BackgroundColor3 = Color3.fromRGB(180, 50, 50)
+        currentTarget = nil
+    else
+        disableAllModes()
+        ORBIT_ENABLED = true
+        orbitToggleBtn.Text = "ORBIT: ON"
+        orbitToggleBtn.BackgroundColor3 = Color3.fromRGB(50, 180, 50)
+        updateTarget()
+    end
+end)
+
+aimToggleBtn = createBtn("CORPO: OFF", UDim2.new(0.05, 0, 0, 50), Color3.fromRGB(150, 100, 50), orbitFrame, function()
+    AIMBOT_CORPO = not AIMBOT_CORPO
+    if AIMBOT_CORPO then
+        aimToggleBtn.Text = "CORPO: ON"
+        aimToggleBtn.BackgroundColor3 = Color3.fromRGB(50, 150, 200)
+    else
+        aimToggleBtn.Text = "CORPO: OFF"
+        aimToggleBtn.BackgroundColor3 = Color3.fromRGB(150, 100, 50)
+    end
+end)
+
+createSlider("Orbit: Velocidade", UDim2.new(0.05, 0, 0, 100), 1, 20, ORBIT_SPEED, orbitFrame, function(v) ORBIT_SPEED = v end)
+createSlider("Orbit: Distância", UDim2.new(0.05, 0, 0, 140), 2, 50, ORBIT_DISTANCE, orbitFrame, function(v) ORBIT_DISTANCE = v end)
+createSlider("Altura (Orbit/Dash)", UDim2.new(0.05, 0, 0, 180), -10, 20, ORBIT_HEIGHT, orbitFrame, function(v) ORBIT_HEIGHT = v; DASH_HEIGHT = v end)
+
+local OrbitNameInput = Instance.new("TextBox")
+OrbitNameInput.Size = UDim2.new(0.9, 0, 0, 35)
+OrbitNameInput.Position = UDim2.new(0.05, 0, 0, 230)
+OrbitNameInput.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
+OrbitNameInput.PlaceholderText = "Nome do Alvo (Vazio = Próximo)"
+OrbitNameInput.Text = ""
+OrbitNameInput.TextColor3 = Color3.fromRGB(255, 255, 255)
+OrbitNameInput.Font = Enum.Font.Gotham
+OrbitNameInput.TextSize = 10
+OrbitNameInput.Parent = orbitFrame
+Instance.new("UICorner").Parent = OrbitNameInput
+OrbitNameInput.FocusLost:Connect(function() 
+    TARGET_NAME = OrbitNameInput.Text
+    updateTarget()
+end)
+
+-- ABA PASSAR
+dashToggleBtn = createBtn("PASSAR RÁPIDO: OFF", UDim2.new(0.05, 0, 0, 10), Color3.fromRGB(50, 50, 180), dashFrame, function()
+    if DASH_PASS_ENABLED then
+        DASH_PASS_ENABLED = false
+        dashToggleBtn.Text = "PASSAR RÁPIDO: OFF"
+        dashToggleBtn.BackgroundColor3 = Color3.fromRGB(50, 50, 180)
+        currentTarget = nil
+    else
+        disableAllModes()
+        DASH_PASS_ENABLED = true
+        dashToggleBtn.Text = "PASSAR RÁPIDO: ON"
+        dashToggleBtn.BackgroundColor3 = Color3.fromRGB(50, 180, 180)
+        updateTarget()
+    end
+end)
+
+dashAimbotBtn = createBtn("CORPO: OFF", UDim2.new(0.05, 0, 0, 50), Color3.fromRGB(150, 100, 50), dashFrame, function()
+    DASH_AIMBOT = not DASH_AIMBOT
+    if DASH_AIMBOT then
+        dashAimbotBtn.Text = "CORPO: ON"
+        dashAimbotBtn.BackgroundColor3 = Color3.fromRGB(50, 150, 200)
+    else
+        dashAimbotBtn.Text = "CORPO: OFF"
+        dashAimbotBtn.BackgroundColor3 = Color3.fromRGB(150, 100, 50)
+    end
+end)
+
+createSlider("Passar: Velocidade", UDim2.new(0.05, 0, 0, 100), 5, 60, DASH_SPEED, dashFrame, function(v) DASH_SPEED = v end)
+createSlider("Passar: Distância", UDim2.new(0.05, 0, 0, 140), 2, 50, DASH_DISTANCE, dashFrame, function(v) DASH_DISTANCE = v end)
+
+-- ABA SEGUIR
+followToggleBtn = createBtn("SEGUIR JOGADOR: OFF", UDim2.new(0.05, 0, 0, 10), Color3.fromRGB(100, 50, 150), followFrame, function()
+    if FOLLOW_ENABLED then
+        FOLLOW_ENABLED = false
+        followToggleBtn.Text = "SEGUIR JOGADOR: OFF"
+        followToggleBtn.BackgroundColor3 = Color3.fromRGB(100, 50, 150)
+        currentTarget = nil
+    else
+        disableAllModes()
+        FOLLOW_ENABLED = true
+        followToggleBtn.Text = "SEGUIR JOGADOR: ON"
+        followToggleBtn.BackgroundColor3 = Color3.fromRGB(50, 180, 100)
+        updateTarget()
+    end
+end)
+
+followAimbotBtn = createBtn("CORPO: OFF", UDim2.new(0.05, 0, 0, 50), Color3.fromRGB(150, 100, 50), followFrame, function()
+    FOLLOW_AIMBOT = not FOLLOW_AIMBOT
+    if FOLLOW_AIMBOT then
+        followAimbotBtn.Text = "CORPO: ON"
+        followAimbotBtn.BackgroundColor3 = Color3.fromRGB(50, 150, 200)
+    else
+        followAimbotBtn.Text = "CORPO: OFF"
+        followAimbotBtn.BackgroundColor3 = Color3.fromRGB(150, 100, 50)
+    end
+end)
+
+createSlider("Seguir: Distância", UDim2.new(0.05, 0, 0, 100), 1, 30, FOLLOW_DISTANCE, followFrame, function(v) FOLLOW_DISTANCE = v end)
+
+-- ABA PASSAR+ORBIT
+dashOrbitToggleBtn = createBtn("PASSAR+ORBIT: OFF", UDim2.new(0.05, 0, 0, 10), Color3.fromRGB(150, 50, 150), dashOrbitFrame, function()
+    if DASH_ORBIT_ENABLED then
+        DASH_ORBIT_ENABLED = false
+        dashOrbitToggleBtn.Text = "PASSAR+ORBIT: OFF"
+        dashOrbitToggleBtn.BackgroundColor3 = Color3.fromRGB(150, 50, 150)
+        currentTarget = nil
+    else
+        disableAllModes()
+        DASH_ORBIT_ENABLED = true
+        dashOrbitToggleBtn.Text = "PASSAR+ORBIT: ON"
+        dashOrbitToggleBtn.BackgroundColor3 = Color3.fromRGB(100, 200, 100)
+        updateTarget()
+    end
+end)
+
+dashOrbitAimbotBtn = createBtn("CORPO: OFF", UDim2.new(0.05, 0, 0, 50), Color3.fromRGB(150, 100, 50), dashOrbitFrame, function()
+    DASH_ORBIT_AIMBOT = not DASH_ORBIT_AIMBOT
+    if DASH_ORBIT_AIMBOT then
+        dashOrbitAimbotBtn.Text = "CORPO: ON"
+        dashOrbitAimbotBtn.BackgroundColor3 = Color3.fromRGB(50, 150, 200)
+    else
+        dashOrbitAimbotBtn.Text = "CORPO: OFF"
+        dashOrbitAimbotBtn.BackgroundColor3 = Color3.fromRGB(150, 100, 50)
+    end
+end)
+
+createSlider("Orbit: Velocidade", UDim2.new(0.05, 0, 0, 100), 1, 20, DASH_ORBIT_SPEED, dashOrbitFrame, function(v) DASH_ORBIT_SPEED = v end)
+createSlider("Orbit: Distância", UDim2.new(0.05, 0, 0, 140), 2, 40, DASH_ORBIT_DISTANCE, dashOrbitFrame, function(v) DASH_ORBIT_DISTANCE = v end)
+createSlider("Altura (PASS+ORBIT)", UDim2.new(0.05, 0, 0, 180), -10, 20, DASH_ORBIT_HEIGHT, dashOrbitFrame, function(v) DASH_ORBIT_HEIGHT = v end)
+createSlider("Passar: Velocidade", UDim2.new(0.05, 0, 0, 220), 5, 50, DASH_ORBIT_DASH_SPEED, dashOrbitFrame, function(v) DASH_ORBIT_DASH_SPEED = v end)
+createSlider("Passar: Distância", UDim2.new(0.05, 0, 0, 260), 2, 30, DASH_ORBIT_DASH_DISTANCE, dashOrbitFrame, function(v) DASH_ORBIT_DASH_DISTANCE = v end)
+
+-- ABA OPÇÕES
+local CloseBtn = createBtn("FECHAR MENU", UDim2.new(0.05, 0, 0, 20), Color3.fromRGB(150, 50, 50), settingsFrame, function()
+    ScreenGui:Destroy()
+    rgbEffect:Disconnect()
+end)
+
+-- CORRIGIDO: Minimizar sem esconder perfil e subtítulo
+local isMinimized = false
+local originalSize = MainFrame.Size
+MinimizeBtn.MouseButton1Click:Connect(function()
+    ClickSound:Play()
+    isMinimized = not isMinimized
+    if isMinimized then
+        local tweenInfo = TweenInfo.new(0.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
+        local tween = TweenService:Create(MainFrame, tweenInfo, {Size = UDim2.new(0, 280, 0, 70)})
+        tween:Play()
+        tween.Completed:Connect(function()
+            TabContainer.Visible = false
+            ContentContainer.Visible = false
+            -- PERFIL E SUBTÍTULO CONTINUAM VISÍVEIS (não escondemos mais!)
+        end)
+        MinimizeBtn.Text = "+"
+    else
+        TabContainer.Visible = true
+        ContentContainer.Visible = true
+        local tweenInfo = TweenInfo.new(0.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
+        local tween = TweenService:Create(MainFrame, tweenInfo, {Size = originalSize})
+        tween:Play()
+        MinimizeBtn.Text = "-"
+    end
+end)
+
+-- Abrir aba padrão
+tabs["Orbit"].Visible = true
+tabButtons[1].TextColor3 = Color3.fromRGB(255, 255, 255)
+tabButtons[1].BackgroundColor3 = Color3.fromRGB(50, 50, 100)
+
+print("Manus Hub Carregado - Versão com Perfil | by Mateusx9992")
