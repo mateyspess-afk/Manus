@@ -1,7 +1,7 @@
 --[[ 
    Manus Hub + Seguir + Passar + Orbit (VERSÃO COM PERFIL)
    Abas: ORBIT | PASSAR | SEGUIR | PASSAR+ORBIT | OPÇÕES
-   caso copia o script iremos denunciar e sua conta e removidas
+   ⚠️caso copia o script iremos denunciar e sua conta e removidas usamos bot de moderação no script⚠️
 ]]
 
 local Players = game:GetService("Players")
