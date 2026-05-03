@@ -1,7 +1,7 @@
 --[[ 
-   Manus Hub + Seguir + Passar + Orbit (VERSÃO COM PERFIL)
-   Abas: ORBIT | PASSAR | SEGUIR | PASSAR+ORBIT | OPÇÕES
-   ⚠️caso copia o script iremos denunciar e sua conta e removidas usamos bot de moderação no script⚠️
+   Manus Hub + Seguir + Passar + Orbit (VERSÃO COM PERFIL + ONLINE)
+   Abas: ORBIT | PASSAR | SEGUIR | PASSAR+ORBIT | ONLINE | OPÇÕES
+   ⚠️AVISO NÃO COPIE O SCRIPT SE COPIAR A EQUIPE IRÁ DENUNCIAR E DERRUBAR SUA CONTA ⚠️
 ]]
 
 local Players = game:GetService("Players")
@@ -44,10 +44,10 @@ local dashTime = 0
 local originalAutoRotate = true
 local dashOrbitTime = 0
 
--- CORREÇÃO: Variável para armazenar o alvo atual
+-- Variável para armazenar o alvo atual
 local currentTarget = nil
 
--- CORREÇÃO: Função que verifica se o alvo ESTÁ VIVO e COM CHARACTER
+-- Falta VERIFICAÇÃO DE ALVO VIVO
 local function isAlive(target)
     if not target then return false end
     if target == LocalPlayer then return false end
@@ -58,7 +58,6 @@ local function isAlive(target)
     local humanoid = character:FindFirstChildOfClass("Humanoid")
     if not humanoid then return false end
     
-    -- Verifica se está vivo (Health > 0)
     if humanoid.Health <= 0 then return false end
     
     local hrp = character:FindFirstChild("HumanoidRootPart")
@@ -67,15 +66,13 @@ local function isAlive(target)
     return true
 end
 
--- CORREÇÃO: Encontra o jogador mais próximo VIVO
+-- Encontra o jogador mais próximo VIVO
 local function getNearestAlivePlayer()
     local closest = nil
     local closestDist = math.huge
     
     for _, player in pairs(Players:GetPlayers()) do
-        -- Ignora você mesmo
         if player ~= LocalPlayer then
-            -- Verifica se está vivo E tem character
             if isAlive(player) then
                 local hrp = player.Character.HumanoidRootPart
                 if LocalPlayer.Character and LocalPlayer.Character:FindFirstChild("HumanoidRootPart") then
@@ -92,25 +89,21 @@ local function getNearestAlivePlayer()
     return closest
 end
 
--- CORREÇÃO: Atualiza o alvo a cada frame (se o atual morreu, muda)
+-- Atualiza o alvo a cada frame
 local function updateTarget()
-    -- Se não tem nenhum modo ativo, não precisa de alvo
     if not (ORBIT_ENABLED or DASH_PASS_ENABLED or FOLLOW_ENABLED or DASH_ORBIT_ENABLED) then
         currentTarget = nil
         return
     end
     
-    -- Caso 1: Tem nome específico definido
     if TARGET_NAME ~= "" then
         local namedTarget = Players:FindFirstChild(TARGET_NAME)
         if namedTarget and isAlive(namedTarget) then
             currentTarget = namedTarget
             return
         else
-            -- O alvo específico morreu ou não existe, limpa o nome
             if TARGET_NAME ~= "" then
                 TARGET_NAME = ""
-                -- Atualiza o TextBox se existir
                 local textBox = orbitFrame and orbitFrame:FindFirstChild("TextBox")
                 if textBox then textBox.Text = "" end
             end
@@ -118,10 +111,169 @@ local function updateTarget()
         end
     end
     
-    -- Caso 2: Se não tem alvo OU o alvo atual morreu, procura outro VIVO
     if not currentTarget or not isAlive(currentTarget) then
         currentTarget = getNearestAlivePlayer()
     end
+end
+
+-- Sistema de ONLINE (detecta quem está usando o script)
+local OnlineUsers = {}
+local OnlineListFrame = nil
+local UserIdentifyKey = "ManusHub_User_" .. tostring(LocalPlayer.UserId)
+
+-- Função para identificar usuários do script
+local function broadcastOnlineStatus()
+    local success, result = pcall(function()
+        -- Usando BindToClose para limpar ao sair
+        LocalPlayer.OnTeleport:Connect(function()
+            -- Limpa identificação ao teleportar
+        end)
+    end)
+end
+
+-- Função para verificar se um jogador está usando o script
+local function isUsingScript(player)
+    -- Verifica se o jogador tem o ScreenGui do Manus Hub
+    local playerGui = player:FindFirstChild("PlayerGui")
+    if playerGui then
+        local manusHub = playerGui:FindFirstChild("ManusHubGUI")
+        if manusHub then
+            return true
+        end
+    end
+    
+    -- Verifica variável global
+    if player:GetAttribute("ManusHub_User") == true then
+        return true
+    end
+    
+    return false
+end
+
+-- Atualiza a lista de usuários online
+local function updateOnlineList()
+    if not OnlineListFrame then return end
+    
+    local onlineUsers = {}
+    for _, player in pairs(Players:GetPlayers()) do
+        if player ~= LocalPlayer and isUsingScript(player) then
+            table.insert(onlineUsers, player)
+        end
+    end
+    
+    -- Limpa a lista atual
+    for _, child in pairs(OnlineListFrame:GetChildren()) do
+        if child:IsA("TextButton") or child:IsA("TextLabel") then
+            child:Destroy()
+        end
+    end
+    
+    -- Reconstroi a lista
+    local yOffset = 5
+    local onlineCount = 0
+    
+    -- Título da seção
+    local titleLabel = Instance.new("TextLabel")
+    titleLabel.Size = UDim2.new(1, -10, 0, 25)
+    titleLabel.Position = UDim2.new(0, 5, 0, yOffset)
+    titleLabel.BackgroundTransparency = 1
+    titleLabel.Text = "📡 USUÁRIOS ONLINE (" .. #onlineUsers .. ")"
+    titleLabel.TextColor3 = Color3.fromRGB(255, 200, 100)
+    titleLabel.Font = Enum.Font.GothamBold
+    titleLabel.TextSize = 11
+    titleLabel.TextXAlignment = Enum.TextXAlignment.Left
+    titleLabel.Parent = OnlineListFrame
+    yOffset = yOffset + 28
+    
+    if #onlineUsers == 0 then
+        local emptyLabel = Instance.new("TextLabel")
+        emptyLabel.Size = UDim2.new(1, -10, 0, 30)
+        emptyLabel.Position = UDim2.new(0, 5, 0, yOffset)
+        emptyLabel.BackgroundTransparency = 1
+        emptyLabel.Text = "Nenhum usuário online usando o script"
+        emptyLabel.TextColor3 = Color3.fromRGB(150, 150, 150)
+        emptyLabel.Font = Enum.Font.Gotham
+        emptyLabel.TextSize = 10
+        emptyLabel.TextXAlignment = Enum.TextXAlignment.Center
+        emptyLabel.Parent = OnlineListFrame
+        yOffset = yOffset + 35
+    else
+        for _, user in pairs(onlineUsers) do
+            -- Frame para cada usuário
+            local userFrame = Instance.new("Frame")
+            userFrame.Size = UDim2.new(1, -10, 0, 35)
+            userFrame.Position = UDim2.new(0, 5, 0, yOffset)
+            userFrame.BackgroundColor3 = Color3.fromRGB(45, 45, 55)
+            userFrame.BorderSizePixel = 0
+            userFrame.Parent = OnlineListFrame
+            Instance.new("UICorner").Parent = userFrame
+            
+            -- Nome do usuário
+            local nameLabel = Instance.new("TextLabel")
+            nameLabel.Size = UDim2.new(0.7, -5, 1, 0)
+            nameLabel.Position = UDim2.new(0, 5, 0, 0)
+            nameLabel.BackgroundTransparency = 1
+            nameLabel.Text = user.Name
+            nameLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+            nameLabel.Font = Enum.Font.GothamBold
+            nameLabel.TextSize = 10
+            nameLabel.TextXAlignment = Enum.TextXAlignment.Left
+            nameLabel.Parent = userFrame
+            
+            -- Botão "Selecionar"
+            local selectBtn = Instance.new("TextButton")
+            selectBtn.Size = UDim2.new(0.25, -5, 0.8, 0)
+            selectBtn.Position = UDim2.new(0.75, 0, 0.1, 0)
+            selectBtn.BackgroundColor3 = Color3.fromRGB(70, 70, 120)
+            selectBtn.Text = "🎯 SELECIONAR"
+            selectBtn.TextColor3 = Color3.fromRGB(255, 255, 255)
+            selectBtn.Font = Enum.Font.GothamBold
+            selectBtn.TextSize = 8
+            selectBtn.Parent = userFrame
+            Instance.new("UICorner").Parent = selectBtn
+            
+            selectBtn.MouseButton1Click:Connect(function()
+                TARGET_NAME = user.Name
+                -- Atualiza o TextBox na aba Orbit
+                local orbitTextBox = orbitFrame and orbitFrame:FindFirstChild("TextBox")
+                if orbitTextBox then
+                    orbitTextBox.Text = user.Name
+                end
+                -- Atualiza o alvo imediatamente
+                updateTarget()
+                
+                -- Feedback visual
+                selectBtn.BackgroundColor3 = Color3.fromRGB(100, 200, 100)
+                task.wait(0.2)
+                selectBtn.BackgroundColor3 = Color3.fromRGB(70, 70, 120)
+            end)
+            
+            yOffset = yOffset + 40
+            onlineCount = onlineCount + 1
+        end
+    end
+    
+    -- Atualiza o CanvasSize
+    local scrollFrame = OnlineListFrame.Parent
+    if scrollFrame and scrollFrame:IsA("ScrollingFrame") then
+        scrollFrame.CanvasSize = UDim2.new(0, 0, 0, yOffset + 10)
+    end
+end
+
+-- Função para marcar este usuário como usando o script
+local function registerAsScriptUser()
+    -- Adiciona atributo para identificação
+    LocalPlayer:SetAttribute("ManusHub_User", true)
+    
+    -- Cria um valor no LocalPlayer para identificação
+    local folder = Instance.new("Folder")
+    folder.Name = "ManusHub_Data"
+    folder.Parent = LocalPlayer
+    
+    local flag = Instance.new("BoolValue")
+    flag.Name = "IsUsingScript"
+    flag.Value = true
+    flag.Parent = folder
 end
 
 -- Loop Principal CORRIGIDO
@@ -133,10 +285,8 @@ RunService.Heartbeat:Connect(function(dt)
     local hrp = character:FindFirstChild("HumanoidRootPart")
     if not humanoid or not hrp then return end
     
-    -- ATUALIZA O ALVO A CADA FRAME
     updateTarget()
     
-    -- Só executa se tiver um alvo VIVO
     if (ORBIT_ENABLED or DASH_PASS_ENABLED or FOLLOW_ENABLED or DASH_ORBIT_ENABLED) and currentTarget then
         local targetCharacter = currentTarget.Character
         if targetCharacter then
@@ -195,7 +345,6 @@ RunService.Heartbeat:Connect(function(dt)
             end
         end
     else
-        -- Se não tem alvo, reseta a rotação
         if not humanoid.AutoRotate and originalAutoRotate then
             humanoid.AutoRotate = originalAutoRotate
         end
@@ -222,7 +371,7 @@ local UICorner = Instance.new("UICorner")
 UICorner.CornerRadius = UDim.new(0, 12)
 UICorner.Parent = MainFrame
 
--- Frame do Perfil (lado esquerdo)
+-- Frame do Perfil
 local ProfileFrame = Instance.new("Frame")
 ProfileFrame.Size = UDim2.new(0, 60, 0, 60)
 ProfileFrame.Position = UDim2.new(0, 8, 0, 8)
@@ -231,7 +380,6 @@ ProfileFrame.BorderSizePixel = 0
 ProfileFrame.BackgroundTransparency = 1
 ProfileFrame.Parent = MainFrame
 
--- Imagem de Perfil (quadrada)
 local ProfileImage = Instance.new("ImageLabel")
 ProfileImage.Size = UDim2.new(0, 50, 0, 50)
 ProfileImage.Position = UDim2.new(0, 5, 0, 5)
@@ -245,7 +393,7 @@ local profileCorner = Instance.new("UICorner")
 profileCorner.CornerRadius = UDim.new(0, 8)
 profileCorner.Parent = ProfileImage
 
--- Título Principal (movido para a direita para não sobrepor o perfil)
+-- Título Principal
 local Title = Instance.new("TextLabel")
 Title.Size = UDim2.new(1, -70, 0, 28)
 Title.Position = UDim2.new(0, 70, 0, 8)
@@ -257,7 +405,7 @@ Title.TextSize = 16
 Title.TextXAlignment = Enum.TextXAlignment.Left
 Title.Parent = MainFrame
 
--- Subtítulo (by Mateusx9992)
+-- Subtítulo
 local SubTitle = Instance.new("TextLabel")
 SubTitle.Size = UDim2.new(1, -70, 0, 16)
 SubTitle.Position = UDim2.new(0, 70, 0, 32)
@@ -269,7 +417,7 @@ SubTitle.TextSize = 10
 SubTitle.TextXAlignment = Enum.TextXAlignment.Left
 SubTitle.Parent = MainFrame
 
--- Efeito RGB no título
+-- Efeito RGB
 local hue = 0
 local rgbEffect = RunService.RenderStepped:Connect(function()
     hue = (hue + 0.005) % 1
@@ -282,7 +430,7 @@ ClickSound.SoundId = "rbxassetid://12221967"
 ClickSound.Volume = 0.5
 ClickSound.Parent = game:GetService("SoundService")
 
--- Botão Minimizar (ajustado)
+-- Botão Minimizar
 local MinimizeBtn = Instance.new("TextButton")
 MinimizeBtn.Size = UDim2.new(0, 28, 0, 28)
 MinimizeBtn.Position = UDim2.new(1, -36, 0, 6)
@@ -336,14 +484,14 @@ end
 
 local function createTabBtn(name, text, positionX)
     local btn = Instance.new("TextButton")
-    btn.Size = UDim2.new(0, 80, 1, -5)
+    btn.Size = UDim2.new(0, 70, 1, -5)
     btn.Position = UDim2.new(0, positionX, 0, 2)
     btn.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
     btn.BorderSizePixel = 0
     btn.Text = text
     btn.TextColor3 = Color3.fromRGB(150, 150, 150)
     btn.Font = Enum.Font.GothamBold
-    btn.TextSize = 11
+    btn.TextSize = 10
     btn.Parent = ButtonsContainer
     Instance.new("UICorner").Parent = btn
     
@@ -356,6 +504,11 @@ local function createTabBtn(name, text, positionX)
         tabs[name].Visible = true
         btn.TextColor3 = Color3.fromRGB(255, 255, 255)
         btn.BackgroundColor3 = Color3.fromRGB(50, 50, 100)
+        
+        -- Atualiza lista online quando abrir a aba
+        if name == "Online" then
+            updateOnlineList()
+        end
     end)
     table.insert(tabButtons, btn)
     return btn
@@ -366,18 +519,20 @@ local orbitFrame = createTabFrame("Orbit", 400)
 local dashFrame = createTabFrame("Dash", 350)
 local followFrame = createTabFrame("Follow", 300)
 local dashOrbitFrame = createTabFrame("DashOrbit", 450)
+local onlineFrame = createTabFrame("Online", 400)  -- NOVA ABA ONLINE
 local settingsFrame = createTabFrame("Settings", 150)
 
--- Botões das abas
+-- Botões das abas (ajustado para incluir ONLINE)
 local buttonsData = {
     {"Orbit", "ORBIT", 5},
-    {"Dash", "PASSAR", 85},
-    {"Follow", "SEGUIR", 165},
-    {"DashOrbit", "PASS+ORBIT", 245},
-    {"Settings", "OPÇÕES", 325}
+    {"Dash", "PASSAR", 75},
+    {"Follow", "SEGUIR", 145},
+    {"DashOrbit", "PASS+ORBIT", 215},
+    {"Online", "ONLINE", 285},
+    {"Settings", "OPÇÕES", 355}
 }
 for _, data in ipairs(buttonsData) do createTabBtn(data[1], data[2], data[3]) end
-ButtonsContainer.Size = UDim2.new(0, 405, 1, 0)
+ButtonsContainer.Size = UDim2.new(0, 425, 1, 0)
 
 -- Funções UI
 local function createBtn(text, pos, color, parent, callback)
@@ -607,13 +762,68 @@ createSlider("Altura (PASS+ORBIT)", UDim2.new(0.05, 0, 0, 180), -10, 20, DASH_OR
 createSlider("Passar: Velocidade", UDim2.new(0.05, 0, 0, 220), 5, 50, DASH_ORBIT_DASH_SPEED, dashOrbitFrame, function(v) DASH_ORBIT_DASH_SPEED = v end)
 createSlider("Passar: Distância", UDim2.new(0.05, 0, 0, 260), 2, 30, DASH_ORBIT_DASH_DISTANCE, dashOrbitFrame, function(v) DASH_ORBIT_DASH_DISTANCE = v end)
 
--- ABA OPÇÕES
+-- ========== ABA ONLINE ==========
+-- Título da aba Online
+local onlineTitle = Instance.new("TextLabel")
+onlineTitle.Size = UDim2.new(1, -10, 0, 30)
+onlineTitle.Position = UDim2.new(0, 5, 0, 5)
+onlineTitle.BackgroundTransparency = 1
+onlineTitle.Text = "👥 USUÁRIOS ONLINE"
+onlineTitle.TextColor3 = Color3.fromRGB(100, 200, 255)
+onlineTitle.Font = Enum.Font.GothamBold
+onlineTitle.TextSize = 12
+onlineTitle.TextXAlignment = Enum.TextXAlignment.Center
+onlineTitle.Parent = onlineFrame
+
+-- Botão de atualizar
+local refreshBtn = createBtn("🔄 ATUALIZAR LISTA", UDim2.new(0.05, 0, 0, 40), Color3.fromRGB(60, 100, 60), onlineFrame, function()
+    updateOnlineList()
+    ClickSound:Play()
+    refreshBtn.BackgroundColor3 = Color3.fromRGB(100, 150, 100)
+    task.wait(0.2)
+    refreshBtn.BackgroundColor3 = Color3.fromRGB(60, 100, 60)
+end)
+
+-- Frame para a lista de usuários
+OnlineListFrame = Instance.new("Frame")
+OnlineListFrame.Size = UDim2.new(1, 0, 1, -90)
+OnlineListFrame.Position = UDim2.new(0, 0, 0, 80)
+OnlineListFrame.BackgroundTransparency = 1
+OnlineListFrame.Parent = onlineFrame
+
+-- Configura o ScrollingFrame pai
+onlineFrame.CanvasSize = UDim2.new(0, 0, 0, 600)
+
+-- Informação de quantos usuários usam o script
+local infoLabel = Instance.new("TextLabel")
+infoLabel.Size = UDim2.new(1, -10, 0, 20)
+infoLabel.Position = UDim2.new(0, 5, 0, 530)
+infoLabel.BackgroundTransparency = 1
+infoLabel.Text = "ℹ️ Usuários que estão com o Manus Hub ativo"
+infoLabel.TextColor3 = Color3.fromRGB(150, 150, 150)
+infoLabel.Font = Enum.Font.Gotham
+infoLabel.TextSize = 8
+infoLabel.TextXAlignment = Enum.TextXAlignment.Center
+infoLabel.Parent = onlineFrame
+
+-- ========== ABA OPÇÕES ==========
 local CloseBtn = createBtn("FECHAR MENU", UDim2.new(0.05, 0, 0, 20), Color3.fromRGB(150, 50, 50), settingsFrame, function()
     ScreenGui:Destroy()
     rgbEffect:Disconnect()
 end)
 
--- CORRIGIDO: Minimizar sem esconder perfil e subtítulo
+-- Botão para se identificar como usuário do script (útil para teste)
+local identifyBtn = createBtn("🔧 IDENTIFICAR COMO USUÁRIO", UDim2.new(0.05, 0, 0, 65), Color3.fromRGB(80, 80, 120), settingsFrame, function()
+    registerAsScriptUser()
+    ClickSound:Play()
+    identifyBtn.Text = "✓ IDENTIFICADO!"
+    identifyBtn.BackgroundColor3 = Color3.fromRGB(50, 150, 50)
+    task.wait(1)
+    identifyBtn.Text = "🔧 IDENTIFICAR COMO USUÁRIO"
+    identifyBtn.BackgroundColor3 = Color3.fromRGB(80, 80, 120)
+end)
+
+-- Minimizar
 local isMinimized = false
 local originalSize = MainFrame.Size
 MinimizeBtn.MouseButton1Click:Connect(function()
@@ -626,7 +836,6 @@ MinimizeBtn.MouseButton1Click:Connect(function()
         tween.Completed:Connect(function()
             TabContainer.Visible = false
             ContentContainer.Visible = false
-            -- PERFIL E SUBTÍTULO CONTINUAM VISÍVEIS (não escondemos mais!)
         end)
         MinimizeBtn.Text = "+"
     else
@@ -639,9 +848,41 @@ MinimizeBtn.MouseButton1Click:Connect(function()
     end
 end)
 
+-- Registrar este usuário como usuário do script automaticamente
+registerAsScriptUser()
+
+-- Atualiza a lista online periodicamente (a cada 3 segundos)
+spawn(function()
+    while ScreenGui and ScreenGui.Parent do
+        if tabs["Online"] and tabs["Online"].Visible then
+            updateOnlineList()
+        end
+        task.wait(3)
+    end
+end)
+
+-- Detecta quando novos jogadores entram
+Players.PlayerAdded:Connect(function(player)
+    task.wait(1)
+    if tabs["Online"] and tabs["Online"].Visible then
+        updateOnlineList()
+    end
+end)
+
+-- Detecta quando jogadores saem
+Players.PlayerRemoving:Connect(function()
+    if tabs["Online"] and tabs["Online"].Visible then
+        updateOnlineList()
+    end
+end)
+
 -- Abrir aba padrão
 tabs["Orbit"].Visible = true
 tabButtons[1].TextColor3 = Color3.fromRGB(255, 255, 255)
 tabButtons[1].BackgroundColor3 = Color3.fromRGB(50, 50, 100)
 
-print("Manus Hub Carregado - Versão com Perfil | by Mateusx9992")
+-- Inicializa a lista online
+task.wait(1)
+updateOnlineList()
+
+print("Manus Hub Carregado - Versão com Perfil + Online | by Mateusx9992")
